@@ -40,7 +40,7 @@ jobs:
         with:
           image: mvesanen/imbuilder:latest
           options: -v ${{ github.workspace }}:/git
-          run: /docbuild/doc-build.sh /git/markdown/main.md RYTV-IFCRoute
+          run: /docbuild/doc-build.sh /git/markdown/main.md RYTV-IFCRoute.pdf
       - name: Collect  artefacts 
         uses: actions/upload-artifact@v3
         with:
