@@ -10,7 +10,7 @@ author: "RYTV 22003_2 working group"
 geometry: "left=2cm,right=2cm,top=2cm,bottom=2cm"
 xnos-warning-level: 1
 xnos-number-by-section: true
-header-left: '`\includegraphics{logo.png}`{=latex}'
+header-left: '`\includegraphics{bsf.png}`{=latex}'
 titlepage: true
 logo: "logo.png"
 logo-width: "11cm"
