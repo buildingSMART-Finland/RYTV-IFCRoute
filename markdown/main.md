@@ -12,7 +12,7 @@ xnos-warning-level: 1
 xnos-number-by-section: true
 header-left: '`\includegraphics{logo.png}`{=latex}'
 titlepage: true
-logo: "logo.jpg"
+logo: "logo.png"
 logo-width: "11cm"
 ---
 \clearpage
