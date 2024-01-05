@@ -41,13 +41,13 @@ jobs:
           image: mvesanen/imbuilder:latest
           options: -v ${{ github.workspace }}:/git
           run: /docbuild/doc-build.sh /git/markdown/main.md RYTV-IFCRoute
-        - name: Collect  artefacts 
+      - name: Collect  artefacts 
         uses: actions/upload-artifact@v3
         with:
           name: RYTV IFCRoute (PDF)
           path: |
             ${{ github.workspace }}/artefact/RYTV-IFCRoute.pdf
-        - name: Release files
+      - name: Release files
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
