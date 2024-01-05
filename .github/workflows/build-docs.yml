@@ -1,0 +1,56 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+  release:
+  
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build-documentation:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-20.04
+    # permissions
+    permissions:
+          contents: write
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Check out the repo
+        uses: actions/checkout@v3
+      #- name: Cache Docker images.
+      #  uses: ScribeMD/docker-cache@0.3.3
+      #  with:
+      #    key: docker-${{ runner.os }}
+      - name: Create artefact folder
+        run: mkdir ${{github.workspace}}/artefact
+      - name: Run the build process with imbuilder docker
+        uses: addnab/docker-run-action@v3
+        with:
+          image: mvesanen/imbuilder:latest
+          options: -v ${{ github.workspace }}:/git
+          run: /docbuild/doc-build.sh /git/markdown/main.md RYTV-IFCRoute
+        - name: Collect  artefacts 
+        uses: actions/upload-artifact@v3
+        with:
+          name: RYTV IFCRoute (PDF)
+          path: |
+            ${{ github.workspace }}/artefact/RYTV-IFCRoute.pdf
+        - name: Release files
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            ${{ github.workspace }}/artefact/RYTV-IFCRoute.pdf
+        

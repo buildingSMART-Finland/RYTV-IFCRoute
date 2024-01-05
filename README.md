@@ -1,10 +1,11 @@
 ![Buildingsmart logo](/figures/logo.png "Buildingsmart logo")
 
-# RYTV IFC route data requirements definition  
+# RYTV 22003_2 IFC route data exchange requirements 
 This repository contains development version of the documentation of "22003_2 Väylämäisen kohteen tiedonsiirron määritys ". 
-Project plan(In Finnish) is available at: https://drive.buildingsmart.fi/apps/files/?dir=/22003_2_V%C3%A4yl%C3%A4m%C3%A4isen%20kohteen%20tiedonsiirron%20m%C3%A4%C3%A4ritys/01_Projektisuunnitelma&openfile=69713
 
-Official Inframodel publications are available under an open license at www.buildingsmart.fi website.
+Project plan(In Finnish language) is available at: https://drive.buildingsmart.fi/apps/files/?dir=/22003_2_V%C3%A4yl%C3%A4m%C3%A4isen%20kohteen%20tiedonsiirron%20m%C3%A4%C3%A4ritys/01_Projektisuunnitelma&openfile=69713
+
+Official publications are available under an open license at www.buildingsmart.fi website.
 
 Document artefacts are built automatically from this repository by github CI actions when content is updated. The artefacts for publification can be found from github repositorys actions tab. 
 
@@ -27,10 +28,10 @@ Schema folder contains the editable schemas.
 
 ## How to contribute
 
-### Found an error or need some new functionality?
+### Found an error or have some new development ideas?
 Feel free to submit your issue via the github issues tab.
 
-### Propose a change to documentation, schema or add a new example file set
+### Want to propose a change?
 Create your own fork of this repository, make your changes and/or additions to your fork repository, and open a pull request. Be aware that you are publishing under "CC-BY 4.0" licence, so all of the rights of your submitted content are given to public domain. Check [LICENCE file](./LICENCE) for details.
 
 ### Want to get involved?
