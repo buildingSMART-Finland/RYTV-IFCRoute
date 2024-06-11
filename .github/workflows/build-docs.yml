@@ -42,7 +42,7 @@ jobs:
           options: -v ${{ github.workspace }}:/git
           run: /docbuild/doc-build.sh /git/markdown/main.md RYTV-IFCRoute.pdf
       - name: Collect  artefacts 
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: RYTV IFCRoute (PDF)
           path: |
