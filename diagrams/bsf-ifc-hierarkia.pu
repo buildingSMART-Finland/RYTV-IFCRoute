@@ -1,0 +1,64 @@
+@startuml 
+
+entity IFC_step_file
+entity IfcProject
+IFC_step_file||--|{IfcProject
+
+entity IfcSite
+IfcProject}|--IfcSite : IfcRelAggregates
+
+entity IfcClassification 
+IfcProject||--IfcClassification : IfcRelAssociatesClassification 
+
+entity IfcRoad 
+IfcSite}|--||IfcRoad : IfcRelAggregates
+
+entity IfcAlignment
+IfcProject}o--||IfcAlignment : IfcRelAggregates
+entity IfcAlignmentHorizontal
+IfcAlignment||--||IfcAlignmentHorizontal : IfcRelNests
+entity IfcAlignmentVertical
+IfcAlignment||--||IfcAlignmentVertical : IfcRelNests
+entity IfcAlignmentCant
+IfcAlignment|o--||IfcAlignmentCant : IfcRelNests
+
+
+IfcRoad||..||IfcAlignment : IfcRelReferencedInSpatialStructure
+
+entity IfcGeomodel
+
+IfcSite}o--IfcGeomodel : IfcRelContainedInSpatialStructure
+
+entity "IfcGeotechnicalStratum-Terrain"
+IfcGeomodel|o--"IfcGeotechnicalStratum-Terrain":IfcRelAggregates
+entity "IfcGeotechnicalStratum-Rock bed"
+IfcGeomodel|o--"IfcGeotechnicalStratum-Rock bed":IfcRelAggregates
+
+
+entity IfcPavement
+IfcRoad}o--IfcPavement : IfcRelContainedInSpatialStructure
+
+entity "IfcEarthWorksCut-Rock"
+IfcRoad}o.."IfcEarthWorksCut-Rock": IfcRelReferencedInSpatialStructure
+entity "IfcEarthWorksCut-Clay"
+IfcRoad}o.."IfcEarthWorksCut-Clay": IfcRelReferencedInSpatialStructure
+entity "IfcEarthWorksCut-Moraine"
+IfcRoad}o.."IfcEarthWorksCut-Moraine": IfcRelReferencedInSpatialStructure
+
+"IfcGeotechnicalStratum-Rock bed"||--"IfcEarthWorksCut-Rock" : IfcRelVoidsElement
+"IfcGeotechnicalStratum-Terrain"||--"IfcEarthWorksCut-Clay" : IfcRelVoidsElement
+"IfcGeotechnicalStratum-Terrain"||--"IfcEarthWorksCut-Moraine" : IfcRelVoidsElement
+
+entity IfcEarthWorksFill
+IfcRoad}o--IfcEarthWorksFill : IfcRelContainedInSpatialStructure
+
+"IfcEarthWorksCut-Rock"..o|IfcEarthWorksFill :IfcRelConnectsElements 
+"IfcEarthWorksCut-Clay"..o|IfcEarthWorksFill :IfcRelConnectsElements 
+"IfcEarthWorksCut-Moraine"..o|IfcEarthWorksFill :IfcRelConnectsElements
+
+entity "IfcCourse-Subbase courses"
+IfcPavement}|--"IfcCourse-Subbase courses" :IfcRelAggregates
+entity "IfcCourse-Filter courses"
+IfcPavement}|--"IfcCourse-Filter courses" :IfcRelAggregates
+"IfcCourse-Subbase courses"|o..o|"IfcCourse-Filter courses":IfcRelConnectsElements
+@enduml
