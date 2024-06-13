@@ -20,3 +20,4 @@ logo-width: "11cm"
 # First chapter!
 ## lorem ipsum
 blaablablaa
+![IFC-File entity hierarchy]({{diagram bsf-ifc-hierarkia.pu}} "IFC-File entity hierarchy"){{figst entityhierarchy}}
