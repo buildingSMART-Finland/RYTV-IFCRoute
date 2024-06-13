@@ -19,5 +19,18 @@ logo-width: "11cm"
 
 # First chapter!
 ## lorem ipsum
-blaablablaa
-![IFC-File entity hierarchy]({{diagram bsf-ifc-hierarkia.pu}} "IFC-File entity hierarchy"){{figst entityhierarchy}}
+### render uml to figure
+
+![IFC-File entity hierarchy]({{diagramasfigure bsf-ifc-hierarkia.pu}} "IFC-File entity hierarchy"){{figst entityhierarchy}}
+
+### embedded uml example
+
+@startuml
+entity example_thing
+{
+    *test1:type1
+    +test2:type2
+}
+@enduml
+
+{{diagram "embedded uml example" embeddeduml}}
