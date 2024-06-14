@@ -15,15 +15,29 @@ titlepage: true
 logo: "logo.png"
 logo-width: "11cm"
 ---
+
 \clearpage
 
+{{plantumlheader ../diagrams/plantumlheader.pu}}
+
 # First chapter!
+
 ## lorem ipsum
-### render uml to figure
 
-![IFC-File entity hierarchy]({{diagramasfigure bsf-ifc-hierarkia.pu}} "IFC-File entity hierarchy"){{figst entityhierarchy}}
 
-### embedded uml example
+{{begin_landscape}}
+
+
+## render uml to figure, landscape mode ... test for long text sentences ... blaablablaa blaa blaa blablaa blaa blaa blablaa
+
+
+![IFC-File entity hierarchy]({{diagramasfigure bsf-ifc-hierarkia.pu}} "IFC-File entity hierarchy"){{figst ifcfilehierarchy}}
+
+{{end_landscape}}
+
+
+
+## embedded uml example
 
 @startuml
 entity example_thing
