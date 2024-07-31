@@ -1,64 +1,73 @@
 @startuml 
 
-entity IFC_step_file
-entity IfcProject
-IFC_step_file||--|{IfcProject
+entity IFC_step_file <<DefinedInAnotherDiagram>>
 
-entity IfcSite
-IfcProject}|--IfcSite : IfcRelAggregates
+entity IfcProject <<DefinedInAnotherDiagram>>
+IFC_step_file--||IfcProject
 
-entity IfcClassification 
-IfcProject||--IfcClassification : IfcRelAssociatesClassification 
+entity IfcSite <<DefinedInAnotherDiagram>>
+IfcProject||--|{IfcSite : IfcRelAggregates
 
-entity IfcRoad 
-IfcSite}|--||IfcRoad : IfcRelAggregates
 
-entity IfcAlignment
-IfcProject}o--||IfcAlignment : IfcRelAggregates
-entity IfcAlignmentHorizontal
+entity IfcRoad <<DefinedInAnotherDiagram>> 
+IfcSite||--o{IfcRoad : IfcRelAggregates
+
+
+entity IfcVirtualElement
+IfcRoad||--||IfcVirtualElement : IfcRelContainedInSpatialStructure
+
+entity IfcGeomodel <<DefinedInAnotherDiagram>>
+
+IfcSite||--|{IfcGeomodel : IfcRelContainedInSpatialStructure
+
+entity "IfcGeotechnicalStratum-Terrain" <<DefinedInAnotherDiagram>>
+IfcGeomodel||--|{"IfcGeotechnicalStratum-Terrain":IfcRelAggregates
+entity "IfcGeotechnicalStratum-Rock bed" <<DefinedInAnotherDiagram>>
+IfcGeomodel||--o{"IfcGeotechnicalStratum-Rock bed":IfcRelAggregates
+
+
+entity IfcPavement <<DefinedInAnotherDiagram>>
+IfcRoad||--|{IfcPavement : IfcRelContainedInSpatialStructure
+
+entity "IfcEarthWorksCut-Rock" <<DefinedInAnotherDiagram>>
+IfcRoad}o.."IfcEarthWorksCut-Rock": IfcRelReferencedInSpatialStructure
+entity "IfcEarthWorksCut-Soil" <<DefinedInAnotherDiagram>>
+IfcRoad}o.."IfcEarthWorksCut-Soil": IfcRelReferencedInSpatialStructure
+
+
+"IfcGeotechnicalStratum-Rock bed"||--o{"IfcEarthWorksCut-Rock" : IfcRelVoidsElement
+"IfcGeotechnicalStratum-Terrain"||--o{"IfcEarthWorksCut-Soil" : IfcRelVoidsElement
+
+entity IfcEarthWorksFill <<DefinedInAnotherDiagram>>
+IfcRoad||--|{IfcEarthWorksFill : IfcRelContainedInSpatialStructure
+
+IfcEarthWorksFill..IfcEarthWorksFill:IfcRelConnectsElements
+
+"IfcEarthWorksCut-Rock"..IfcEarthWorksFill :IfcRelConnectsElements 
+"IfcEarthWorksCut-Soil"..IfcEarthWorksFill :IfcRelConnectsElements 
+
+entity IfcCourse <<DefinedInAnotherDiagram>>
+IfcPavement||--|{IfcCourse :IfcRelAggregates
+
+IfcCourse..IfcCourse:IfcRelConnectsElements
+IfcCourse..IfcEarthWorksFill:IfcRelConnectsElements
+
+entity IfcKerb <<DefinedInAnotherDiagram>>
+IfcPavement||--o{IfcKerb :IfcRelAggregates
+IfcCourse..IfcKerb:IfcRelConnectsElements
+
+
+entity IfcAlignment <<DefinedInAnotherDiagram>>
+IfcProject||--o{IfcAlignment : IfcRelAggregates
+entity IfcAlignmentHorizontal <<DefinedInAnotherDiagram>>
 IfcAlignment||--||IfcAlignmentHorizontal : IfcRelNests
-entity IfcAlignmentVertical
+entity IfcAlignmentVertical <<DefinedInAnotherDiagram>>
 IfcAlignment||--||IfcAlignmentVertical : IfcRelNests
-entity IfcAlignmentCant
-IfcAlignment|o--||IfcAlignmentCant : IfcRelNests
-
+entity IfcAlignmentCant <<DefinedInAnotherDiagram>>
+IfcAlignment||--o|IfcAlignmentCant : IfcRelNests
 
 IfcRoad||..||IfcAlignment : IfcRelReferencedInSpatialStructure
 
-entity IfcGeomodel
-
-IfcSite}o--IfcGeomodel : IfcRelContainedInSpatialStructure
-
-entity "IfcGeotechnicalStratum-Terrain"
-IfcGeomodel|o--"IfcGeotechnicalStratum-Terrain":IfcRelAggregates
-entity "IfcGeotechnicalStratum-Rock bed"
-IfcGeomodel|o--"IfcGeotechnicalStratum-Rock bed":IfcRelAggregates
 
 
-entity IfcPavement
-IfcRoad}o--IfcPavement : IfcRelContainedInSpatialStructure
-
-entity "IfcEarthWorksCut-Rock"
-IfcRoad}o.."IfcEarthWorksCut-Rock": IfcRelReferencedInSpatialStructure
-entity "IfcEarthWorksCut-Clay"
-IfcRoad}o.."IfcEarthWorksCut-Clay": IfcRelReferencedInSpatialStructure
-entity "IfcEarthWorksCut-Moraine"
-IfcRoad}o.."IfcEarthWorksCut-Moraine": IfcRelReferencedInSpatialStructure
-
-"IfcGeotechnicalStratum-Rock bed"||--"IfcEarthWorksCut-Rock" : IfcRelVoidsElement
-"IfcGeotechnicalStratum-Terrain"||--"IfcEarthWorksCut-Clay" : IfcRelVoidsElement
-"IfcGeotechnicalStratum-Terrain"||--"IfcEarthWorksCut-Moraine" : IfcRelVoidsElement
-
-entity IfcEarthWorksFill
-IfcRoad}o--IfcEarthWorksFill : IfcRelContainedInSpatialStructure
-
-"IfcEarthWorksCut-Rock"..o|IfcEarthWorksFill :IfcRelConnectsElements 
-"IfcEarthWorksCut-Clay"..o|IfcEarthWorksFill :IfcRelConnectsElements 
-"IfcEarthWorksCut-Moraine"..o|IfcEarthWorksFill :IfcRelConnectsElements
-
-entity "IfcCourse-Subbase courses"
-IfcPavement}|--"IfcCourse-Subbase courses" :IfcRelAggregates
-entity "IfcCourse-Filter courses"
-IfcPavement}|--"IfcCourse-Filter courses" :IfcRelAggregates
-"IfcCourse-Subbase courses"|o..o|"IfcCourse-Filter courses":IfcRelConnectsElements
 @enduml
