@@ -46,10 +46,10 @@ On the other hand, IFC 4.3 provides too diverse set of features to be properly m
 This document defines an minimal subset of IFC4.3 functionality which cover the defined data exchange scenarios. 
 Transition to IFC-based data exchange would allow machine readable feature rich communication.
 
-##Presentation format
+## Presentation format
 
-Wide range of technology and tools are available to specify the content of an IFC file (ie. mvd, ids and bsdd).
-This specification is using diagrams instead:
+Wide range of technologies and tools are available to specify the content of an IFC file (ie. mvd, ids and bsdd).
+This specification is using diagrams for better human readability:
 
 @startuml
 entity ExampleEntity <<DefinedInThisDiagram>>
@@ -142,11 +142,12 @@ end note
 
 {{diagram "Legend, property/property set definitions" propertylegend}}
 
+
 # Design file contents
 
 
 {{begin_landscape}}
-##IFC file entity hierarchy
+## IFC file entity hierarchy
 
 ![IFC-File entity hierarchy]({{diagramasfigure bsf-ifc-hierarkia.pu}} "IFC-File entity hierarchy"){{figst ifcfilehierarchy}}
 
