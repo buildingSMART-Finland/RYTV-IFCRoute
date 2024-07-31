@@ -1,1 +1,24 @@
-!theme carbon-gray
+!theme none
+
+<style>
+.DefinedInThisDiagram {
+    BackgroundColor LightGreen
+}
+.DefinedInAnotherDiagram {
+    BackgroundColor LightBlue
+}
+.UndefinedEntity{
+    FontColor #808080
+    BackgroundColor #FFFFFF
+    LineStyle 1-0
+}
+.UndefinedEntity{
+    FontColor #808080
+    BackgroundColor #FFFFFF
+    LineStyle 1-0
+}
+</style>
+hide stereotype
+hide <<DefinedInAnotherDiagram>> members
+hide <<UndefinedEntity>> members
+hide <<DefinedInThisDiagram>> empty methods
