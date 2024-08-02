@@ -1,0 +1,55 @@
+## IfcEarthWorksCut (Soil or Rock) geometry representation: Brep and Breaklines
+
+
+@startuml 
+
+entity "IfcEarthWorksCut-Soil"
+entity "IfcEarthWorksCut-Rock"
+
+entity "IfcGeometricRepresentationSubContext-Volumes"
+
+entity "IfcProductDefinitionShape-BrepwithBreaklines" #white
+{
+  +Name : text
+  +Description :text
+  *Representations
+  ..
+  *ShapeOfProduct
+  +HasShapeAspects
+}
+
+entity "IfcShapeRepresentation-Brep" #white
+{
+  *ContextOfItems
+  *RepresentationIdentifier : Body
+  *RepresentationType : Tessellation
+  *Items
+  ..
+  *OfProductRepresentation
+  +OfShapeAspect : $
+}
+
+entity IfcTriangulatedFaceSet #white
+{
+  *Closed : TRUE
+}
+
+entity "IfcShapeRepresentation-Breaklines"
+
+"IfcEarthWorksCut-Soil" |o-- "IfcProductDefinitionShape-BrepwithBreaklines::ShapeOfProduct"
+"IfcEarthWorksCut-Rock" |o-- "IfcProductDefinitionShape-BrepwithBreaklines::ShapeOfProduct"
+
+"IfcProductDefinitionShape-BrepwithBreaklines::Representations" ||--|| "IfcShapeRepresentation-Brep::OfProductRepresentation"
+"IfcProductDefinitionShape-BrepwithBreaklines::Representations" --o| "IfcShapeRepresentation-Breaklines"
+
+"IfcShapeRepresentation-Brep::Items"||--||IfcTriangulatedFaceSet
+
+"IfcShapeRepresentation-Brep::ContextOfItems"--||"IfcGeometricRepresentationSubContext-Volumes"
+
+entity IfcShapeAspect
+"IfcProductDefinitionShape-BrepwithBreaklines::HasShapeAspects"--o{IfcShapeAspect
+
+
+@enduml
+
+

@@ -13,7 +13,7 @@ entity IfcRoad <<DefinedInAnotherDiagram>>
 IfcSite||--o{IfcRoad : IfcRelAggregates
 
 
-entity IfcVirtualElement
+entity IfcVirtualElement <<DefinedInAnotherDiagram>>
 IfcRoad||--||IfcVirtualElement : IfcRelContainedInSpatialStructure
 
 entity IfcGeomodel <<DefinedInAnotherDiagram>>

@@ -1,0 +1,83 @@
+@startuml 
+
+
+entity IfcVirtualElement  #white
+{
+  *GlobalId : tex
+  +OwnerHistory
+  *Name : text
+  +Description : Lowest combination of surface
+  +ObjectType : StructureBoundary
+  *ObjectPlacement
+  *Representation
+  +Tag : AYP
+  +PredefinedType : USERDEFINED
+  ..
+  *HasAssociations
+  +IsDefinedBy
+  *ContainedInStructure
+}
+
+note top of IfcVirtualElement : Tarvittaessa voidaan käyttää myös jos halutaan\n Ylin yhdistelmäpinta ja/tai Väylärakenteen alapinta\n (Tag YYP/VAP)
+
+entity IfcSite 
+IfcSite||--IfcVirtualElement::ContainedInStructure : IfcRelContainedInSpatialStructure
+
+
+entity "IfcPropertySet-PsetVirtualBoundary" #white
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description :text
+  ==
+  Pset_Tolerance
+  etc
+}
+
+entity "IfcPropertySet-bSFVirtualBoundary" #white
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description :text
+  ==
+  etc
+}
+
+entity "IfcQuantitySet-bSFVirtualBoundary" #white
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description :text
+  ==
+  etc
+}
+
+
+entity IfcOwnerHistory #lightgray 
+
+IfcVirtualElement::OwnerHistory --o| IfcOwnerHistory
+
+entity IfcClassification #lightgray 
+
+entity IfcClassificationReference #lightgray
+
+IfcClassificationReference}|--||IfcClassification 
+
+IfcVirtualElement::HasAssociations --|| IfcClassificationReference : IfcRelAssociatesClassification
+
+entity "IfcProductDefinitionShape-TINwithBreaklines"
+
+IfcVirtualElement::Representation --|| "IfcProductDefinitionShape-TINwithBreaklines"
+
+
+IfcVirtualElement::IsDefinedBy --o{ "IfcPropertySet-PsetVirtualBoundary"
+IfcVirtualElement::IsDefinedBy --o{ "IfcPropertySet-bSFVirtualBoundary"
+IfcVirtualElement::IsDefinedBy --o{ "IfcQuantitySet-bSFVirtualBoundary"
+
+entity IfcLocalPlacement #lightgray
+IfcVirtualElement::ObjectPlacement --|| IfcLocalPlacement
+
+@enduml

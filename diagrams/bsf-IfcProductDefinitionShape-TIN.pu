@@ -1,0 +1,47 @@
+## IfcGeotechnicalStratum (Terrain or Rock bed) geometry representation: TIN
+
+
+@startuml 
+
+entity "IfcGeotechnicalStratum-Terrain"
+entity "IfcGeotechnicalStratum-Rock bed"
+
+entity "IfcGeometricRepresentationSubContext-TIN"
+
+entity "IfcProductDefinitionShape-TIN" #white
+{
+  +Name : text
+  +Description :text
+  *Representations
+  ..
+  *ShapeOfProduct
+  +HasShapeAspects : $
+}
+
+entity "IfcShapeRepresentation-TIN" #white
+{
+  *ContextOfItems
+  *RepresentationIdentifier : Body
+  *RepresentationType : Tessellation
+  *Items
+  ..
+  *OfProductRepresentation
+  +OfShapeAspect : $
+}
+
+entity IfcTriangulatedIrregularNetwork #lightgray
+
+
+"IfcGeotechnicalStratum-Terrain" |o-- "IfcProductDefinitionShape-TIN::ShapeOfProduct"
+"IfcGeotechnicalStratum-Rock bed" |o-- "IfcProductDefinitionShape-TIN::ShapeOfProduct"
+
+"IfcProductDefinitionShape-TIN::Representations" ||--|| "IfcShapeRepresentation-TIN::OfProductRepresentation"
+
+"IfcShapeRepresentation-TIN::Items"--||IfcTriangulatedIrregularNetwork
+
+"IfcShapeRepresentation-TIN::ContextOfItems"--||"IfcGeometricRepresentationSubContext-TIN"
+
+
+@enduml
+
+

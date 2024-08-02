@@ -1,0 +1,92 @@
+@startuml 
+
+entity IfcSite <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name : text
+  +Description : text
+  +ObjectType : text
+  *ObjectPlacement
+  *Representation
+  +LongName text
+  +CompositionType : ELEMENT
+  +RefLatitude : $
+  +RefLongitude : $
+  +RefElevation : $
+  +LandTitleNumber : $
+  +SiteAddress : $
+  ..
+  +IsDecomposedBy
+  *Decomposes
+  +HasAssociations
+  +IsDefinedBy
+  *ContainsElements
+}
+
+entity IfcOwnerHistory <<UndefinedEntity>>
+
+entity IfcProject <<DefinedInAnotherDiagram>>
+entity IfcRoad <<DefinedInAnotherDiagram>> 
+
+IfcProject||--IfcSite::Decomposes : IfcRelAggregates
+
+IfcSite::IsDecomposedBy--o{IfcRoad : IfcRelAggregates
+
+protocol "IfcPropertySet-PsetSite" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description :text
+  ==
+  Pset_Address
+  Pset_LandRegistration
+  Pset_SiteCommon
+  Pset_SiteWeather
+  etc
+}
+
+entity IfcGeomodel <<DefinedInAnotherDiagram>>
+IfcSite::ContainsElements--|{IfcGeomodel : IfcRelContainedInSpatialStructure
+
+protocol "IfcPropertySet-bSFSite" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description :text
+  ==
+  bSF_SiteCommon
+  etc
+}
+
+protocol "IfcQuantitySetSite" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description :text
+  ==
+  Qto_SiteBaseQuantities
+  etc
+}
+
+IfcSite::OwnerHistory --o| IfcOwnerHistory
+
+entity IfcClassificationReference <<DefinedInAnotherDiagram>>
+IfcSite::HasAssociations --o{ IfcClassificationReference : IfcRelAssociatesClassification
+
+entity "IfcProductDefinitionShape-Footprint" <<UndefinedEntity>>
+IfcSite::Representation --o| "IfcProductDefinitionShape-Footprint"
+
+entity IfcLocalPlacement <<UndefinedEntity>>
+IfcSite::ObjectPlacement--||IfcLocalPlacement
+
+
+IfcSite::IsDefinedBy --o{ "IfcPropertySet-PsetSite"
+IfcSite::IsDefinedBy --o{ "IfcPropertySet-bSFSite"
+IfcSite::IsDefinedBy --o{ "IfcQuantitySetSite"
+
+
+@enduml

@@ -1,0 +1,53 @@
+## IfcCourse and IfcVirtualEntity geometry representation: TIN with Breaklines
+
+
+@startuml 
+
+entity IfcSite
+
+
+entity "IfcGeometricRepresentationSubContext-Curves"
+
+entity "IfcProductDefinitionShape-Footprint" #white
+{
+  +Name : text
+  +Description :text
+  *Representations
+  ..
+  *ShapeOfProduct
+  +HasShapeAspects : $
+}
+
+entity "IfcShapeRepresentation-Footprint" #white
+{
+  *ContextOfItems
+  *RepresentationIdentifier : FootPrint
+  *RepresentationType :GeometricCurveSet
+  *Items
+  *OfProductRepresentation
+  +OfShapeAspect : $
+}
+
+entity IfcPolyline #lightgray
+
+entity IfcGeometricCurveSet #white
+{
+  *Elements
+}
+
+
+IfcSite ||--"IfcProductDefinitionShape-Footprint::ShapeOfProduct"
+
+"IfcProductDefinitionShape-Footprint::Representations" ||--|| "IfcShapeRepresentation-Footprint::OfProductRepresentation"
+
+
+"IfcShapeRepresentation-Footprint::Items"||--|{ IfcGeometricCurveSet
+IfcGeometricCurveSet::Elements--|{ IfcPolyline
+
+"IfcShapeRepresentation-Footprint::ContextOfItems"--||"IfcGeometricRepresentationSubContext-Curves"
+
+
+
+@enduml
+
+
