@@ -1,0 +1,102 @@
+@startuml 
+
+entity IfcGeomodel <<DefinedInAnotherDiagram>>
+
+entity "IfcGeotechnicalStratum-Terrain" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description : text
+  +ObjectType : text
+  *ObjectPlacement
+  *Representation
+  +Tag : text
+  *PredefinedType : SOLID
+  ..
+  *Decomposes
+  *HasAssociations
+  +IsDefinedBy
+  +HasOpenings
+}
+
+entity "IfcEarthWorksCut-Soil" <<DefinedInAnotherDiagram>>
+
+
+IfcGeomodel ||--"IfcGeotechnicalStratum-Terrain::Decomposes" : IfcRelAggregates
+
+entity IfcClassification <<DefinedInAnotherDiagram>>
+entity IfcClassificationReference <<DefinedInAnotherDiagram>>
+
+entity "IfcPropertySet-PsetStratum" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description :text
+  ==
+  Pset_GeotechnicalStratumCommon
+  Pset_SolidStratumCapacity
+  etc
+}
+
+entity "IfcMaterialDefinition-Stratum" <<DefinedInAnotherDiagram>>
+
+entity "IfcPropertySet-bSFStratum" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description :text
+  ==
+  etc
+}
+
+entity "IfcQuantitySet-Stratum" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description :text
+  ==
+  Qto_ArealStratumBaseQuantities
+  Qto_LinearStratumBaseQuantities
+  Qto_VolumetricStratumBaseQuantities
+}
+
+entity "IfcQuantitySet-Cut" <<DefinedInAnotherDiagram>>
+
+entity "IfcLocalPlacement-Stratum" <<DefinedInAnotherDiagram>>
+"IfcGeotechnicalStratum-Terrain::ObjectPlacement" --|| "IfcLocalPlacement-Stratum"
+
+entity IfcOwnerHistory <<UndefinedEntity>>
+"IfcGeotechnicalStratum-Terrain::OwnerHistory" --o| IfcOwnerHistory
+"IfcEarthWorksCut-Soil::OwnerHistory" --o| IfcOwnerHistory
+
+entity "IfcProductDefinitionShape-TIN" <<DefinedInAnotherDiagram>>
+"IfcGeotechnicalStratum-Terrain::Representation" --|| "IfcProductDefinitionShape-TIN"
+
+
+entity "IfcProductDefinitionShape-BrepwithBreaklines" <<DefinedInAnotherDiagram>>
+"IfcEarthWorksCut-Soil::Representation" --|| "IfcProductDefinitionShape-BrepwithBreaklines"
+
+"IfcGeotechnicalStratum-Terrain::HasOpenings" ||--o{ "IfcEarthWorksCut-Soil::VoidsElements": IfcRelVoidsElement
+
+entity "IfcLocalPlacement-Cut" <<UndefinedEntity>>
+"IfcEarthWorksCut-Soil::ObjectPlacement" --|| "IfcLocalPlacement-Cut"
+
+"IfcLocalPlacement-Cut"..||"IfcLocalPlacement-Stratum"
+
+"IfcGeotechnicalStratum-Terrain::IsDefinedBy" --o{ "IfcPropertySet-bSFStratum" : IfcRelDefinesByProperties
+"IfcGeotechnicalStratum-Terrain::IsDefinedBy" --o{ "IfcPropertySet-PsetStratum"  : IfcRelDefinesByProperties
+"IfcGeotechnicalStratum-Terrain::IsDefinedBy" --o{ "IfcQuantitySet-Stratum"  : IfcRelDefinesByProperties
+"IfcEarthWorksCut-Soil::IsDefinedBy" --o| "IfcQuantitySet-Cut"  : IfcRelDefinesByProperties
+
+
+IfcClassificationReference}|--||IfcClassification 
+"IfcEarthWorksCut-Soil::HasAssociations" --|{ IfcClassificationReference : IfcRelAssociatesClassification
+"IfcGeotechnicalStratum-Terrain::HasAssociations" --|{ IfcClassificationReference : IfcRelAssociatesClassification
+"IfcGeotechnicalStratum-Terrain::HasAssociations" --o| "IfcMaterialDefinition-Stratum" : IfcRelAssociatesMaterial
+
+
+@enduml

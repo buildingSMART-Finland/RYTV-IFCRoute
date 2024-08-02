@@ -1,0 +1,143 @@
+@startuml 
+
+
+entity IfcCourse <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description : text
+  +ObjectType : text
+  *ObjectPlacement
+  *Representation
+  +Tag : text
+  +PredefinedType : text
+  ..
+  *HasAssociations
+  +IsDefinedBy
+  +ConnectedTo
+  +ConnectedFrom
+}
+
+entity IfcClassification <<DefinedInAnotherDiagram>>
+entity IfcClassificationReference <<DefinedInAnotherDiagram>>
+entity IfcMaterialDefinition <<DefinedInAnotherDiagram>>
+entity IfcMaterialConstituentSet <<DefinedInAnotherDiagram>>
+entity IfcMaterialConstituent <<DefinedInAnotherDiagram>>
+entity IfcMaterial <<DefinedInAnotherDiagram>>
+
+entity "IfcPropertySet-PsetCourse" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description :text
+  ==
+  Pset_CourseCommon
+  Pset_BoundedCourseCommon
+  Pset_CourseApplicationConditions
+  etc
+}
+
+entity "IfcPropertySet-bSFCourse" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description :text
+  ==
+  etc
+}
+
+entity "IfcQuantitySet-Course" <<UndefinedEntity>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description :text
+  ==
+  Qto_CourseBaseQuantities
+  etc
+}
+
+entity IfcOwnerHistory <<UndefinedEntity>> 
+
+IfcCourse::OwnerHistory --o| IfcOwnerHistory
+
+
+IfcClassificationReference}|--||IfcClassification 
+
+IfcCourse::HasAssociations --|{ IfcClassificationReference : IfcRelAssociatesClassification
+IfcCourse::HasAssociations --o| IfcMaterialDefinition : IfcRelAssociatesMaterial
+
+entity "IfcProductDefinitionShape-TINwithBreaklines"
+
+IfcCourse::Representation --|| "IfcProductDefinitionShape-TINwithBreaklines"
+
+entity IfcLocalPlacement <<UndefinedEntity>>
+IfcCourse::ObjectPlacement --|| IfcLocalPlacement
+
+IfcCourse::IsDefinedBy --o{ "IfcPropertySet-bSFCourse" : IfcRelDefinesByProperties
+IfcCourse::IsDefinedBy --o{ "IfcPropertySet-PsetCourse"  : IfcRelDefinesByProperties
+IfcCourse::IsDefinedBy --o| "IfcQuantitySet-Course" : IfcRelDefinesByProperties
+
+entity IfcEarthWorksCut
+
+entity IfcEarthWorksFill
+
+
+entity "IfcRelConnectsElements-CourseToCut" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory : $
+  *Name :text
+  +Description :text
+  +ConnectionGeometry : $
+  *RelatingElement
+  *RelatedElement
+}
+
+"IfcRelConnectsElements-CourseToCut::RelatingElement" --|| IfcEarthWorksCut
+"IfcRelConnectsElements-CourseToCut::RelatedElement" }o--|| IfcCourse::ConnectedFrom
+
+
+entity "IfcRelConnectsElements-CourseToCourse" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory : $
+  *Name :text
+  +Description :text
+  +ConnectionGeometry : $
+  *RelatingElement
+  *RelatedElement
+}
+
+
+"IfcRelConnectsElements-CourseToCourse::RelatingElement" }o--|| IfcCourse::ConnectedTo
+"IfcRelConnectsElements-CourseToCourse::RelatedElement" }o--|| IfcCourse::ConnectedFrom
+
+
+entity "IfcRelConnectsElements-CourseToFill" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory : $
+  *Name :text
+  +Description :text
+  +ConnectionGeometry : $
+  *RelatingElement
+  *RelatedElement
+}
+
+"IfcRelConnectsElements-CourseToFill::RelatingElement" --|| IfcEarthWorksFill
+"IfcRelConnectsElements-CourseToFill::RelatedElement" }o--|| IfcCourse::ConnectedFrom
+
+<> diamond
+
+IfcMaterialDefinition - diamond
+diamond - "0..1" IfcMaterialConstituentSet
+diamond - "0..1" IfcMaterial
+IfcMaterialConstituentSet--|{IfcMaterialConstituent
+IfcMaterialConstituent--||IfcMaterial
+
+
+@enduml

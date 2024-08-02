@@ -1,0 +1,79 @@
+## IfcCourse and IfcVirtualEntity geometry representation: TIN with Breaklines
+
+
+@startuml 
+
+entity IfcCourse
+entity IfcVirtualEntity
+entity IfcClassificationReference #lightgray
+
+entity "IfcGeometricRepresentationSubContext-Curves"
+
+entity "IfcProductDefinitionShape-TINwithBreaklines" #white
+{
+  +Name : text
+  +Description :text
+  *Representations
+  ..
+  *ShapeOfProduct
+  +HasShapeAspects
+}
+
+entity "IfcShapeRepresentation-TIN"
+
+entity "IfcShapeRepresentation-Breaklines" #white
+{
+  *ContextOfItems
+  *RepresentationIdentifier : Body
+  *RepresentationType : Curve3D
+  *Items
+  ..
+  *OfProductRepresentation
+  +OfShapeAspect : $
+}
+
+entity IfcPolyline #lightgray
+
+entity "IfcShapeRepresentation-Breakline" #white
+{
+  *ContextOfItems
+  *RepresentationIdentifier : Axis
+  *RepresentationType : Curve3D
+  *Items
+  ..
+  +OfProductRepresentation : $
+  *OfShapeAspect
+}
+
+entity IfcShapeAspect #white
+{
+  *ShapeRepresentations
+  +Name : text
+  +Description :text
+  *ProductDefinitional : TRUE
+  *PartOfProductDefinitionShape
+  ..
+  *HasExternalReferences
+}
+
+IfcCourse |o-- "IfcProductDefinitionShape-TINwithBreaklines::ShapeOfProduct"
+IfcVirtualEntity |o-- "IfcProductDefinitionShape-TINwithBreaklines::ShapeOfProduct"
+
+"IfcProductDefinitionShape-TINwithBreaklines::Representations" --|| "IfcShapeRepresentation-TIN"
+"IfcProductDefinitionShape-TINwithBreaklines::Representations" ||--o| "IfcShapeRepresentation-Breaklines::OfProductRepresentation"
+
+"IfcShapeRepresentation-Breaklines::Items"||--|{ IfcPolyline
+"IfcShapeRepresentation-Breakline::Items"||--||IfcPolyline
+
+IfcShapeAspect::ShapeRepresentations ||--|| "IfcShapeRepresentation-Breakline::OfShapeAspect"
+IfcShapeAspect::PartOfProductDefinitionShape }o--|| "IfcProductDefinitionShape-TINwithBreaklines::HasShapeAspects"
+IfcShapeAspect::HasExternalReferences --|{ IfcClassificationReference : IfcExternalReferenceRelationship
+
+"IfcShapeRepresentation-Breaklines::ContextOfItems"--||"IfcGeometricRepresentationSubContext-Curves"
+"IfcShapeRepresentation-Breakline::ContextOfItems"--||"IfcGeometricRepresentationSubContext-Curves"
+
+
+
+@enduml
+
+

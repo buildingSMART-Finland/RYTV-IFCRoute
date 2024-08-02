@@ -1,0 +1,41 @@
+@startuml 
+entity "IfcEarthWorksCut-Soil" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description : text
+  +ObjectType : text
+  *ObjectPlacement
+  *Representation
+  +Tag : text
+  *PredefinedType : text
+  ..
+  *VoidsElements
+  *HasAssociations
+  +IsDefinedBy
+}
+
+entity "IfcQuantitySet-Cut" <<DefinedInThisDiagram>>
+{
+  *GlobalId : text
+  +OwnerHistory
+  *Name :text
+  +Description :text
+  ==
+  Qto_EarthworksCutBaseQuantities
+}
+
+
+
+entity IfcGeotechnicalStratum-Terrain <<DefinedInAnotherDiagram>>
+
+entity "IfcClassificationReference" <<DefinedInAnotherDiagram>>
+"IfcEarthWorksCut-Soil::HasAssociations" --|{ IfcClassificationReference : IfcRelAssociatesClassification
+
+entity "IfcLocalPlacement-Cut" <<UndefinedEntity>>
+"IfcEarthWorksCut-Soil::ObjectPlacement" --|| "IfcLocalPlacement-Cut"
+
+"IfcEarthWorksCut-Soil::IsDefinedBy" --o| "IfcQuantitySet-Cut"  : IfcRelDefinesByProperties
+"IfcGeotechnicalStratum-Terrain" ||--o{ "IfcEarthWorksCut-Soil::VoidsElements": IfcRelVoidsElement
+@enduml

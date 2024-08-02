@@ -1,0 +1,130 @@
+@startuml 
+
+
+entity IfcUnitAssignment #white
+{
+  *Units
+}
+
+
+entity "IfcSIUnit-linear" #white
+{
+  *Dimensions : *
+  *UnitType : LENGTHUNIT
+  +Prefix :$
+  *Name : METRE
+}
+
+entity "IfcSIUnit-area" #white
+{
+  *Dimensions : *
+  *UnitType : AREAUNIT
+  +Prefix :$
+  *Name : SQUARE_METRE
+}
+
+entity "IfcSIUnit-volume" #white
+{
+  *Dimensions : *
+  *UnitType : VOLUMEUNIT
+  +Prefix :$
+  *Name : CUBIC_METRE
+}
+
+entity "IfcSIUnit-angular" #white
+{
+  *Dimensions : *
+  *UnitType : PLANEANGLEUNIT
+  +Prefix :$
+  *Name : RADIAN
+}
+
+entity "IfcSIUnit-pressure" #white
+{
+  *Dimensions : *
+  *UnitType : PRESSUREUNIT
+  +Prefix :$
+  *Name : PASCAL
+}
+
+entity "IfcSIUnit-temperature" #white
+{
+  *Dimensions : *
+  *UnitType : THERMODYNAMICTEMPERATUREUNIT
+  +Prefix :$
+  *Name : KELVIN
+}
+  
+entity "IfcSIUnit-time" #white
+{
+  *Dimensions : *
+  *UnitType : TIMEUNIT
+  +Prefix :$
+  *Name : SECOND
+} 
+  
+
+entity "IfcDerivedUnit-flowrate" #white
+{
+  *Elements
+  *UnitType : VOLUMETRICFLOWRATEUNIT
+  +UserDefinedType : $
+  *Name : litrePerSecond
+} 
+   
+entity "IfcDerivedUnitElement-litre" #white
+{
+  *Unit 
+  *Exponent  : 1
+} 
+
+entity "IfcDerivedUnitElement-perSecond" #white
+{
+  *Unit 
+  *Exponent  : -1
+}
+
+entity "IfcConversionBasedUnit-litre" #white
+{
+  *Dimensions
+  *UnitType : VOLUMEUNIT
+  *Name : litre
+  *ConversionFactor
+} 
+
+entity "IfcMeasureWithUnit-litre" #white
+{
+  *ValueComponent : IFCVOLUMEMEASURE 0.001
+  *UnitComponent
+} 
+
+entity "IfcDimensionalExponents-litre" #white
+{
+  *LengthExponent : 3
+  *MassExponent : 0
+  *TimeExponent : 0
+  *ElectricCurrentExponent : 3
+  *ThermodynamicTemperatureExponent : 0
+  *AmountOfSubstanceExponent : 0
+  *LuminousIntensityExponent : 0
+} 
+
+
+IfcUnitAssignment::Units--||"IfcSIUnit-linear"
+IfcUnitAssignment::Units--||"IfcSIUnit-area"
+IfcUnitAssignment::Units--||"IfcSIUnit-volume"
+IfcUnitAssignment::Units--||"IfcSIUnit-angular"
+IfcUnitAssignment::Units--o|"IfcSIUnit-pressure"
+IfcUnitAssignment::Units--o|"IfcSIUnit-temperature"
+IfcUnitAssignment::Units--o|"IfcDerivedUnit-flowrate"
+
+"IfcDerivedUnit-flowrate::Elements"--||"IfcDerivedUnitElement-perSecond"
+"IfcDerivedUnitElement-perSecond::Unit"--||"IfcSIUnit-time"
+"IfcDerivedUnit-flowrate::Elements"--||"IfcDerivedUnitElement-litre"
+"IfcDerivedUnitElement-litre::Unit"--||"IfcConversionBasedUnit-litre"
+"IfcConversionBasedUnit-litre::Dimensions"--||"IfcDimensionalExponents-litre"
+"IfcConversionBasedUnit-litre::ConversionFactor"--||"IfcMeasureWithUnit-litre"
+"IfcMeasureWithUnit-litre::UnitComponent"--||"IfcSIUnit-volume"
+
+
+@enduml

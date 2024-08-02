@@ -1,0 +1,117 @@
+@startuml 
+
+entity IfcGeometricRepresentationContext #white
+{
+  +ContextIdentifier : 3D
+  *ContextType : Model
+  *CoordinateSpaceDimension : 3
+  *Precision : 1.E-5
+  *WorldCoordinateSystem
+  +TrueNorth : $
+  +RepresentationsInContext : $
+  ..
+  *HasSubContexts
+  *HasCoordinateOperation
+}
+
+entity IfcAxis2Placement3D #white
+{
+  *Location
+  +Axis : $ 
+  +RefDirection : $
+}
+
+entity IfcCartesianPoint #white
+{
+  *Coordinates : 0.0 , 0.0 , 0.0
+}
+
+IfcGeometricRepresentationContext::WorldCoordinateSystem--||IfcAxis2Placement3D
+
+IfcAxis2Placement3D::Location--||IfcCartesianPoint
+
+entity IfcMapConversion #lightgray
+
+entity IfcProjectedCRS #lightgray
+
+entity "IfcGeometricRepresentationSubContext-Curves" #white
+{
+  +ContextIdentifier : Curves
+  *ContextType : Model
+  *CoordinateSpaceDimension : *
+  *Precision : *
+  *WorldCoordinateSystem : *
+  +TrueNorth : *
+  *ParentContext
+  +TargetScale : $
+  *TargetView : GRAPH_VIEW
+  *UserDefinedTargetView : $
+    ..
+  +HasSubContexts : $
+  +HasCoordinateOperation : $
+}
+
+entity "IfcGeometricRepresentationSubContext-TIN" #white
+{
+  +ContextIdentifier : Surface
+  *ContextType : Model
+  *CoordinateSpaceDimension : *
+  *Precision : *
+  *WorldCoordinateSystem : *
+  +TrueNorth : *
+  *ParentContext
+  +TargetScale : $
+  *TargetView : MODEL_VIEW
+  *UserDefinedTargetView : $
+    ..
+  +HasSubContexts : $
+  +HasCoordinateOperation : $
+}
+
+entity "IfcGeometricRepresentationSubContext-Volumes" #white
+{
+  +ContextIdentifier : Body
+  *ContextType : Model
+  *CoordinateSpaceDimension : *
+  *Precision : *
+  *WorldCoordinateSystem : *
+  +TrueNorth : *
+  *ParentContext
+  +TargetScale : $
+  *TargetView : MODEL_VIEW
+  *UserDefinedTargetView : $
+    ..
+  +HasSubContexts : $
+  +HasCoordinateOperation : $
+}
+
+IfcGeometricRepresentationContext::HasSubContexts--||"IfcGeometricRepresentationSubContext-Curves::ParentContext"
+
+IfcGeometricRepresentationContext::HasSubContexts--||"IfcGeometricRepresentationSubContext-TIN::ParentContext"
+
+IfcGeometricRepresentationContext::HasSubContexts--||"IfcGeometricRepresentationSubContext-Volumes::ParentContext"
+
+IfcGeometricRepresentationContext::HasCoordinateOperation--||IfcMapConversion
+IfcMapConversion||--||IfcProjectedCRS
+
+
+entity "IfcShapeRepresentation-Alignment"
+"IfcShapeRepresentation-Alignment"}o--"IfcGeometricRepresentationSubContext-Curves"
+entity "IfcShapeRepresentation-Footprint"
+"IfcShapeRepresentation-Footprint"}o--"IfcGeometricRepresentationSubContext-Curves"
+entity "IfcShapeRepresentation-Breaklines"
+"IfcShapeRepresentation-Breaklines"}o--"IfcGeometricRepresentationSubContext-Curves"
+entity "IfcShapeRepresentation-Breakline"
+"IfcShapeRepresentation-Breakline"}o--"IfcGeometricRepresentationSubContext-Curves"
+
+entity "IfcShapeRepresentation-TIN"
+"IfcShapeRepresentation-TIN"}o--"IfcGeometricRepresentationSubContext-TIN"
+
+entity "IfcShapeRepresentation-Brep"
+"IfcShapeRepresentation-Brep"}o--"IfcGeometricRepresentationSubContext-Volumes"
+
+entity "IfcShapeRepresentation-SectionedSolid"
+"IfcShapeRepresentation-SectionedSolid"}o--"IfcGeometricRepresentationSubContext-Volumes"
+
+
+@enduml
