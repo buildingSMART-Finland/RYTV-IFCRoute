@@ -23,6 +23,17 @@ On the other hand, IFC 4.3 provides too diverse set of features to be properly m
 This document defines an minimal subset of IFC4.3 functionality which cover the defined data exchange scenarios. 
 Transition to IFC-based data exchange would allow machine readable feature rich communication.
 
+## Data exchange scenarios
+
+### Earthwork and excavation bidding
+loremlipsum
+
+### Design to construction
+loremlipsum
+
+### Digital handover
+loremlipsum
+
 ## Presentation format
 
 Wide range of technologies and tools are available to specify the content of an IFC file (ie. mvd, ids and bsdd).
