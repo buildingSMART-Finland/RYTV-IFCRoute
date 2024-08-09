@@ -25,14 +25,18 @@ Transition to IFC-based data exchange would allow machine readable feature rich 
 
 ## Data exchange scenarios
 
+In all three scenarios the exchange of information is limited to covering superstructures, surface structures, structural layers and geometry lines of the road.
+
 ### Earthwork and excavation bidding
-loremlipsum
+
+This scenario describes the exchange of quantity information required for cost accounting. The specification includes the quantity information required in both design and construction phases, as well as a description of the required geometric presentation.
 
 ### Design to construction
-loremlipsum
+
+This scenario describes the exchange of information between construction plan phase and the construction phase. The specification includes attributes and a geometric representation that allows surveying and installing the structure on the site.
 
 ### Digital handover
-loremlipsum
+This scenario describes the road as-built information exchange to the customer's systems.. The specification includes the necessary attributes and geometric presentation that enables the information required by the subscriber to be transferred to the customer's systems, such as registers or asset management systems. 
 
 ## Presentation format
 
