@@ -10,33 +10,33 @@ Also the content of this specification is limited to define:
 - Existing terrain and rock bed
 - Earthwork cuts and fills
 
-Following data exchange scenarios are covered by this specification:
+Following data exchange use cases are covered by this specification:
 
 - Earthwork and excavation bidding
 - Design to construction
 - Digital handover
 
-LandXML based Inframodel format is widely used in Finland for use data excange scenarios mentioned above.
+LandXML based Inframodel format is widely used in Finland for use data excange use cases mentioned above.
 However, it's based on aging LandXML which is setting some limititations for the design file content. 
 For this reason, lot's of different types of documents (ie. drawings, spreadsheets, pdf) are typically used together with Inframodel.
 On the other hand, IFC 4.3 provides too diverse set of features to be properly machine processed.
-This document defines an minimal subset of IFC4.3 functionality which cover the defined data exchange scenarios. 
+This document defines an minimal subset of IFC4.3 functionality which cover the defined data exchange use cases. 
 Transition to IFC-based data exchange would allow machine readable feature rich communication.
 
-## Data exchange scenarios
+## Data exchange use cases
 
-In all three scenarios the exchange of information is limited to covering superstructures, surface structures, structural layers and geometry lines of the road.
+In all three use cases the exchange of information is limited to covering superstructures, surface structures, structural layers and geometry lines of the road.
 
 ### Earthwork and excavation bidding
 
-This scenario describes the exchange of quantity information required for cost accounting. The specification includes the quantity information required in both design and construction phases, as well as a description of the required geometric presentation.
+This use case describes the exchange of quantity information required for cost accounting. The specification includes the quantity information required in both design and construction phases, as well as a description of the required geometric presentation.
 
 ### Design to construction
 
-This scenario describes the exchange of information between construction plan phase and the construction phase. The specification includes attributes and a geometric representation that allows surveying and installing the structure on the site.
+This use case describes the exchange of information between construction plan phase and the construction phase. The specification includes attributes and a geometric representation that allows surveying and installing the structure on the site.
 
 ### Digital handover
-This scenario describes the road as-built information exchange to the customer's systems.. The specification includes the necessary attributes and geometric presentation that enables the information required by the subscriber to be transferred to the customer's systems, such as registers or asset management systems. 
+This use case describes the road as-built information exchange to the customer's systems.. The specification includes the necessary attributes and geometric presentation that enables the information required by the subscriber to be transferred to the customer's systems, such as registers or asset management systems. 
 
 ## Presentation format
 
