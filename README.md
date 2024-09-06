@@ -17,6 +17,9 @@ Workflows folder contains the github actions CI automation script(s).
 ### /examples
 Examples folder contains documented example files/filesets. 
 
+### /diagrams
+Diagrams folder contains plantuml diagrams, referenced by documentation
+
 ### /figures
 Figures folder contains all figures used by the documentation.
 

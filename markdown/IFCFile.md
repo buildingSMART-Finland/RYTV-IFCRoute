@@ -18,13 +18,23 @@
 
 ![IfcProject]({{diagramasfigure bsf-IfcProject.pu}} "IfcProject"){{figst ifcproject}}
 
-## Alignment(s) - IfcAlignment
+## Alignment - IfcAlignment
 
+![IfcAlignment]({{diagramasfigure bsf-IfcAlignment.pu}} "IfcAlignment"){{figst ifcalignment}}
+
+### Horizontal alignment - IfcAlignmentHorizontal
 **TODO:Diagram missing!**
 
-## Classification system(s) - IfcClassification
+Allowed parameter horizontalsegment predefined types are "Line","Circulararc","Clothoid" and "Cubic" 
 
+### Vertical Alignment - IfcVerticalAlignment
 **TODO:Diagram missing!**
+
+Allowed parameter verticalsegment predefined types are "CONSTANTGRADIENT","CIRCULARARC" and "PARABOLICARC"
+
+### Cant - IfcAlignmentCant
+**TODO:Diagram missing!**
+
 
 ## Site - IfcSite
 
@@ -32,13 +42,44 @@
 
 ## Road - IfcRoad
 
-**TODO:Diagram missing!**
+![IfcRoad]({{diagramasfigure bsf-IfcRoad.pu}} "IfcRoad"){{figst ifcroad}}
+**TODO:Partial diagram!**
 
-## Structural model - IfcCourse
+## Structural model
+   
+### Pavement - IfcPavement
+
+IfcPavement acts as an collection of courses and kerbs.
+
+![IfcPavement]({{diagramasfigure bsf-IfcPavement.pu}} "IfcPavement"){{figst IfcPavement}}
+
+### Courses - IfcCourse
 
 Structural layers are defined by IfcCourse entities
 
 ![IfcCourse]({{diagramasfigure bsf-IfcCourse.pu}} "IfcCourse"){{figst ifccourse}}
+
+
+#### Table:bSF_Pset_CourseCommon {#tbl:bSF_Pset_CourseCommon}
+| Name | Property type | Data type | Use | Description|
+|----------|----------|----------|----------|----------|
+|LoadCapacity|IcfSingleValue|IfcPlanarForceMeasure|Required|Load capacity|
+|Granulation|IfcSingleValue|IfcLabel|Optional|Granule size, ie. 16-20mm|
+|Color|IfcSingleValue|IfcColour|Optional|Material color|
+
+#### Table:bSF_Pset_SurfaceCourse {#tbl:bSF_Pset_SurfaceCourse}
+
+| Name | Property type | Data type | Use | Description|
+|----------|----------|----------|----------|----------|
+|ElasticModulus|IcfSingleValue|IfcModulusOfElasticityMeasure|Required|Elastic modulus|
+|MaterialStrength|IcfSingleValue|IcfLabel|Optional|Material strength|
+|MassType|IfcSingleValue|IfcLabel|Required|Mass type, ie. AB|
+|DeformationClass|IfcSingleValue|IfcLabel|Optional|Deformation class|
+|AbrasionResistance|IfcSingleValue|IfcLabel|Optional|Abrasion resistance|
+|MixRatio|IfcSingleValue|IfcPositiveRatioMeasure|Optional|Rock/Binder ratio|
+
+
+
 
 Combinational layers (ie. highest and lowest combination of surfaces) shall be presented using IfcVirtualElement as defined on diagram below.
 
@@ -64,29 +105,7 @@ Combinational layers (ie. highest and lowest combination of surfaces) shall be p
 
 **TODO:Split earthworkscut-rock diagram from ifcgeotechnicalstratum-rockbed!**
 
-## Classification reference - IfcClassificationReference
-
-**TODO:Diagram missing!**
-
-## Material definitions
-
-### IfcMaterialDefinition
-
-**TODO:Diagram missing!**
-
-### IfcmaterialConstituentSet
-
-**TODO:Diagram missing!**
-
-### IfcMaterialConstituent
-
-**TODO:Diagram missing!**
-
-### IfcMaterial
-
-**TODO:Diagram missing!**
-
-## Geometry representation
+# Geometry representation
 
 ![IfcGeometricRepresentationContext]({{diagramasfigure bsf-IfcGeometricRepresentationContext.pu}} "IfcGeometricRepresentationContext"){{figst IfcGeometricRepresentationContext}}
 

@@ -2,29 +2,15 @@
 
 entity IfcSite <<DefinedInThisDiagram>>
 {
-  *GlobalId : text
-  +OwnerHistory
-  *Name : text
-  +Description : text
-  +ObjectType : text
   *ObjectPlacement
   *Representation
-  +LongName text
-  +CompositionType : ELEMENT
-  +RefLatitude : $
-  +RefLongitude : $
-  +RefElevation : $
-  +LandTitleNumber : $
-  +SiteAddress : $
   ..
   +IsDecomposedBy
-  *Decomposes
   +HasAssociations
   +IsDefinedBy
   *ContainsElements
 }
 
-entity IfcOwnerHistory <<UndefinedEntity>>
 
 entity IfcProject <<DefinedInAnotherDiagram>>
 entity IfcRoad <<DefinedInAnotherDiagram>> 
@@ -35,10 +21,6 @@ IfcSite::IsDecomposedBy--o{IfcRoad : IfcRelAggregates
 
 protocol "IfcPropertySet-PsetSite" <<DefinedInThisDiagram>>
 {
-  *GlobalId : text
-  +OwnerHistory
-  *Name :text
-  +Description :text
   ==
   Pset_Address
   Pset_LandRegistration
@@ -52,10 +34,6 @@ IfcSite::ContainsElements--|{IfcGeomodel : IfcRelContainedInSpatialStructure
 
 protocol "IfcPropertySet-bSFSite" <<DefinedInThisDiagram>>
 {
-  *GlobalId : text
-  +OwnerHistory
-  *Name :text
-  +Description :text
   ==
   bSF_SiteCommon
   etc
@@ -63,16 +41,11 @@ protocol "IfcPropertySet-bSFSite" <<DefinedInThisDiagram>>
 
 protocol "IfcQuantitySetSite" <<DefinedInThisDiagram>>
 {
-  *GlobalId : text
-  +OwnerHistory
-  *Name :text
-  +Description :text
   ==
   Qto_SiteBaseQuantities
   etc
 }
 
-IfcSite::OwnerHistory --o| IfcOwnerHistory
 
 entity IfcClassificationReference <<DefinedInAnotherDiagram>>
 IfcSite::HasAssociations --o{ IfcClassificationReference : IfcRelAssociatesClassification

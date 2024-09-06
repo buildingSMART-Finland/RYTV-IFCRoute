@@ -6,12 +6,6 @@
     BackgroundColor LightBlue
 }
 .UndefinedEntity{
-    FontColor #808080
-    BackgroundColor #FFFFFF
-    LineStyle 1-0
-}
-.UndefinedEntity{
-    FontColor #808080
     BackgroundColor #FFFFFF
     LineStyle 1-0
 }
