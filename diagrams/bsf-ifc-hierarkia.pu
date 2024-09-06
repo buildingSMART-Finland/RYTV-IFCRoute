@@ -59,12 +59,7 @@ IfcCourse..IfcKerb:IfcRelConnectsElements
 
 entity IfcAlignment <<DefinedInAnotherDiagram>>
 IfcProject||--o{IfcAlignment : IfcRelAggregates
-entity IfcAlignmentHorizontal <<DefinedInAnotherDiagram>>
-IfcAlignment||--||IfcAlignmentHorizontal : IfcRelNests
-entity IfcAlignmentVertical <<DefinedInAnotherDiagram>>
-IfcAlignment||--||IfcAlignmentVertical : IfcRelNests
-entity IfcAlignmentCant <<DefinedInAnotherDiagram>>
-IfcAlignment||--o|IfcAlignmentCant : IfcRelNests
+
 
 IfcRoad||..||IfcAlignment : IfcRelReferencedInSpatialStructure
 

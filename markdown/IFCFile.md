@@ -5,7 +5,6 @@
 
 ![IFC File entity hierarchy]({{diagramasfigure bsf-ifc-hierarkia.pu}} "IFC file entity hierarchy"){{figst ifcfilehierarchy}}
 
-
 ## File headers
 
 ![IFC file header]({{diagramasfigure bsf-IfcFile.pu}} "IFC-file header"){{figst ifcfileheader}}
@@ -61,25 +60,22 @@ Structural layers are defined by IfcCourse entities
 
 
 #### Table:bSF_Pset_CourseCommon {#tbl:bSF_Pset_CourseCommon}
-| Name | Property type | Data type | Use | Description|
+| Name | Property type | Data type | Description| Use |
 |----------|----------|----------|----------|----------|
-|LoadCapacity|IcfSingleValue|IfcPlanarForceMeasure|Required|Load capacity|
-|Granulation|IfcSingleValue|IfcLabel|Optional|Granule size, ie. 16-20mm|
-|Color|IfcSingleValue|IfcColour|Optional|Material color|
+|LoadCapacity|IcfSingleValue|IfcPlanarForceMeasure|Load capacity|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
+|Granulation|IfcSingleValue|IfcLabel|Granule size, ie. 16-20mm|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
+|Color|IfcSingleValue|IfcColour|Material color|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
 
 #### Table:bSF_Pset_SurfaceCourse {#tbl:bSF_Pset_SurfaceCourse}
 
-| Name | Property type | Data type | Use | Description|
+| Name | Property type | Data type | Description| Use |
 |----------|----------|----------|----------|----------|
-|ElasticModulus|IcfSingleValue|IfcModulusOfElasticityMeasure|Required|Elastic modulus|
-|MaterialStrength|IcfSingleValue|IcfLabel|Optional|Material strength|
-|MassType|IfcSingleValue|IfcLabel|Required|Mass type, ie. AB|
-|DeformationClass|IfcSingleValue|IfcLabel|Optional|Deformation class|
-|AbrasionResistance|IfcSingleValue|IfcLabel|Optional|Abrasion resistance|
-|MixRatio|IfcSingleValue|IfcPositiveRatioMeasure|Optional|Rock/Binder ratio|
-
-
-
+|ElasticModulus|IcfSingleValue|IfcModulusOfElasticityMeasure|Elastic modulus|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
+|MaterialStrength|IcfSingleValue|IcfLabel|Material strength|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
+|MassType|IfcSingleValue|IfcLabel|Required|Mass type, ie. AB|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
+|DeformationClass|IfcSingleValue|IfcLabel|Deformation class|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
+|AbrasionResistance|IfcSingleValue|IfcLabel|Abrasion resistance|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
+|MixRatio|IfcSingleValue|IfcPositiveRatioMeasure|Rock/Binder ratio|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
 
 Combinational layers (ie. highest and lowest combination of surfaces) shall be presented using IfcVirtualElement as defined on diagram below.
 
