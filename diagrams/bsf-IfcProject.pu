@@ -2,13 +2,6 @@
 
 entity IfcProject <<DefinedInThisDiagram>>
 {
-  *GlobalId : text
-  +OwnerHistory
-  *Name : text
-  +Description : text
-  +ObjectType : text
-  +LongName : text
-  +Phase : text
   *RepresentationContexts
   *UnitsInContext
   ..
@@ -29,10 +22,6 @@ IfcProject::IsDecomposedBy--|{IfcSite : IfcRelAggregates
 
 entity "IfcPropertySet-PsetProject" <<DefinedInThisDiagram>>
 {
-  *GlobalId : text
-  +OwnerHistory
-  *Name :text
-  +Description :text
   ==
   Pset_ProjectCommon
   etc
@@ -40,23 +29,17 @@ entity "IfcPropertySet-PsetProject" <<DefinedInThisDiagram>>
 
 entity "IfcPropertySet-bSFProject" <<DefinedInThisDiagram>>
 {
-  *GlobalId : text
-  +OwnerHistory
-  *Name :text
-  +Description :text
   ==
   bSF_Project
   etc
 }
 
-entity IfcClassification <<DefinedInAnotherDiagram>>
+entity IfcClassification <<UndefinedEntity>>
 
 IfcProject::RepresentationContexts --o| IfcGeometricRepresentationContext
 IfcProject::UnitsInContext --o| IfcUnitAssignment
 IfcProject::HasAssociations --|{IfcClassification 
 IfcProject::IsDefinedBy --o{ "IfcPropertySet-PsetProject"
 IfcProject::IsDefinedBy --o{ "IfcPropertySet-bSFProject"
-entity IfcOwnerHistory <<UndefinedEntity>>
-IfcProject::OwnerHistory --o| IfcOwnerHistory
 
 @enduml
