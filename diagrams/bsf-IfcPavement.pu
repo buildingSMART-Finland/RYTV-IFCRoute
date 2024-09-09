@@ -1,0 +1,15 @@
+@startuml 
+
+
+entity IfcPavement <<DefinedInThisDiagram>>
+{
+
+}
+
+entity IfcCourse <<DefinedInAnotherDiagram>>
+entity IfcKerb <<DefinedInAnotherDiagram>>
+
+IfcPavement--{IfcCourse
+IfcPavement--{IfcKerb
+
+@enduml
