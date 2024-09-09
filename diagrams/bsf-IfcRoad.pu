@@ -1,0 +1,25 @@
+@startuml 
+
+entity IfcRoad <<DefinedInThisDiagram>>
+{
+    ContainsElements
+    IsDefinedBy
+}
+
+
+entity IfcAlignment <<DefinedInAnotherDiagram>>
+
+protocol bSF_Pset_RoadProperties <<DefinedInAnotherDiagram>>
+
+entity IfcPavement <<DefinedInAnotherDiagram>>
+
+IfcRoad::ContainsElements||--||IfcPavement
+
+
+
+
+IfcRoad::IsDefinedBy||--||bSF_Pset_RoadProperties
+
+IfcRoad||..||IfcAlignment : IfcRelReferencedInSpatialStructure
+
+@enduml

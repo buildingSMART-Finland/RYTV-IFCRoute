@@ -1,0 +1,31 @@
+@startuml 
+
+entity IfcRoad <<DefinedInAnotherDiagram>>
+entity IfcProject <<DefinedInAnotherDiagram>>
+
+entity IfcAlignment <<DefinedInThisDiagram>>
+{
+    ObjectPlacement
+    Representation
+    HasAssociations
+}
+
+entity IfcProductDefinitionShape-Alignment <<DefinedInAnotherDiagram>>
+
+entity IfcLocalPlacement <<UndefinedEntity>>
+IfcAlignment::ObjectPlacement||--||IfcLocalPlacement
+
+entity IfcClassificationReference <<DefinedInAnotherDiagram>>
+IfcAlignment::HasAssociations --o{ IfcClassificationReference : IfcRelAssociatesClassification
+IfcAlignment::Representation||--||"IfcProductDefinitionShape-Alignment" 
+IfcProject||--o{IfcAlignment : IfcRelAggregates
+entity IfcAlignmentHorizontal <<DefinedInAnotherDiagram>>
+IfcAlignment||--||IfcAlignmentHorizontal : IfcRelNests
+entity IfcAlignmentVertical <<DefinedInAnotherDiagram>>
+IfcAlignment||--||IfcAlignmentVertical : IfcRelNests
+entity IfcAlignmentCant <<DefinedInAnotherDiagram>>
+IfcAlignment||--o|IfcAlignmentCant : IfcRelNests
+
+IfcRoad||..||IfcAlignment : IfcRelReferencedInSpatialStructure
+
+@enduml
