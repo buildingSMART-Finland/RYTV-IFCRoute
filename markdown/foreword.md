@@ -125,11 +125,12 @@ note top of "IfcPropertySet-bSFCourse"
     Contents defined in another diagram.
 end note
 
-protocol "IfcQuantitySet-Course" <<UndefinedEntity>>
+protocol "IfcElementQuantity-Course" <<UndefinedEntity>>
 {
+    *Qto_CourseBaseQuantities
 }
 
-note top of "IfcQuantitySet-Course"
+note top of "IfcElementQuantity-Course"
     Standard Ifc quantities for entity/type
     Contents defined in IFC documentation
 end note
