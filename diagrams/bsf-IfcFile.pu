@@ -11,14 +11,14 @@ entity IFC_step_file <<DefinedInThisDiagram>>
 
 entity file_description <<DefinedInThisDiagram>>
 {
-  *description : text = 'ViewDefinition [Ifc4X3NotAssigned , bSF [D2C] , bSF [QTO] , bSF [handover]'
+  *description : text = 'ViewDefinition [Ifc4X3NotAssigned]', 'ExchangeRequirement [bSF-D2C, bSF-QTO, bSF-handover]'
   *implementation_level : text = '2;1'
 }
 
 entity file_name <<DefinedInThisDiagram>>
 {
   *name : text
-  *time_stamp : ISO8601
+  *time_stamp : text
   *author : text
   *organization : text 
   *preprocessor_version : text
