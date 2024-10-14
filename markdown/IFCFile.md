@@ -9,7 +9,13 @@
 
 ![IFC file header]({{diagramasfigure bsf-IfcFile.pu}} "IFC-file header"){{figst ifcfileheader}}
 
-**TODO:Add notes to diagram or descriptive text chapter about usage of fields under "file_name"**
+The Ifc file header shall be populated according to the 
+[**Implementation Guideline for IFC Header Section, Version 1.0.2**](https://standards.buildingsmart.org/documents/Implementation/ImplementationGuide_IFCHeaderData_Version_1.0.2.pdf)
+
+Specific rules applying to *description field* in *file_description* (for this version of the data exchange cases coverd in this document):
+ - Mandatory keyword "ViewDefinition" fixed value "Ifc4X3NotAssigned"
+ - Optional keyword "ExchangeRequirement" used with value (one or many) of "bSF-D2C | bSF-QTO | bSF-handover"
+
 
 # Entity definitions
 
