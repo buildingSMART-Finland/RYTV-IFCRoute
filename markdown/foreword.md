@@ -82,21 +82,25 @@ note left of ExampleEntity::Attribute-2
     Mandatory attribute with fixed value
 end note
 note left of ExampleEntity::Attribute-3
-    Optional attribute with data type
+    Optional attribute with enumerated values
 end note
 note left of ExampleEntity::Attribute-4
-    Optional attribute with fixed value
+    Optional attribute use prohibited
 end note
 note left of ExampleEntity::Relationship-1
-    Cardinality shown on the link\n to another entity type 
+    Attribute with entity data type
 end note
-
 
 entity ExampleEntity2 <<DefinedInAnotherDiagram>>
 {
 }
 
-note top of ExampleEntity2
+"ExampleEntity::Relationship-1" --|| ExampleEntity2
+note on link
+   Cardinality (exactly 1) shown on the link
+end note
+
+note bottom of ExampleEntity2
     Entity defined in another diagram
 end note
 
@@ -105,8 +109,13 @@ entity ExampleEntity3 <<UndefinedEntity>>
 
 }
 
-note top of ExampleEntity3 
-    Entity as it is defined by IFC documentation
+ExampleEntity --o{ ExampleEntity3 : IfcRelExample
+note right on link
+   Cardinality (0, 1 or many) and relationship name shown on the link
+end note
+
+note bottom of ExampleEntity3 
+    Entity as it is defined in IFC specification
 end note
 @enduml
 
@@ -121,7 +130,7 @@ protocol "IfcPropertySet-Course" <<DefinedInThisDiagram>>
     *Pset_BoundedCourseCommon
     *Pset_CourseApplicationConditions
 }
-note top of "IfcPropertySet-PsetCourse"
+note top of "IfcPropertySet-Course"
     Standard Ifc properties for entity/type.
     Usage defined here.
 end note
