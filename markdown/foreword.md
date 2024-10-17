@@ -47,9 +47,9 @@ The diagrams are drawn applying "crow's foot notation" as explained below.
 ### Defining entities
 
 IFC Entity types explicitly included in all the use cases mentioned above are shown in the diagrams in this document. They are either used "as-is" (i.e. with no use case specific rules), or with additional rules specified in this document. 
-Entity types used "as-is" appear as white boxes, or as relationship names in case of short-hand notation for IfcRel-entities.
+Entity types used "as-is" appear as white boxes, or as relationship names om links in case of short-hand notation for IfcRel-entities.
 Entity types with additional rules appear as green boxes, if defined in the current diagram, or as blue boxes, if referenced from another diagram.
-Addinonal rules may apply only in a paricular usage, in which case the IFC entity name is appeded with a qualifier (e.g. IfcProductDefinitionShape-Alignment or IfcProductDefinitionShape-TIN). Otherwise, the rules on the Entity type apply globally.
+Addinonal rules may apply only in a paricular usage, in which case the IFC entity name is appended with a qualifier (e.g. IfcProductDefinitionShape-Alignment or IfcProductDefinitionShape-TIN). Otherwise, the rules on the Entity type apply globally.
 These rules may 
  - change OPTIONAL attribute to MANDATORY
  - prohibit the use of OPTIONAL attribute (marked as $)
