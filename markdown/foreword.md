@@ -61,6 +61,7 @@ These rules may
 Attributes with no use case specific rules are omitted (and are to be used per standard IFC specification).
 
 @startuml
+
 entity ExampleEntity <<DefinedInThisDiagram>>
 {
   *Attribute-1 : text
@@ -106,7 +107,6 @@ end note
 
 entity ExampleEntity3 <<UndefinedEntity>>
 {
-
 }
 
 ExampleEntity --o{ ExampleEntity3 : IfcRelExample
@@ -117,42 +117,46 @@ end note
 note bottom of ExampleEntity3 
     Entity as it is defined in IFC specification
 end note
+
 @enduml
 
 {{diagram "Legend, entity definitions" entitylegend}}
 
 ### Defining properties and property sets
 
+Property sets and quantity sets (implemented as IfcPropertySet and IfcElementQuantity) applicable to each Entity type are defined as Protocol, if there is a subset selected from IFC specification, or if they are specified by bSF (Inframodel properties); Protocol is named as IfcPropertySet or IfcElementQuantity, appended with a qualifier). Otherwise, all those available for the Entity type in IFC specification are in scope. In case of Inframodel properties, the qualifier starts with "bSF".
+The usage of individual properties in each use case may be set for property/quantity sets defined in this document (selection provided as table per property/quantity set in this document). If no selection is made, all properties are in scope by default. 
+
 @startuml
+
 protocol "IfcPropertySet-Course" <<DefinedInThisDiagram>>
 {
-    *Pset_CourseCommon
-    *Pset_BoundedCourseCommon
-    *Pset_CourseApplicationConditions
+    Pset_CourseCommon
+    Pset_BoundedCourseCommon
+    Pset_CourseApplicationConditions
 }
 note top of "IfcPropertySet-Course"
-    Standard Ifc properties for entity/type.
-    Usage defined here.
+    Standard IFC property sets for Entity type.
+    All included ones listed here.
+    (Individual properties may be selected per use case).
 end note
-
 
 protocol "IfcPropertySet-bSFCourse" <<DefinedInAnotherDiagram>>
 {
 }
 
 note top of "IfcPropertySet-bSFCourse"
-    bSF/IM properties for entity/type
-    Contents defined in another diagram.
+    bSF (Inframodel) property sets for Entity type.
+    List of included ones defined in another diagram.
 end note
 
-protocol "IfcElementQuantity-Course" <<UndefinedEntity>>
+entity IfcElementQuantity <<UndefinedEntity>>
 {
-    *Qto_CourseBaseQuantities
 }
 
-note top of "IfcElementQuantity-Course"
-    Standard Ifc quantities for entity/type
-    Contents defined in IFC documentation
+note top of IfcElementQuantity
+    Standard IFC quantities for Entity type.
+    All those defined in IFC specification are included.
 end note
 
 @enduml
@@ -160,6 +164,8 @@ end note
 {{diagram "Legend, property/property set definitions" propertylegend}}
 
 ## Taxonomy/classification system(s)
+
+In all three use cases, entities representing physical things and alignments are required to be classified using IfcClassicationRefence (use of InfraBIM classification system is strongly encouraged, others may be used in addition). The source of the references shall be defined as IfcClassification (identifying the classification/coding system). 
 
 **TODO:Add some text, describe infrabim/rak two level hierarchy(surface/category+feature code)!**
 
