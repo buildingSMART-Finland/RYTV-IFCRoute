@@ -165,7 +165,8 @@ end note
 
 ## Taxonomy/classification system(s)
 
-In all three use cases, entities representing physical things and alignments are required to be classified using IfcClassicationRefence (use of InfraBIM classification system is strongly encouraged, others may be used in addition). The source of the references shall be defined as IfcClassification (identifying the classification/coding system). 
+In all three use cases, entities representing physical things and alignments are required to be classified using IfcClassicationRefence (use of InfraBIM classification system is strongly encouraged, others may be used in addition). Additionally, individual breaklines can be coded as part of geometry using IfcShapeAspect.
+Each IfcClassicationRefence shall be linked to an IfcClassification identifying the source classification/coding system.
 
 **TODO:Add some text, describe infrabim/rak two level hierarchy(surface/category+feature code)!**
 
