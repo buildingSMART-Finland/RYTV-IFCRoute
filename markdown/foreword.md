@@ -2,7 +2,7 @@
 
 This document specifies the Finnish data exchange requirements of a route.
 Examples of route include road, street, walkway railway and waterway.
-This documents excludes domain specific content of rail- and waterways (such as km-posting). 
+This documents excludes domain specific content of rail- and waterways (such as cant and km-posting). 
 Also the content of this specification is limited to define:
 
 - Geometry of a route
