@@ -1,6 +1,6 @@
 # Foreword
 
-This document specifies the Finnish data exchange requirements of a route.
+This document specifies the Finnish data exchange requirements of a route based on IFC 4.3.2.0 (IFC4X3_ADD2).
 Examples of route include road, street, walkway railway and waterway.
 This documents excludes domain specific content of rail- and waterways (such as cant and km-posting). 
 Also the content of this specification is limited to define:
