@@ -133,15 +133,9 @@ Combinational surfaces (ie. highest and lowest combination of surfaces) shall be
 
 # Geometry representation
 
-There shall be exactly one 3D geometric representation context (with subcontexts for different types of representation in 3D space); no 2D context should be used. 
+There shall be exactly one 3D geometric representation context (hich may have subcontexts for different types of shape representation in 3D space). 
 
-![IfcGeometricRepresentationContext]({{diagramasfigure bsf-IfcGeometricRepresentationContext.pu}} "IfcGeometricRepresentationContext"){{figst IfcGeometricRepresentationContext}}
-
-![SubContext-Curves]({{diagramasfigure bsf-IfcGeometricRepresentationSubContext-Curves.pu}} "SubContext-Curves"){{figst SubContext-Curves}}
-
-![SubContext-TIN]({{diagramasfigure bsf-IfcGeometricRepresentationSubContext-TIN.pu}} "SubContext-TIN"){{figst SubContext-TIN}}
-
-![SubContext-Volumes]({{diagramasfigure bsf-IfcGeometricRepresentationSubContext-Volumes.pu}} "SubContext-Volumes"){{figst SubContext-Columes}}
+![IfcGeometricRepresentationContext-3D]({{diagramasfigure bsf-IfcGeometricRepresentationContext-3D.pu}} "IfcGeometricRepresentationContext-3D"){{figst IfcGeometricRepresentationContext-3D}}
 
 ![AlignmentCurve]({{diagramasfigure bsf-IfcProductDefinitionShape-Alignment.pu}} "AlignmentCurve"){{figst AlignmentCurve}}
 
