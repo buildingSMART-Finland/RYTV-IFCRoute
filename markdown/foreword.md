@@ -12,7 +12,7 @@ Also the content of this specification is limited to define:
 
 Following data exchange use cases are covered by this specification:
 
-- Earthwork and excavation bidding
+- Quantity takeoff
 - Design to construction
 - Digital handover
 
@@ -27,7 +27,7 @@ Transition to IFC-based data exchange would allow machine readable feature rich 
 
 In all three use cases the exchange of information is limited to covering superstructures, surface structures, structural layers and geometry lines of the road.
 
-### Earthwork and excavation bidding
+### Quantity takeoff
 
 This use case describes the exchange of quantity information required for cost accounting. The specification includes the quantity information required in both design and construction phases, as well as a description of the required geometric presentation.
 
