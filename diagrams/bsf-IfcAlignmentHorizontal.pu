@@ -1,0 +1,24 @@
+@startuml 
+
+entity IfcAlignment <<DefinedInAnotherDiagram>>
+
+entity IfcAlignmentHorizontal <<DefinedInThisDiagram>>
+
+
+entity IfcAlignmentSegment-Horizontal <<DefinedInThisDiagram>>
+{
+    DesignParameters
+}
+
+IfcAlignmentHorizontal ||--|{ "IfcAlignmentSegment-Horizontal" : IfcRelNests
+
+entity IfcAlignmentHorizontalSegment <<DefinedInThisDiagram>>
+{
+    PredefinedType : text = LINE | CIRCULARARC | CLOTHOID |	CUBIC
+}
+
+"IfcAlignmentSegment-Horizontal::DesignParameters" ||--|| IfcAlignmentHorizontalSegment
+
+IfcAlignment ||-- IfcAlignmentHorizontal : IfcRelNests
+
+@enduml

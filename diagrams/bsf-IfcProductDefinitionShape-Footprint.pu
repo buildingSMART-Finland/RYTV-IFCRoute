@@ -1,52 +1,26 @@
-## IfcCourse and IfcVirtualEntity geometry representation: TIN with Breaklines
-
-
 @startuml 
 
-entity IfcSite
-
-
-entity "IfcGeometricRepresentationSubContext-Curves"
-
-entity "IfcProductDefinitionShape-Footprint" #white
+entity "IfcProductDefinitionShape-Footprint" <<DefinedInThisDiagram>>
 {
-  +Name : text
-  +Description :text
-  *Representations
-  ..
-  *ShapeOfProduct
+  Representations
   +HasShapeAspects : $
 }
 
-entity "IfcShapeRepresentation-Footprint" #white
+entity "IfcShapeRepresentation-Footprint" <<DefinedInThisDiagram>>
 {
-  *ContextOfItems
-  *RepresentationIdentifier : FootPrint
-  *RepresentationType :GeometricCurveSet
-  *Items
-  *OfProductRepresentation
+  *RepresentationIdentifier : text = FootPrint
+  *RepresentationType : text = GeometricCurveSet
+  Items
+  OfProductRepresentation
   +OfShapeAspect : $
 }
 
-entity IfcPolyline #lightgray
+entity IfcGeometricCurveSet <<UndefinedEntity>>
 
-entity IfcGeometricCurveSet #white
-{
-  *Elements
-}
+"IfcProductDefinitionShape-Footprint::Representations" --|| "IfcShapeRepresentation-Footprint::OfProductRepresentation"
 
 
-IfcSite ||--"IfcProductDefinitionShape-Footprint::ShapeOfProduct"
-
-"IfcProductDefinitionShape-Footprint::Representations" ||--|| "IfcShapeRepresentation-Footprint::OfProductRepresentation"
-
-
-"IfcShapeRepresentation-Footprint::Items"||--|{ IfcGeometricCurveSet
-IfcGeometricCurveSet::Elements--|{ IfcPolyline
-
-"IfcShapeRepresentation-Footprint::ContextOfItems"--||"IfcGeometricRepresentationSubContext-Curves"
-
-
+"IfcShapeRepresentation-Footprint::Items"--|{ IfcGeometricCurveSet
 
 @enduml
 

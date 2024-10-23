@@ -3,34 +3,27 @@
 
 entity IFC_step_file <<DefinedInThisDiagram>>
 {
-    *file_description
-    *file_name
-    *file_schema
-    *IfcProject
+    file_description
+    file_name
+    file_schema
+	...
+    IfcProject
 }
 
 entity file_description <<DefinedInThisDiagram>>
 {
-  *description : text = 'ViewDefinition [Ifc4X3NotAssigned]', 'ExchangeRequirement [bSF-D2C, bSF-QTO, bSF-handover]'
-  *implementation_level : text = '2;1'
+  *description : text = ViewDefinition [Ifc4X3NotAssigned], ExchangeRequirement [bSF-D2C | bSF-QTO | bSF-handover]
+  *implementation_level : text = 2;1
 }
 
-entity file_name <<DefinedInThisDiagram>>
-{
-  *name : text
-  *time_stamp : text
-  *author : text
-  *organization : text 
-  *preprocessor_version : text
-  *originating_system : text
-  *authorization : text
-}
+entity file_name <<UndefinedEntity>>
+
 
 entity IfcProject <<DefinedInAnotherDiagram>>
 
 entity file_schema <<DefinedInThisDiagram>>
 {
-  *schema_identifiers : text = 'IFC4X3_ADD2'
+  *schema_identifiers : text = IFC4X3_ADD2
 }
 
 

@@ -2,44 +2,36 @@
 
 entity IfcProject <<DefinedInThisDiagram>>
 {
-  *RepresentationContexts
-  *UnitsInContext
-  ..
-  *IsDecomposedBy
-  *HasAssociations
-  +IsDefinedBy
+  RepresentationContexts
+  UnitsInContext
 }
 
-entity IfcGeometricRepresentationContext <<UndefinedEntity>>
+entity IfcGeometricRepresentationContext-3D <<DefinedInAnotherDiagram>>
 
 entity IfcUnitAssignment <<UndefinedEntity>>
 
 entity IfcAlignment <<DefinedInAnotherDiagram>>
-IfcProject::IsDecomposedBy--o{IfcAlignment : IfcRelAggregates
+IfcProject --o{ IfcAlignment : IfcRelAggregates
 
 entity IfcSite <<DefinedInAnotherDiagram>>
-IfcProject::IsDecomposedBy--|{IfcSite : IfcRelAggregates
+IfcProject --|{ IfcSite : IfcRelAggregates
 
-entity "IfcPropertySet-PsetProject" <<DefinedInThisDiagram>>
+protocol "IfcPropertySet-Project" <<DefinedInThisDiagram>>
 {
-  ==
   Pset_ProjectCommon
-  etc
 }
 
-entity "IfcPropertySet-bSFProject" <<DefinedInThisDiagram>>
+protocol "IfcPropertySet-bSFProject" <<DefinedInThisDiagram>>
 {
-  ==
   bSF_Project
-  etc
 }
 
 entity IfcClassification <<UndefinedEntity>>
 
-IfcProject::RepresentationContexts --o| IfcGeometricRepresentationContext
-IfcProject::UnitsInContext --o| IfcUnitAssignment
-IfcProject::HasAssociations --|{IfcClassification 
-IfcProject::IsDefinedBy --o{ "IfcPropertySet-PsetProject"
-IfcProject::IsDefinedBy --o{ "IfcPropertySet-bSFProject"
+IfcProject::RepresentationContexts --|| "IfcGeometricRepresentationContext-3D"
+IfcProject::UnitsInContext --|| IfcUnitAssignment
+IfcProject --|{IfcClassification : IfcRelAssociatesClassification
+IfcProject --o| "IfcPropertySet-Project" : IfcRelDefinesByProperties
+IfcProject --o| "IfcPropertySet-bSFProject" : IfcRelDefinesByProperties
 
 @enduml

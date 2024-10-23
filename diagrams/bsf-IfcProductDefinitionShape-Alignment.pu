@@ -1,0 +1,23 @@
+@startuml 
+
+entity "IfcProductDefinitionShape-Alignment" <<DefinedInThisDiagram>>
+{
+  Representations
+  +HasShapeAspects : $
+}
+
+entity "IfcShapeRepresentation-Alignment" <<DefinedInThisDiagram>>
+{
+  ContextOfItems
+  *RepresentationIdentifier : text = Axis
+  *RepresentationType : text = Curve3D
+  Items
+}
+
+entity IfcGradientCurve <<UndefinedEntity>>
+
+"IfcShapeRepresentation-Alignment::Items"--||IfcGradientCurve
+
+"IfcProductDefinitionShape-Alignment::Representations"--||"IfcShapeRepresentation-Alignment"
+
+@enduml

@@ -1,46 +1,24 @@
-## IfcGeotechnicalStratum (Terrain or Rock bed) geometry representation: TIN
-
-
 @startuml 
 
-entity "IfcGeotechnicalStratum-Terrain"
-entity "IfcGeotechnicalStratum-Rock bed"
-
-entity "IfcGeometricRepresentationSubContext-TIN"
-
-entity "IfcProductDefinitionShape-TIN" #white
+entity "IfcProductDefinitionShape-TIN" <<DefinedInThisDiagram>>
 {
-  +Name : text
-  +Description :text
-  *Representations
-  ..
-  *ShapeOfProduct
+  Representations
   +HasShapeAspects : $
 }
 
-entity "IfcShapeRepresentation-TIN" #white
+entity "IfcShapeRepresentation-TIN" <<DefinedInThisDiagram>>
 {
-  *ContextOfItems
-  *RepresentationIdentifier : Body
-  *RepresentationType : Tessellation
-  *Items
-  ..
-  *OfProductRepresentation
+  *RepresentationIdentifier : text = Body
+  *RepresentationType : text = Tessellation
+  Items
   +OfShapeAspect : $
 }
 
-entity IfcTriangulatedIrregularNetwork #lightgray
+entity IfcTriangulatedIrregularNetwork <<UndefinedEntity>>
 
-
-"IfcGeotechnicalStratum-Terrain" |o-- "IfcProductDefinitionShape-TIN::ShapeOfProduct"
-"IfcGeotechnicalStratum-Rock bed" |o-- "IfcProductDefinitionShape-TIN::ShapeOfProduct"
-
-"IfcProductDefinitionShape-TIN::Representations" ||--|| "IfcShapeRepresentation-TIN::OfProductRepresentation"
+"IfcProductDefinitionShape-TIN::Representations" --|| "IfcShapeRepresentation-TIN::OfProductRepresentation"
 
 "IfcShapeRepresentation-TIN::Items"--||IfcTriangulatedIrregularNetwork
-
-"IfcShapeRepresentation-TIN::ContextOfItems"--||"IfcGeometricRepresentationSubContext-TIN"
-
 
 @enduml
 

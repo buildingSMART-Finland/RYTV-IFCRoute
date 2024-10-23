@@ -1,99 +1,31 @@
 @startuml 
 
-entity IfcGeomodel
-
 entity "IfcGeotechnicalStratum-Rock bed" <<DefinedInThisDiagram>>
 {
-  *GlobalId : text
-  +OwnerHistory
-  *Name :text
-  +Description : text
-  +ObjectType : text
-  *ObjectPlacement
-  *Representation
-  +Tag : text
-  *PredefinedType : SOLID
-  ..
-  *Decomposes
-  *HasAssociations
-  +IsDefinedBy
-  +HasOpenings
+  ObjectPlacement
+  Representation
+  *PredefinedType : text = SOLID
 }
 
-entity "IfcEarthWorksCut-Rock" <<DefinedInThisDiagram>>
-{
-  *GlobalId : text
-  +OwnerHistory
-  *Name :text
-  +Description : text
-  +ObjectType : text
-  *ObjectPlacement
-  *Representation
-  +Tag : text
-  *PredefinedType : text
-  ..
-  *VoidsElements
-  *HasAssociations
-  +IsDefinedBy
-}
-
-IfcGeomodel ||--"IfcGeotechnicalStratum-Rock bed::Decomposes" : IfcRelAggregates
-
-entity IfcClassification <<DefinedInAnotherDiagram>>
-entity IfcClassificationReference <<DefinedInAnotherDiagram>>
-entity "IfcMaterialDefinition-Stratum" <<DefinedInAnotherDiagram>>
-entity IfcMaterialConstituentSet <<DefinedInAnotherDiagram>>
-entity IfcMaterialConstituent <<DefinedInAnotherDiagram>>
-entity IfcMaterial <<DefinedInAnotherDiagram>>
-
-entity "IfcPropertySet-PsetStratum" <<UndefinedEntity>>
-
-entity "IfcPropertySet-bSFStratum" <<DefinedInAnotherDiagram>>
-
-entity "IfcQuantitySet-Stratum" <<DefinedInAnotherDiagram>>
-
-entity "IfcProductDefinitionShape-BrepWithBreaklines" <<DefinedInAnotherDiagram>>
-"IfcEarthWorksCut-Rock::Representation" --|| "IfcProductDefinitionShape-BrepWithBreaklines"
-
-entity "IfcQuantitySet-Cut" <<DefinedInAnotherDiagram>>
-
-entity IfcOwnerHistory <<UndefinedEntity>> 
-"IfcGeotechnicalStratum-Rock bed::OwnerHistory" --o| IfcOwnerHistory
-"IfcEarthWorksCut-Rock::OwnerHistory" --o| IfcOwnerHistory
-
-entity "IfcLocalPlacement-Stratum" <<UndefinedEntity>>
-"IfcGeotechnicalStratum-Rock bed::ObjectPlacement" --|| "IfcLocalPlacement-Stratum"
+entity IfcLocalPlacement <<UndefinedEntity>>
+"IfcGeotechnicalStratum-Rock bed::ObjectPlacement" --|| IfcLocalPlacement
 
 entity "IfcProductDefinitionShape-TIN" <<DefinedInAnotherDiagram>>
 "IfcGeotechnicalStratum-Rock bed::Representation" --|| "IfcProductDefinitionShape-TIN"
 
+entity IfcClassificationReference <<UndefinedEntity>>
+"IfcGeotechnicalStratum-Rock bed" --|{ IfcClassificationReference : IfcRelAssociatesClassification
 
-entity "IfcLocalPlacement-Cut" <<UndefinedEntity>>
+entity "IfcEarthWorksCut-Rock" <<DefinedInAnotherDiagram>>
+"IfcGeotechnicalStratum-Rock bed" ||--o{ "IfcEarthWorksCut-Rock": IfcRelVoidsElement
 
-"IfcEarthWorksCut-Rock::ObjectPlacement" --|| "IfcLocalPlacement-Cut"
-"IfcLocalPlacement-Cut"..||"IfcLocalPlacement-Stratum"
+protocol "IfcPropertySet-Stratum" <<DefinedInAnotherDiagram>>
+protocol "IfcPropertySet-bSFStratum" <<DefinedInAnotherDiagram>>
+protocol "IfcElementQuantity-Stratum" <<DefinedInAnotherDiagram>>
 
-"IfcGeotechnicalStratum-Rock bed::HasOpenings" ||--o{ "IfcEarthWorksCut-Rock::VoidsElements": IfcRelVoidsElement
+"IfcGeotechnicalStratum-Rock bed" --o| "IfcPropertySet-bSFStratum" : IfcRelDefinesByProperties
+"IfcGeotechnicalStratum-Rock bed" --o{ "IfcPropertySet-Stratum" : IfcRelDefinesByProperties
+"IfcGeotechnicalStratum-Rock bed" --o{ "IfcElementQuantity-Stratum" : IfcRelDefinesByProperties
 
-
-"IfcGeotechnicalStratum-Rock bed::IsDefinedBy" --o{ "IfcPropertySet-bSFStratum" : IfcRelDefinesByProperties
-"IfcGeotechnicalStratum-Rock bed::IsDefinedBy" --o{ "IfcPropertySet-PsetStratum" : IfcRelDefinesByProperties
-"IfcGeotechnicalStratum-Rock bed::IsDefinedBy" --o{ "IfcQuantitySet-Stratum" : IfcRelDefinesByProperties
-
-"IfcEarthWorksCut-Rock::IsDefinedBy" --o| "IfcQuantitySet-Cut" : IfcRelDefinesByProperties
-
-
-IfcClassificationReference}|--||IfcClassification 
-"IfcEarthWorksCut-Rock::HasAssociations" --|{ IfcClassificationReference : IfcRelAssociatesClassification
-"IfcGeotechnicalStratum-Rock bed::HasAssociations" --|{ IfcClassificationReference : IfcRelAssociatesClassification
-"IfcGeotechnicalStratum-Rock bed::HasAssociations" --o| "IfcMaterialDefinition-Stratum" : IfcRelAssociatesMaterial
-
-<> diamond
-
-"IfcMaterialDefinition-Stratum" - diamond
-diamond - "0..1" IfcMaterialConstituentSet
-diamond - "0..1" IfcMaterial
-IfcMaterialConstituentSet--|{IfcMaterialConstituent
-IfcMaterialConstituent--||IfcMaterial
 
 @enduml
