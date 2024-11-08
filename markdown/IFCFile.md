@@ -87,20 +87,20 @@ Structural layers are defined by IfcCourse entities.
 #### Table:bSF_Pset_CourseCommon {#tbl:bSF_Pset_CourseCommon}
 | Name | Property type | Data type | Description| Use |
 |----------|----------|----------|----------|----------|
-|LoadCapacity|IcfSingleValue|IfcPlanarForceMeasure|Load capacity| [ ] QTO<br/> [x] Design to construction<br/> [x] Digital handover|
-|Granulation|IfcSingleValue|IfcLabel|Granule size, ie. 16-20mm|[ ] QTO<br/>[x] Design to construction<br/>[x] Digital handover|
-|Color|IfcSingleValue|IfcColour|Material color|[ ] QTO<br/>[x] Design to construction<br/>[x] Digital handover|
+|LoadCapacity|IcfSingleValue|IfcPlanarForceMeasure|Load capacity|[ ] QTO [x] D2C [x] DH|
+|Granulation|IfcSingleValue|IfcLabel|Granule size, ie. 16-20mm|[ ] QTO [x] D2C [x] DH|
+|Color|IfcSingleValue|IfcColour|Material color|[ ] QTO [x] D2C [x] DH|
 
 #### Table:bSF_Pset_SurfaceCourse {#tbl:bSF_Pset_SurfaceCourse}
 
 | Name | Property type | Data type | Description| Use |
 |----------|----------|----------|----------|----------|
-|ElasticModulus|IcfSingleValue|IfcModulusOfElasticityMeasure|Elastic modulus|[ ] QTO<br/>[x] Design to construction<br/>[x] Digital handover|
-|MaterialStrength|IcfSingleValue|IcfLabel|Material strength|[ ] QTO<br/>[x] Design to construction<br/>[x] Digital handover|
-|MassType|IfcSingleValue|IfcLabel|Required|Mass type, ie. AB|[ ] QTO<br/>[x] Design to construction<br/>[x] Digital handover|
-|DeformationClass|IfcSingleValue|IfcLabel|Deformation class|[ ] QTO<br/>[x] Design to construction<br/>[x] Digital handover|
-|AbrasionResistance|IfcSingleValue|IfcLabel|Abrasion resistance|[ ] QTO<br/>[x] Design to construction<br/>[x] Digital handover|
-|MixRatio|IfcSingleValue|IfcPositiveRatioMeasure|Rock/Binder ratio|[ ] QTO<br/>[x] Design to construction<br/>[x] Digital handover|
+|ElasticModulus|IcfSingleValue|IfcModulusOfElasticityMeasure|Elastic modulus|[ ] QTO [x] D2C [x] DH|
+|MaterialStrength|IcfSingleValue|IcfLabel|Material strength|[ ] QTO [x] D2C [x] DH|
+|MassType|IfcSingleValue|IfcLabel|Required|Mass type, ie. AB|[ ] QTO [x] D2C [x] DH|
+|DeformationClass|IfcSingleValue|IfcLabel|Deformation class|[ ] QTO [x] D2C [x] DH|
+|AbrasionResistance|IfcSingleValue|IfcLabel|Abrasion resistance|[ ] QTO [x] D2C [x] DH|
+|MixRatio|IfcSingleValue|IfcPositiveRatioMeasure|Rock/Binder ratio|[ ] QTO [x] D2C [x] DH|
 
 ### Kerb - IfcKerb
 
