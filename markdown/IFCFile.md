@@ -18,7 +18,7 @@ The Ifc file header shall be populated according to the
 
 Specific rules applying to *description field* in *file_description* (for this version of the data exchange cases coverd in this document):
  - Mandatory keyword "ViewDefinition" fixed value "Ifc4X3NotAssigned"
- - Optional keyword "ExchangeRequirement" used with value (one or many) of "bSF-D2C | bSF-QTO | bSF-handover"
+ - Optional keyword "ExchangeRequirement" used with value (one or many) of "bSF-QTO | bSF-D2C | bSF-DH"
 
 
 # Entity definitions
@@ -85,22 +85,22 @@ Structural layers are defined by IfcCourse entities.
 
 
 #### Table:bSF_Pset_CourseCommon {#tbl:bSF_Pset_CourseCommon}
-| Name | Property type | Data type | Description| Use |
+| Name | Property type | Data type | Description| Usage |
 |----------|----------|----------|----------|----------|
-|LoadCapacity|IcfSingleValue|IfcPlanarForceMeasure|Load capacity|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
-|Granulation|IfcSingleValue|IfcLabel|Granule size, ie. 16-20mm|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
-|Color|IfcSingleValue|IfcColour|Material color|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
+|LoadCapacity|IcfSingleValue|IfcPlanarForceMeasure|Load capacity|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Granulation|IfcSingleValue|IfcLabel|Granule size, ie. 16-20mm|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Color|IfcSingleValue|IfcColour|Material color|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 #### Table:bSF_Pset_SurfaceCourse {#tbl:bSF_Pset_SurfaceCourse}
 
-| Name | Property type | Data type | Description| Use |
+| Name | Property type | Data type | Description| Usage |
 |----------|----------|----------|----------|----------|
-|ElasticModulus|IcfSingleValue|IfcModulusOfElasticityMeasure|Elastic modulus|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
-|MaterialStrength|IcfSingleValue|IcfLabel|Material strength|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
-|MassType|IfcSingleValue|IfcLabel|Required|Mass type, ie. AB|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
-|DeformationClass|IfcSingleValue|IfcLabel|Deformation class|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
-|AbrasionResistance|IfcSingleValue|IfcLabel|Abrasion resistance|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
-|MixRatio|IfcSingleValue|IfcPositiveRatioMeasure|Rock/Binder ratio|[ ] Bidding<br/>[x] Design to construction<br/>[x] Digital handover|
+|ElasticModulus|IcfSingleValue|IfcModulusOfElasticityMeasure|Elastic modulus|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|MaterialStrength|IcfSingleValue|IcfLabel|Material strength|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|MassType|IfcSingleValue|IfcLabel|Mass type, ie. AB|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|DeformationClass|IfcSingleValue|IfcLabel|Deformation class|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|AbrasionResistance|IfcSingleValue|IfcLabel|Abrasion resistance|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|MixRatio|IfcSingleValue|IfcPositiveRatioMeasure|Rock/Binder ratio|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 ### Kerb - IfcKerb
 

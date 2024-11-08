@@ -12,9 +12,9 @@ Also the content of this specification is limited to define:
 
 Following data exchange use cases are covered by this specification:
 
-- Earthworks and excavation bidding
-- Design to construction
-- Digital handover
+- Quantity takeoff (bSF_QTO)
+- Design to construction (bSF_D2C)
+- Digital handover (bSF_DH)
 
 LandXML based Inframodel format is widely used in Finland for the data excange use cases mentioned above.
 However, it is based on aging LandXML which is setting some limititations for the design file content. 
@@ -27,15 +27,15 @@ Transition to IFC-based data exchange would allow machine readable feature rich 
 
 In all three use cases the exchange of information is limited to covering superstructures, surface structures, structural layers and geometry lines of the route.
 
-### Earthwork and excavation bidding
+### Quantity takeoff (bSF_QTO)
 
 This use case describes the exchange of quantity information required for cost calculation. The specification includes the quantity information required in both design and construction phases, as well as a description of the required geometric representation.
 
-### Design to construction
+### Design to construction (bSF_D2C)
 
 This use case describes the exchange of information between construction plan phase and the construction phase. The specification includes attributes, properties and geometric representation that allow surveying and installing the structure on the site.
 
-### Digital handover
+### Digital handover (bSF_DH)
 This use case describes the road as-built information exchange to the customer's systems. The specification includes the necessary attributes, properties and geometric presentation that enable the information required by the subscriber to be transferred to the customer's systems, such as registers or asset management systems. 
 
 ## Presentation format
