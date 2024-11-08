@@ -1,0 +1,41 @@
+@startuml 
+
+entity IfcGeometricRepresentationContext-3D <<DefinedInThisDiagram>>
+{
+  *ContextIdentifier : text = 3D
+  *ContextType : text = Model
+  *CoordinateSpaceDimension : integer = 3
+  *Precision : real = 1.E-5
+  WorldCoordinateSystem
+  +TrueNorth : $
+  HasCoordinateOperation
+}
+
+entity IfcAxis2Placement3D  <<DefinedInThisDiagram>>
+{
+  Location
+  +Axis : $ 
+  +RefDirection : $
+}
+
+entity IfcCartesianPoint  <<DefinedInThisDiagram>>
+{
+  *Coordinates : list of real = 0.0 , 0.0 , 0.0
+}
+
+"IfcGeometricRepresentationContext-3D::WorldCoordinateSystem"--||IfcAxis2Placement3D
+
+IfcAxis2Placement3D::Location--||IfcCartesianPoint
+
+entity IfcMapConversion <<DefinedInThisDiagram>>
+{
+  SourceCRS
+  TargetCRS 
+}
+
+entity IfcProjectedCRS <<UndefinedEntity>>
+
+"IfcGeometricRepresentationContext-3D::HasCoordinateOperation"--IfcMapConversion::SourceCRS
+IfcMapConversion::TargetCRS--IfcProjectedCRS
+
+@enduml

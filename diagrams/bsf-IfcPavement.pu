@@ -3,13 +3,40 @@
 
 entity IfcPavement <<DefinedInThisDiagram>>
 {
-
+  ObjectPlacement = $
+  Representation = $
 }
+
+protocol "IfcPropertySet-Pavement" <<DefinedInThisDiagram>>
+{
+    Pset_PavementCommon
+    Pset_PavementSurfaceCommon
+	Pset_Tiling
+}
+IfcPavement --o{ "IfcPropertySet-Pavement" : IfcRelDefinesByProperties
+
+protocol "IfcPropertySet-bSFPavement" <<DefinedInThisDiagram>>
+{
+    bSF_Pset_PavementCommon
+}
+IfcPavement --o| "IfcPropertySet-bSFPavement" : IfcRelDefinesByProperties
+
+protocol "IfcElementQuantity-Pavement" <<DefinedInThisDiagram>>
+{
+    Qto_PavementBaseQuantities
+}
+IfcPavement --o| "IfcElementQuantity-Pavement" : IfcRelDefinesByProperties
 
 entity IfcCourse <<DefinedInAnotherDiagram>>
 entity IfcKerb <<DefinedInAnotherDiagram>>
 
-IfcPavement--{IfcCourse
-IfcPavement--{IfcKerb
+entity IfcClassificationReference <<UndefinedEntity>>
+IfcPavement --o{ IfcClassificationReference : IfcRelAssociatesClassification
+
+
+IfcPavement--{IfcCourse : IfcRelAggregates
+IfcPavement--o{IfcKerb : IfcRelAggregates
+
+
 
 @enduml

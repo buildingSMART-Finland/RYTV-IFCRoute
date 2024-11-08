@@ -1,25 +1,23 @@
 @startuml 
 
 entity IfcRoad <<DefinedInThisDiagram>>
-{
-    ContainsElements
-    IsDefinedBy
-}
-
 
 entity IfcAlignment <<DefinedInAnotherDiagram>>
 
-protocol bSF_Pset_RoadProperties <<DefinedInAnotherDiagram>>
+entity IfcVirtualElement <<DefinedInAnotherDiagram>>
+
+protocol "IfcPropertySet-Road" <<DefinedInThisDiagram>>
+{
+  Pset_RoadDesignCriteriaCommon
+}
 
 entity IfcPavement <<DefinedInAnotherDiagram>>
 
-IfcRoad::ContainsElements||--||IfcPavement
+IfcRoad --o{ IfcPavement : IfcRelContainedInSpatialStructure
+IfcRoad --o{ IfcVirtualElement : IfcRelContainedInSpatialStructure
 
+IfcRoad --o| "IfcPropertySet-Road" : IfcRelDefinesByProperties
 
-
-
-IfcRoad::IsDefinedBy||--||bSF_Pset_RoadProperties
-
-IfcRoad||..||IfcAlignment : IfcRelReferencedInSpatialStructure
+IfcRoad--||IfcAlignment : IfcRelReferencedInSpatialStructure
 
 @enduml

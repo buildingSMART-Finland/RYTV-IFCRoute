@@ -1,51 +1,29 @@
-## IfcKerb geometry representation: Sectioned solid and Breaklines
-
-
 @startuml 
 
-entity IfcKerb
-
-entity "IfcGeometricRepresentationSubContext-Volumes"
-
-entity "IfcProductDefinitionShape-SolidwithBreaklines" #white
+entity "IfcProductDefinitionShape-SolidwithBreaklines" <<DefinedInThisDiagram>>
 {
-  +Name : text
-  +Description :text
-  *Representations
-  ..
-  *ShapeOfProduct
-  +HasShapeAspects
+  Representations
 }
 
-entity "IfcShapeRepresentation-SectionedSolid" #white
+entity "IfcShapeRepresentation-SectionedSolid" <<DefinedInThisDiagram>>
 {
-  *ContextOfItems
-  *RepresentationIdentifier : Body
-  *RepresentationType : AdvancedSweptSolid
-  *Items
-  ..
-  *OfProductRepresentation
+  *RepresentationIdentifier : text = Body
+  *RepresentationType : text = AdvancedSweptSolid
+  Items
   +OfShapeAspect : $
 }
 
-entity IfcSectionedSolidHorizontal #lightgray
-{
+entity IfcSectionedSolidHorizontal <<UndefinedEntity>>
 
-}
+entity "IfcShapeRepresentation-Breaklines" <<DefinedInAnotherDiagram>>
 
-entity "IfcShapeRepresentation-Breaklines"
-
-IfcKerb ||-- "IfcProductDefinitionShape-SolidwithBreaklines::ShapeOfProduct"
-
-"IfcProductDefinitionShape-SolidwithBreaklines::Representations" ||--|| "IfcShapeRepresentation-SectionedSolid::OfProductRepresentation"
+"IfcProductDefinitionShape-SolidwithBreaklines::Representations" --|| "IfcShapeRepresentation-SectionedSolid"
 "IfcProductDefinitionShape-SolidwithBreaklines::Representations" --o| "IfcShapeRepresentation-Breaklines"
 
 "IfcShapeRepresentation-SectionedSolid::Items"--||IfcSectionedSolidHorizontal
 
-"IfcShapeRepresentation-SectionedSolid::ContextOfItems"--||"IfcGeometricRepresentationSubContext-Volumes"
-
-entity IfcShapeAspect
-"IfcProductDefinitionShape-SolidwithBreaklines::HasShapeAspects"--o{IfcShapeAspect
+entity IfcShapeAspect <<DefinedInAnotherDiagram>>
+"IfcProductDefinitionShape-SolidwithBreaklines"--o{IfcShapeAspect
 
 
 @enduml

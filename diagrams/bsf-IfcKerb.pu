@@ -1,0 +1,55 @@
+@startuml 
+
+
+entity IfcKerb <<DefinedInThisDiagram>>
+{
+  ObjectPlacement
+  Representation
+  ..
+  ConnectedFrom
+}
+
+entity IfcClassificationReference <<UndefinedEntity>>
+IfcKerb --|{ IfcClassificationReference : IfcRelAssociatesClassification
+
+entity "IfcProductDefinitionShape-SolidwithBreaklines" <<DefinedInAnotherDiagram>>
+IfcKerb::Representation --|| "IfcProductDefinitionShape-SolidwithBreaklines"
+
+entity IfcLocalPlacement <<UndefinedEntity>>
+IfcKerb::ObjectPlacement --|| IfcLocalPlacement
+
+
+protocol "IfcPropertySet-Kerb" <<DefinedInThisDiagram>>
+{
+    Pset_KerbCommon
+    Pset_KerbStone
+    Pset_OnSiteCastKerb
+    Pset_PrecastKerbStone
+    Pset_RadiiKerbStone
+}
+IfcKerb --o{ "IfcPropertySet-Kerb" : IfcRelDefinesByProperties
+
+protocol "IfcPropertySet-bSFKerb" <<DefinedInThisDiagram>>
+{
+    bSF_Pset_KerbCommon
+}
+IfcKerb --o| "IfcPropertySet-bSFKerb" : IfcRelDefinesByProperties
+
+protocol "IfcElementQuantity-Kerb" <<DefinedInThisDiagram>>
+{
+    Qto_KerbBaseQuantities
+}
+IfcKerb --o| "IfcElementQuantity-Kerb" : IfcRelDefinesByProperties
+
+
+entity "IfcRelConnectsElements-Kerb" <<DefinedInThisDiagram>>
+{
+  RelatingElement
+  RelatedElement
+}
+
+entity IfcCourse <<DefinedInAnotherDiagram>>
+IfcCourse::ConnectedTo -- "IfcRelConnectsElements-Kerb::RelatingElement" 
+IfcKerb::ConnectedFrom --o{ "IfcRelConnectsElements-Kerb::RelatedElement" 
+
+@enduml

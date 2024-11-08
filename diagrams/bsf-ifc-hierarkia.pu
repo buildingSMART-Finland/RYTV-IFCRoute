@@ -1,5 +1,8 @@
 @startuml 
 
+note "IN <u>THIS</u> DIAGRAM:\n Hierarchical relationships (containment, aggregation, voiding): solid line\n all others (references): dashed line" as N0
+
+
 entity IFC_step_file <<DefinedInAnotherDiagram>>
 
 entity IfcProject <<DefinedInAnotherDiagram>>
@@ -14,11 +17,11 @@ IfcSite||--o{IfcRoad : IfcRelAggregates
 
 
 entity IfcVirtualElement <<DefinedInAnotherDiagram>>
-IfcRoad||--||IfcVirtualElement : IfcRelContainedInSpatialStructure
+IfcRoad||--o{IfcVirtualElement : IfcRelContainedInSpatialStructure
 
 entity IfcGeomodel <<DefinedInAnotherDiagram>>
 
-IfcSite||--|{IfcGeomodel : IfcRelContainedInSpatialStructure
+IfcSite||--o{IfcGeomodel : IfcRelContainedInSpatialStructure
 
 entity "IfcGeotechnicalStratum-Terrain" <<DefinedInAnotherDiagram>>
 IfcGeomodel||--|{"IfcGeotechnicalStratum-Terrain":IfcRelAggregates
@@ -41,28 +44,15 @@ IfcRoad}o.."IfcEarthWorksCut-Soil": IfcRelReferencedInSpatialStructure
 entity IfcEarthWorksFill <<DefinedInAnotherDiagram>>
 IfcRoad||--|{IfcEarthWorksFill : IfcRelContainedInSpatialStructure
 
-IfcEarthWorksFill..IfcEarthWorksFill:IfcRelConnectsElements
-
-"IfcEarthWorksCut-Rock"..IfcEarthWorksFill :IfcRelConnectsElements 
-"IfcEarthWorksCut-Soil"..IfcEarthWorksFill :IfcRelConnectsElements 
-
 entity IfcCourse <<DefinedInAnotherDiagram>>
 IfcPavement||--|{IfcCourse :IfcRelAggregates
 
-IfcCourse..IfcCourse:IfcRelConnectsElements
-IfcCourse..IfcEarthWorksFill:IfcRelConnectsElements
-
 entity IfcKerb <<DefinedInAnotherDiagram>>
 IfcPavement||--o{IfcKerb :IfcRelAggregates
-IfcCourse..IfcKerb:IfcRelConnectsElements
-
 
 entity IfcAlignment <<DefinedInAnotherDiagram>>
 IfcProject||--o{IfcAlignment : IfcRelAggregates
 
-
 IfcRoad||..||IfcAlignment : IfcRelReferencedInSpatialStructure
-
-
 
 @enduml

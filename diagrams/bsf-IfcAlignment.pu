@@ -1,31 +1,64 @@
 @startuml 
 
 entity IfcRoad <<DefinedInAnotherDiagram>>
-entity IfcProject <<DefinedInAnotherDiagram>>
 
 entity IfcAlignment <<DefinedInThisDiagram>>
 {
     ObjectPlacement
     Representation
-    HasAssociations
 }
 
 entity IfcProductDefinitionShape-Alignment <<DefinedInAnotherDiagram>>
+IfcAlignment::Representation--||"IfcProductDefinitionShape-Alignment" 
 
 entity IfcLocalPlacement <<UndefinedEntity>>
-IfcAlignment::ObjectPlacement||--||IfcLocalPlacement
+IfcAlignment::ObjectPlacement--||IfcLocalPlacement
 
-entity IfcClassificationReference <<DefinedInAnotherDiagram>>
-IfcAlignment::HasAssociations --o{ IfcClassificationReference : IfcRelAssociatesClassification
-IfcAlignment::Representation||--||"IfcProductDefinitionShape-Alignment" 
-IfcProject||--o{IfcAlignment : IfcRelAggregates
+entity IfcClassificationReference <<UndefinedEntity>>
+IfcAlignment --|{ IfcClassificationReference : IfcRelAssociatesClassification
+
+entity IfcReferent <<DefinedInThisDiagram>>
+{
+    ObjectPlacement
+    Representation
+	PredefinedType : text = STATION | SUPERELEVATIONEVENT | WIDTHEVENT
+}
+
+entity IfcProductDefinitionShape-Annotation <<DefinedInAnotherDiagram>>
+IfcReferent::Representation--o|"IfcProductDefinitionShape-Annotation" 
+
+entity IfcLinearPlacement <<UndefinedEntity>>
+
+IfcReferent::ObjectPlacement--||IfcLinearPlacement
+
+IfcAlignment --o{ IfcReferent : IfcRelNests
+
 entity IfcAlignmentHorizontal <<DefinedInAnotherDiagram>>
-IfcAlignment||--||IfcAlignmentHorizontal : IfcRelNests
 entity IfcAlignmentVertical <<DefinedInAnotherDiagram>>
-IfcAlignment||--||IfcAlignmentVertical : IfcRelNests
-entity IfcAlignmentCant <<DefinedInAnotherDiagram>>
-IfcAlignment||--o|IfcAlignmentCant : IfcRelNests
+entity IfcAlignmentCant <<UndefinedEntity>>
 
-IfcRoad||..||IfcAlignment : IfcRelReferencedInSpatialStructure
+<> sequence
+IfcAlignment -- sequence : IfcRelNests
+sequence --|| IfcAlignmentHorizontal
+sequence --|| IfcAlignmentVertical
+sequence --o|IfcAlignmentCant
+
+
+IfcRoad||--IfcAlignment : IfcRelReferencedInSpatialStructure
+
+protocol "IfcPropertySet-Alignment" <<DefinedInThisDiagram>>
+{
+  Pset_LinearReferencingMethod
+}
+IfcAlignment --o| "IfcPropertySet-Alignment" : IfcRelDefinesByProperties
+
+Protocol "IfcPropertySet-Referent" <<DefinedInThisDiagram>>
+{
+  Pset_Stationing
+  Pset_Superelevation
+  Pset_Width
+  
+}
+IfcReferent --o| "IfcPropertySet-Referent" : IfcRelDefinesByProperties
 
 @enduml
