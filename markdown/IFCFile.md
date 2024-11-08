@@ -85,22 +85,22 @@ Structural layers are defined by IfcCourse entities.
 
 
 #### Table:bSF_Pset_CourseCommon {#tbl:bSF_Pset_CourseCommon}
-| Name | Property type | Data type | Description| Use |
+| Name | Property type | Data type | Description| Usage |
 |----------|----------|----------|----------|----------|
-|LoadCapacity|IcfSingleValue|IfcPlanarForceMeasure|Load capacity|[ ] QTO [x] D2C [x] DH|
-|Granulation|IfcSingleValue|IfcLabel|Granule size, ie. 16-20mm|[ ] QTO [x] D2C [x] DH|
-|Color|IfcSingleValue|IfcColour|Material color|[ ] QTO [x] D2C [x] DH|
+|LoadCapacity|IcfSingleValue|IfcPlanarForceMeasure|Load capacity|QTO[ ] D2C[x] DH[x]|
+|Granulation|IfcSingleValue|IfcLabel|Granule size, ie. 16-20mm|QTO[ ] D2C[x] DH[x]|
+|Color|IfcSingleValue|IfcColour|Material color|QTO[ ] D2C[x] DH[x]|
 
 #### Table:bSF_Pset_SurfaceCourse {#tbl:bSF_Pset_SurfaceCourse}
 
-| Name | Property type | Data type | Description| Use |
+| Name | Property type | Data type | Description| Usage |
 |----------|----------|----------|----------|----------|
-|ElasticModulus|IcfSingleValue|IfcModulusOfElasticityMeasure|Elastic modulus|[ ] QTO [x] D2C [x] DH|
-|MaterialStrength|IcfSingleValue|IcfLabel|Material strength|[ ] QTO [x] D2C [x] DH|
-|MassType|IfcSingleValue|IfcLabel|Required|Mass type, ie. AB|[ ] QTO [x] D2C [x] DH|
-|DeformationClass|IfcSingleValue|IfcLabel|Deformation class|[ ] QTO [x] D2C [x] DH|
-|AbrasionResistance|IfcSingleValue|IfcLabel|Abrasion resistance|[ ] QTO [x] D2C [x] DH|
-|MixRatio|IfcSingleValue|IfcPositiveRatioMeasure|Rock/Binder ratio|[ ] QTO [x] D2C [x] DH|
+|ElasticModulus|IcfSingleValue|IfcModulusOfElasticityMeasure|Elastic modulus|QTO[ ] D2C[x] DH[x]|
+|MaterialStrength|IcfSingleValue|IcfLabel|Material strength|QTO[ ] D2C[x] DH[x]|
+|MassType|IfcSingleValue|IfcLabel|Mass type, ie. AB|QTO[ ] D2C[x] DH[x]|
+|DeformationClass|IfcSingleValue|IfcLabel|Deformation class|QTO[ ] D2C[x] DH[x]|
+|AbrasionResistance|IfcSingleValue|IfcLabel|Abrasion resistance|QTO[ ] D2C[x] DH[x]|
+|MixRatio|IfcSingleValue|IfcPositiveRatioMeasure|Rock/Binder ratio|QTO[ ] D2C[x] DH[x]|
 
 ### Kerb - IfcKerb
 
