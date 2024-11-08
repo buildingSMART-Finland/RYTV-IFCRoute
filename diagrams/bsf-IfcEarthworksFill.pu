@@ -1,0 +1,58 @@
+@startuml 
+
+entity IfcEarthWorksFill <<DefinedInThisDiagram>>
+{
+  ObjectPlacement
+  Representation
+  ..
+  ConnectedTo
+  ConnectedFrom
+}
+
+
+entity "IfcRelConnectsElements-Fill" <<DefinedInThisDiagram>>
+{
+  RelatingElement
+  RelatedElement
+}
+IfcEarthWorksFill::ConnectedFrom -- "IfcRelConnectsElements-Fill::RelatedElement" 
+
+entity "IfcEarthWorksCut-Rock" <<DefinedInAnotherDiagram>>
+entity "IfcEarthWorksCut-Soil" <<DefinedInAnotherDiagram>>
+
+
+<> choice
+"IfcRelConnectsElements-Fill::RelatingElement" - choice
+choice - IfcEarthWorksFill::ConnectedTo
+choice - "IfcEarthWorksCut-Rock"
+choice - "IfcEarthWorksCut-Soil"
+
+entity IfcClassificationReference <<UndefinedEntity>>
+IfcEarthWorksFill --|{ IfcClassificationReference : IfcRelAssociatesClassification
+
+entity "IfcProductDefinitionShape-TINwithBreaklines" <<DefinedInAnotherDiagram>>
+IfcEarthWorksFill::Representation --|| "IfcProductDefinitionShape-TINwithBreaklines"
+
+entity IfcLocalPlacement <<UndefinedEntity>>
+IfcEarthWorksFill::ObjectPlacement --|| IfcLocalPlacement
+
+protocol "IfcPropertySet-Fill" <<DefinedInThisDiagram>>
+{
+    Pset_TransitionSectionCommon
+}
+IfcEarthWorksFill --o{ "IfcPropertySet-Fill" : IfcRelDefinesByProperties
+
+protocol "IfcPropertySet-bSFFill" <<DefinedInThisDiagram>>
+{
+    bSF_Pset_FillCommon
+}
+IfcEarthWorksFill --o{ "IfcPropertySet-bSFFill" : IfcRelDefinesByProperties
+
+protocol "IfcElementQuantity-Fill" <<DefinedInThisDiagram>>
+{
+    Qto_EarthworksFillBaseQuantities
+}
+IfcEarthWorksFill --o| "IfcElementQuantity-Fill" : IfcRelDefinesByProperties
+
+
+@enduml

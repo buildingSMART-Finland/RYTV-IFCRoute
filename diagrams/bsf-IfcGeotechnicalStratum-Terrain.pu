@@ -1,102 +1,48 @@
 @startuml 
 
-entity IfcGeomodel <<DefinedInAnotherDiagram>>
 
 entity "IfcGeotechnicalStratum-Terrain" <<DefinedInThisDiagram>>
 {
-  *GlobalId : text
-  +OwnerHistory
-  *Name :text
-  +Description : text
-  +ObjectType : text
-  *ObjectPlacement
-  *Representation
-  +Tag : text
-  *PredefinedType : SOLID
-  ..
-  *Decomposes
-  *HasAssociations
-  +IsDefinedBy
-  +HasOpenings
+  ObjectPlacement
+  Representation
+  *PredefinedType : text = SOLID | VOID | WATER
 }
 
 entity "IfcEarthWorksCut-Soil" <<DefinedInAnotherDiagram>>
 
+entity IfcClassificationReference <<UndefinedEntity>>
+"IfcGeotechnicalStratum-Terrain" --|{ IfcClassificationReference : IfcRelAssociatesClassification
 
-IfcGeomodel ||--"IfcGeotechnicalStratum-Terrain::Decomposes" : IfcRelAggregates
-
-entity IfcClassification <<DefinedInAnotherDiagram>>
-entity IfcClassificationReference <<DefinedInAnotherDiagram>>
-
-entity "IfcPropertySet-PsetStratum" <<DefinedInThisDiagram>>
+protocol "IfcPropertySet-Stratum" <<DefinedInThisDiagram>>
 {
-  *GlobalId : text
-  +OwnerHistory
-  *Name :text
-  +Description :text
-  ==
   Pset_GeotechnicalStratumCommon
   Pset_SolidStratumCapacity
-  etc
+  Pset_SolidStratumComposition
+  Pset_WaterStratumCommon
 }
 
-entity "IfcMaterialDefinition-Stratum" <<DefinedInAnotherDiagram>>
-
-entity "IfcPropertySet-bSFStratum" <<DefinedInThisDiagram>>
+protocol "IfcPropertySet-bSFStratum" <<DefinedInThisDiagram>>
 {
-  *GlobalId : text
-  +OwnerHistory
-  *Name :text
-  +Description :text
-  ==
-  etc
+  bSF_StratumCommon
 }
 
-entity "IfcQuantitySet-Stratum" <<DefinedInThisDiagram>>
+protocol "IfcElementQuantity-Stratum" <<DefinedInThisDiagram>>
 {
-  *GlobalId : text
-  +OwnerHistory
-  *Name :text
-  +Description :text
-  ==
   Qto_ArealStratumBaseQuantities
   Qto_LinearStratumBaseQuantities
   Qto_VolumetricStratumBaseQuantities
 }
 
-entity "IfcQuantitySet-Cut" <<DefinedInAnotherDiagram>>
-
-entity "IfcLocalPlacement-Stratum" <<DefinedInAnotherDiagram>>
-"IfcGeotechnicalStratum-Terrain::ObjectPlacement" --|| "IfcLocalPlacement-Stratum"
-
-entity IfcOwnerHistory <<UndefinedEntity>>
-"IfcGeotechnicalStratum-Terrain::OwnerHistory" --o| IfcOwnerHistory
-"IfcEarthWorksCut-Soil::OwnerHistory" --o| IfcOwnerHistory
+entity IfcLocalPlacement <<UndefinedEntity>>
+"IfcGeotechnicalStratum-Terrain::ObjectPlacement" --|| IfcLocalPlacement
 
 entity "IfcProductDefinitionShape-TIN" <<DefinedInAnotherDiagram>>
 "IfcGeotechnicalStratum-Terrain::Representation" --|| "IfcProductDefinitionShape-TIN"
 
+"IfcGeotechnicalStratum-Terrain" --o{ "IfcEarthWorksCut-Soil": IfcRelVoidsElement
 
-entity "IfcProductDefinitionShape-BrepwithBreaklines" <<DefinedInAnotherDiagram>>
-"IfcEarthWorksCut-Soil::Representation" --|| "IfcProductDefinitionShape-BrepwithBreaklines"
-
-"IfcGeotechnicalStratum-Terrain::HasOpenings" ||--o{ "IfcEarthWorksCut-Soil::VoidsElements": IfcRelVoidsElement
-
-entity "IfcLocalPlacement-Cut" <<UndefinedEntity>>
-"IfcEarthWorksCut-Soil::ObjectPlacement" --|| "IfcLocalPlacement-Cut"
-
-"IfcLocalPlacement-Cut"..||"IfcLocalPlacement-Stratum"
-
-"IfcGeotechnicalStratum-Terrain::IsDefinedBy" --o{ "IfcPropertySet-bSFStratum" : IfcRelDefinesByProperties
-"IfcGeotechnicalStratum-Terrain::IsDefinedBy" --o{ "IfcPropertySet-PsetStratum"  : IfcRelDefinesByProperties
-"IfcGeotechnicalStratum-Terrain::IsDefinedBy" --o{ "IfcQuantitySet-Stratum"  : IfcRelDefinesByProperties
-"IfcEarthWorksCut-Soil::IsDefinedBy" --o| "IfcQuantitySet-Cut"  : IfcRelDefinesByProperties
-
-
-IfcClassificationReference}|--||IfcClassification 
-"IfcEarthWorksCut-Soil::HasAssociations" --|{ IfcClassificationReference : IfcRelAssociatesClassification
-"IfcGeotechnicalStratum-Terrain::HasAssociations" --|{ IfcClassificationReference : IfcRelAssociatesClassification
-"IfcGeotechnicalStratum-Terrain::HasAssociations" --o| "IfcMaterialDefinition-Stratum" : IfcRelAssociatesMaterial
-
+"IfcGeotechnicalStratum-Terrain" --o| "IfcPropertySet-bSFStratum" : IfcRelDefinesByProperties
+"IfcGeotechnicalStratum-Terrain" --o{ "IfcPropertySet-Stratum"  : IfcRelDefinesByProperties
+"IfcGeotechnicalStratum-Terrain" --o{ "IfcElementQuantity-Stratum"  : IfcRelDefinesByProperties
 
 @enduml

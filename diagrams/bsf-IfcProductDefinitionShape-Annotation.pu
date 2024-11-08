@@ -1,0 +1,26 @@
+@startuml 
+
+entity "IfcProductDefinitionShape-Annotation" <<DefinedInThisDiagram>>
+{
+  Representations
+  +HasShapeAspects : $
+}
+
+entity "IfcShapeRepresentation-Annotation" <<DefinedInThisDiagram>>
+{
+  *RepresentationIdentifier : text = Annotation
+  *RepresentationType : text = Annotation2D
+  Items
+  OfProductRepresentation
+  +OfShapeAspect : $
+}
+
+entity IfcGeometricCurveSet <<UndefinedEntity>>
+
+"IfcProductDefinitionShape-Annotation::Representations" --|| "IfcShapeRepresentation-Annotation::OfProductRepresentation"
+
+"IfcShapeRepresentation-Annotation::Items"--|{ IfcGeometricCurveSet
+
+@enduml
+
+

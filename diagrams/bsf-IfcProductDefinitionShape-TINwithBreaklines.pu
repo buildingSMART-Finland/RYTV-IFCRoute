@@ -1,77 +1,41 @@
-## IfcCourse and IfcVirtualEntity geometry representation: TIN with Breaklines
-
-
 @startuml 
 
-entity IfcCourse
-entity IfcVirtualEntity
-entity IfcClassificationReference #lightgray
-
-entity "IfcGeometricRepresentationSubContext-Curves"
-
-entity "IfcProductDefinitionShape-TINwithBreaklines" #white
+entity "IfcProductDefinitionShape-TINwithBreaklines" <<DefinedInThisDiagram>>
 {
-  +Name : text
-  +Description :text
-  *Representations
-  ..
-  *ShapeOfProduct
-  +HasShapeAspects
+  Representations
 }
 
-entity "IfcShapeRepresentation-TIN"
+entity "IfcShapeRepresentation-TIN" <<DefinedInAnotherDiagram>>
 
-entity "IfcShapeRepresentation-Breaklines" #white
+entity "IfcShapeRepresentation-Breaklines" <<DefinedInThisDiagram>>
 {
-  *ContextOfItems
-  *RepresentationIdentifier : Body
-  *RepresentationType : Curve3D
-  *Items
-  ..
-  *OfProductRepresentation
+  *RepresentationIdentifier : text = Body
+  *RepresentationType : text = Curve3D
+  Items
   +OfShapeAspect : $
 }
 
-entity IfcPolyline #lightgray
-
-entity "IfcShapeRepresentation-Breakline" #white
+entity "IfcShapeRepresentation-Breakline" <<DefinedInThisDiagram>>
 {
-  *ContextOfItems
-  *RepresentationIdentifier : Axis
-  *RepresentationType : Curve3D
-  *Items
-  ..
+  *RepresentationIdentifier : text = Axis
+  *RepresentationType : text = Curve3D
+  Items
   +OfProductRepresentation : $
-  *OfShapeAspect
 }
-
-entity IfcShapeAspect #white
-{
-  *ShapeRepresentations
-  +Name : text
-  +Description :text
-  *ProductDefinitional : TRUE
-  *PartOfProductDefinitionShape
-  ..
-  *HasExternalReferences
-}
-
-IfcCourse |o-- "IfcProductDefinitionShape-TINwithBreaklines::ShapeOfProduct"
-IfcVirtualEntity |o-- "IfcProductDefinitionShape-TINwithBreaklines::ShapeOfProduct"
 
 "IfcProductDefinitionShape-TINwithBreaklines::Representations" --|| "IfcShapeRepresentation-TIN"
-"IfcProductDefinitionShape-TINwithBreaklines::Representations" ||--o| "IfcShapeRepresentation-Breaklines::OfProductRepresentation"
+"IfcProductDefinitionShape-TINwithBreaklines::Representations" --o| "IfcShapeRepresentation-Breaklines"
+entity IfcPolyline <<UndefinedEntity>>
+"IfcShapeRepresentation-Breaklines::Items"--|{ IfcPolyline
+"IfcShapeRepresentation-Breakline::Items"--||IfcPolyline
 
-"IfcShapeRepresentation-Breaklines::Items"||--|{ IfcPolyline
-"IfcShapeRepresentation-Breakline::Items"||--||IfcPolyline
+entity IfcShapeAspect <<DefinedInThisDiagram>>
 
-IfcShapeAspect::ShapeRepresentations ||--|| "IfcShapeRepresentation-Breakline::OfShapeAspect"
-IfcShapeAspect::PartOfProductDefinitionShape }o--|| "IfcProductDefinitionShape-TINwithBreaklines::HasShapeAspects"
-IfcShapeAspect::HasExternalReferences --|{ IfcClassificationReference : IfcExternalReferenceRelationship
+IfcShapeAspect ||-- "IfcShapeRepresentation-Breakline"
+IfcShapeAspect }o-- "IfcProductDefinitionShape-TINwithBreaklines"
 
-"IfcShapeRepresentation-Breaklines::ContextOfItems"--||"IfcGeometricRepresentationSubContext-Curves"
-"IfcShapeRepresentation-Breakline::ContextOfItems"--||"IfcGeometricRepresentationSubContext-Curves"
-
+entity IfcClassificationReference <<UndefinedEntity>>
+IfcShapeAspect --|{ IfcClassificationReference : IfcExternalReferenceRelationship
 
 
 @enduml

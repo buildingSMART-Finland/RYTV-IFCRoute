@@ -1,96 +1,61 @@
 @startuml 
 
-
 entity IfcCourse <<DefinedInThisDiagram>>
 {
-  *ObjectPlacement
-  *Representation
+  ObjectPlacement
+  Representation
   ..
-  *HasAssociations
-  +IsDefinedBy
-  +ConnectedTo
-  +ConnectedFrom
+  ConnectedTo
+  ConnectedFrom
 }
 
-entity IfcClassificationReference <<DefinedInAnotherDiagram>>
-
-entity IfcPropertySet-IfcCourse <<DefinedInThisDiagram>>
-{
-    bSF_Pset_SurfaceCourse
-    bSF_Pset_CourseCommon
-    Pset_CourseCommon
-    Pset_BoundedCourseCommon
-    Pset_CourseApplicationConditions
-}
-
-'entity bSF_Pset_SurfaceCourse <<DefinedInAnotherDiagram>>
-
-
-'protocol bSF_Pset_CourseCommon <<DefinedInAnotherDiagram>>
-
-
-entity Qto_CourseBaseQuantities <<UndefinedEntity>>
-
-'protocol Pset_CourseCommon <<UndefinedEntity>>
-
-'protocol Pset_BoundedCourseCommon <<UndefinedEntity>>
-
-'protocol Pset_CourseApplicationConditions <<Undefinedentity>>
-
-
-IfcCourse::HasAssociations --|{ IfcClassificationReference : IfcRelAssociatesClassification
+entity IfcClassificationReference <<UndefinedEntity>>
+IfcCourse --|{ IfcClassificationReference : IfcRelAssociatesClassification
 
 entity "IfcProductDefinitionShape-TINwithBreaklines" <<DefinedInAnotherDiagram>>
-
 IfcCourse::Representation --|| "IfcProductDefinitionShape-TINwithBreaklines"
 
 entity IfcLocalPlacement <<UndefinedEntity>>
 IfcCourse::ObjectPlacement --|| IfcLocalPlacement
 
-IfcCourse::IsDefinedBy --o| "IfcPropertySet-IfcCourse" : IfcRelDefinesByProperties
-'IfcCourse::IsDefinedBy --o| bSF_Pset_CourseCommon : IfcRelDefinesByProperties
-'IfcCourse::IsDefinedBy --o| bSF_Pset_SurfaceCourse  : IfcRelDefinesByProperties
-'IfcCourse::IsDefinedBy --o| Pset_CourseCommon : IfcRelDefinesByProperties
-'IfcCourse::IsDefinedBy --o| Pset_BoundedCourseCommon : IfcRelDefinesByProperties
-'IfcCourse::IsDefinedBy --o| Pset_CourseApplicationConditions : IfcRelDefinesByProperties
+protocol "IfcPropertySet-Course" <<DefinedInThisDiagram>>
+{
+    Pset_CourseCommon
+    Pset_BoundedCourseCommon
+    Pset_CourseApplicationConditions
+}
+IfcCourse --o{ "IfcPropertySet-Course" : IfcRelDefinesByProperties
 
-IfcCourse::IsDefinedBy --o| Qto_CourseBaseQuantities : IfcRelDefinesByProperties
+protocol "IfcPropertySet-bSFCourse" <<DefinedInThisDiagram>>
+{
+    bSF_Pset_CourseCommon
+    bSF_Pset_SurfaceCourse
+}
+IfcCourse --o{ "IfcPropertySet-bSFCourse" : IfcRelDefinesByProperties
 
-entity IfcEarthWorksCut <<DefinedInAnotherDiagram>>
+protocol "IfcElementQuantity-Course" <<DefinedInThisDiagram>>
+{
+    Qto_CourseBaseQuantities
+}
+IfcCourse --o| "IfcElementQuantity-Course" : IfcRelDefinesByProperties
 
+entity "IfcRelConnectsElements-Course" <<DefinedInThisDiagram>>
+{
+  RelatingElement
+  RelatedElement
+}
+IfcCourse::ConnectedFrom --o{ "IfcRelConnectsElements-Course::RelatedElement" 
+
+
+entity "IfcEarthWorksCut-Rock" <<DefinedInAnotherDiagram>>
+entity "IfcEarthWorksCut-Soil" <<DefinedInAnotherDiagram>>
 entity IfcEarthWorksFill <<DefinedInAnotherDiagram>>
 
-
-entity "IfcRelConnectsElements-CourseToCut" <<DefinedInThisDiagram>>
-{
-  *RelatingElement
-  *RelatedElement
-}
-
-"IfcRelConnectsElements-CourseToCut::RelatingElement" --|| IfcEarthWorksCut
-"IfcRelConnectsElements-CourseToCut::RelatedElement" }o--|| IfcCourse::ConnectedFrom
-
-
-entity "IfcRelConnectsElements-CourseToCourse" <<DefinedInThisDiagram>>
-{
-  *RelatingElement
-}
-
-
-"IfcRelConnectsElements-CourseToCourse::RelatingElement" }o--|| IfcCourse::ConnectedTo
-"IfcRelConnectsElements-CourseToCourse::RelatedElement" }o--|| IfcCourse::ConnectedFrom
-
-
-entity "IfcRelConnectsElements-CourseToFill" <<DefinedInThisDiagram>>
-{
-  *RelatingElement
-  *RelatedElement
-}
-
-"IfcRelConnectsElements-CourseToFill::RelatingElement" --|| IfcEarthWorksFill
-"IfcRelConnectsElements-CourseToFill::RelatedElement" }o--|| IfcCourse::ConnectedFrom
-
-
-
+<> choice
+"IfcRelConnectsElements-Course::RelatingElement" - choice
+choice - IfcCourse::ConnectedTo
+choice - "IfcEarthWorksCut-Rock"
+choice - "IfcEarthWorksCut-Soil"
+choice - IfcEarthWorksFill
 
 @enduml

@@ -1,53 +1,34 @@
-## IfcEarthWorksCut (Soil or Rock) geometry representation: Brep and Breaklines
-
-
 @startuml 
 
-entity "IfcEarthWorksCut-Soil"
-entity "IfcEarthWorksCut-Rock"
-
-entity "IfcGeometricRepresentationSubContext-Volumes"
-
-entity "IfcProductDefinitionShape-BrepwithBreaklines" #white
+entity "IfcProductDefinitionShape-BrepwithBreaklines" <<DefinedInThisDiagram>>
 {
-  +Name : text
-  +Description :text
-  *Representations
-  ..
-  *ShapeOfProduct
-  +HasShapeAspects
+
+  Representations
 }
 
-entity "IfcShapeRepresentation-Brep" #white
+entity "IfcShapeRepresentation-Breaklines" <<DefinedInAnotherDiagram>>
+
+entity IfcShapeAspect <<DefinedInAnotherDiagram>>
+
+"IfcProductDefinitionShape-BrepwithBreaklines"--o{IfcShapeAspect
+
+entity "IfcShapeRepresentation-Brep" <<DefinedInThisDiagram>>
 {
-  *ContextOfItems
   *RepresentationIdentifier : Body
   *RepresentationType : Tessellation
-  *Items
-  ..
-  *OfProductRepresentation
+  Items
   +OfShapeAspect : $
 }
 
-entity IfcTriangulatedFaceSet #white
+entity IfcTriangulatedFaceSet <<DefinedInThisDiagram>>
 {
-  *Closed : TRUE
+  *Closed : boolean = TRUE
 }
 
-entity "IfcShapeRepresentation-Breaklines"
-
-"IfcEarthWorksCut-Soil" |o-- "IfcProductDefinitionShape-BrepwithBreaklines::ShapeOfProduct"
-"IfcEarthWorksCut-Rock" |o-- "IfcProductDefinitionShape-BrepwithBreaklines::ShapeOfProduct"
-
-"IfcProductDefinitionShape-BrepwithBreaklines::Representations" ||--|| "IfcShapeRepresentation-Brep::OfProductRepresentation"
+"IfcProductDefinitionShape-BrepwithBreaklines::Representations" --|| "IfcShapeRepresentation-Brep"
 "IfcProductDefinitionShape-BrepwithBreaklines::Representations" --o| "IfcShapeRepresentation-Breaklines"
 
-"IfcShapeRepresentation-Brep::Items"||--||IfcTriangulatedFaceSet
-
-"IfcShapeRepresentation-Brep::ContextOfItems"--||"IfcGeometricRepresentationSubContext-Volumes"
-
-entity IfcShapeAspect
-"IfcProductDefinitionShape-BrepwithBreaklines::HasShapeAspects"--o{IfcShapeAspect
+"IfcShapeRepresentation-Brep::Items"--||IfcTriangulatedFaceSet
 
 
 @enduml

@@ -1,0 +1,32 @@
+@startuml 
+
+entity IfcAlignment <<DefinedInAnotherDiagram>>
+
+entity IfcAlignmentVertical <<DefinedInThisDiagram>>
+
+
+entity IfcAlignmentSegment-Vertical <<DefinedInThisDiagram>>
+{
+    DesignParameters
+}
+
+IfcAlignmentVertical ||--|{ "IfcAlignmentSegment-Vertical" : IfcRelNests
+
+entity IfcAlignmentVerticalSegment <<DefinedInThisDiagram>>
+{
+    PredefinedType : text = CONSTANTGRADIENT | CIRCULARARC | PARABOLICARC
+}
+
+
+"IfcAlignmentSegment-Vertical::DesignParameters" ||--|| IfcAlignmentVerticalSegment
+
+IfcAlignment ||-- IfcAlignmentVertical : IfcRelNests
+
+
+protocol "IfcPropertySet-AlignmentVertical" <<DefinedInThisDiagram>>
+{
+  Pset_AlignmentVerticalSegmentCommon
+}
+"IfcAlignmentSegment-Vertical" --o| "IfcPropertySet-AlignmentVertical" : IfcRelDefinesByProperties
+
+@enduml

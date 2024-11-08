@@ -1,0 +1,25 @@
+@startuml 
+
+entity "IfcEarthWorksCut-Rock" <<DefinedInThisDiagram>>
+{
+  ObjectPlacement
+  Representation
+  *PredefinedType : text = CUT
+}
+
+entity IfcClassificationReference <<UndefinedEntity>>
+"IfcEarthWorksCut-Rock" --|{ IfcClassificationReference : IfcRelAssociatesClassification
+
+
+protocol "IfcElementQuantity-Cut" <<DefinedInAnotherDiagram>>
+
+entity IfcLocalPlacement <<UndefinedEntity>>
+"IfcEarthWorksCut-Rock::ObjectPlacement" --|| IfcLocalPlacement
+
+
+entity "IfcProductDefinitionShape-BrepwithBreaklines" <<DefinedInAnotherDiagram>>
+"IfcEarthWorksCut-Rock::Representation" --|| "IfcProductDefinitionShape-BrepwithBreaklines"
+
+"IfcEarthWorksCut-Rock" --o| "IfcElementQuantity-Cut"  : IfcRelDefinesByProperties
+
+@enduml

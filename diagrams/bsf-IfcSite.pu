@@ -2,64 +2,45 @@
 
 entity IfcSite <<DefinedInThisDiagram>>
 {
-  *ObjectPlacement
-  *Representation
-  ..
-  +IsDecomposedBy
-  +HasAssociations
-  +IsDefinedBy
-  *ContainsElements
+  ObjectPlacement
+  Representation
 }
 
-
-entity IfcProject <<DefinedInAnotherDiagram>>
 entity IfcRoad <<DefinedInAnotherDiagram>> 
 
-IfcProject||--IfcSite::Decomposes : IfcRelAggregates
+IfcSite--o{IfcRoad : IfcRelAggregates
 
-IfcSite::IsDecomposedBy--o{IfcRoad : IfcRelAggregates
-
-protocol "IfcPropertySet-PsetSite" <<DefinedInThisDiagram>>
+protocol "IfcPropertySet-Site" <<DefinedInThisDiagram>>
 {
-  ==
   Pset_Address
   Pset_LandRegistration
   Pset_SiteCommon
   Pset_SiteWeather
-  etc
 }
 
 entity IfcGeomodel <<DefinedInAnotherDiagram>>
-IfcSite::ContainsElements--|{IfcGeomodel : IfcRelContainedInSpatialStructure
+IfcSite::ContainsElements--o{IfcGeomodel : IfcRelContainedInSpatialStructure
 
 protocol "IfcPropertySet-bSFSite" <<DefinedInThisDiagram>>
 {
-  ==
   bSF_SiteCommon
-  etc
 }
 
-protocol "IfcQuantitySetSite" <<DefinedInThisDiagram>>
+protocol "IfcElementQuantity-Site" <<DefinedInThisDiagram>>
 {
-  ==
   Qto_SiteBaseQuantities
-  etc
 }
 
-
-entity IfcClassificationReference <<DefinedInAnotherDiagram>>
-IfcSite::HasAssociations --o{ IfcClassificationReference : IfcRelAssociatesClassification
-
-entity "IfcProductDefinitionShape-Footprint" <<UndefinedEntity>>
+entity "IfcProductDefinitionShape-Footprint" <<DefinedInAnotherDiagram>>
 IfcSite::Representation --o| "IfcProductDefinitionShape-Footprint"
 
 entity IfcLocalPlacement <<UndefinedEntity>>
 IfcSite::ObjectPlacement--||IfcLocalPlacement
 
 
-IfcSite::IsDefinedBy --o{ "IfcPropertySet-PsetSite"
-IfcSite::IsDefinedBy --o{ "IfcPropertySet-bSFSite"
-IfcSite::IsDefinedBy --o{ "IfcQuantitySetSite"
+IfcSite --o{ "IfcPropertySet-Site" : IfcRelDefinesByProperties
+IfcSite --o| "IfcPropertySet-bSFSite" : IfcRelDefinesByProperties
+IfcSite --o| "IfcElementQuantity-Site" : IfcRelDefinesByProperties
 
 
 @enduml
