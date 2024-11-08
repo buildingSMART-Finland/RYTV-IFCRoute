@@ -14,9 +14,6 @@ Document artefacts are built automatically from this repository by github CI act
 ### /.github/workflows
 Workflows folder contains the github actions CI automation script(s).
 
-### /examples
-Examples folder contains documented example files/filesets. 
-
 ### /diagrams
 Diagrams folder contains plantuml diagrams, referenced by documentation
 
@@ -25,9 +22,6 @@ Figures folder contains all figures used by the documentation.
 
 ### /markdown
 Markdown folder contains the editable parts of documentation as markdown(.md) documents. 
-  
-### /schema
-Schema folder contains the editable schemas. 
 
 ## How to contribute
 
