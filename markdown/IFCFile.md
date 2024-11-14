@@ -61,6 +61,11 @@ IfcAlignmentCant shall be used as defined in IFC specification (no additional ru
 
 ![IfcRoad]({{diagramasfigure bsf-IfcRoad.pu}} "IfcRoad"){{figst ifcroad}}
 
+#### Table:bSF_Pset_Road {#tbl:bSF_Pset_Road}
+| Name | Property type | Data type | Description| Usage |
+|----------|----------|----------|----------|----------|
+|Status|IfcPropertyEnumeratedValue|PEnum_ElementStatus|Status (new,existing,demolish,temporary)|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 ## Structural model
 
 Structural model of a route comprises subgrade and pavement (and their parts).
@@ -77,22 +82,49 @@ IfcPavement acts as an collection of courses and kerbs.
 
 ![IfcPavement]({{diagramasfigure bsf-IfcPavement.pu}} "IfcPavement"){{figst IfcPavement}}
 
+#### Table:Pset_PavementCommon {#tbl:Pset_PavementCommon}
+| Name | Property type | Data type | Description| Usage |
+|----------|----------|----------|----------|----------|
+|NominalThickness|IcfSingleValue|IfcNonNegativeLengthMeasure|Nominal thickness|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalWidth|IcfSingleValue|IfcNonNegativeLengthMeasure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
+#### Table:Qto_PavementBaseQuantities {#tbl:Qto_PavementBaseQuantities}
+| Name | Property type | Data type | Description| Usage |
+|----------|----------|----------|----------|----------|
+|Width|IcfSingleValue|IfcQuantityLength|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Depth|IcfSingleValue|IfcQuantityLength|Depth|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NetArea|IcfSingleValue|IfcQuantityArea|Area|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NetVolume|IcfSingleValue|IfcQuantityVolume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 ### Courses - IfcCourse
 
 Structural layers are defined by IfcCourse entities.
 
 ![IfcCourse]({{diagramasfigure bsf-IfcCourse.pu}} "IfcCourse"){{figst ifccourse}}
 
+#### Table:Pset_CourseCommon {#tbl:Pset_CourseCommon}
+| Name | Property type | Data type | Description| Usage |
+|----------|----------|----------|----------|----------|
+|NominalThickness|IcfSingleValue|IfcNonNegativeLengthMeasure|Nominal thickness|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalWidth|IcfSingleValue|IfcNonNegativeLengthMeasure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
+#### Table:Qto_CourseBaseQuantities {#tbl:Qto_CourseBaseQuantities}
+| Name | Property type | Data type | Description| Usage |
+|----------|----------|----------|----------|----------|
+|Length|IcfSingleValue|IfcQuantityLength|Length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Width|IcfSingleValue|IfcQuantityLength|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Thickness|IcfSingleValue|IfcQuantityLength|Depth|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Volume|IcfSingleValue|IfcQuantityVolume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 #### Table:bSF_Pset_CourseCommon {#tbl:bSF_Pset_CourseCommon}
 | Name | Property type | Data type | Description| Usage |
 |----------|----------|----------|----------|----------|
+|MaterialName|IcfSingleValue|IcfLabel|Material name|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |LoadCapacity|IcfSingleValue|IfcPlanarForceMeasure|Load capacity|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |Granulation|IfcSingleValue|IfcLabel|Granule size, ie. 16-20mm|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|Color|IfcSingleValue|IfcColour|Material color|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Color|IfcSingleValue|IfcColor|Material color|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 #### Table:bSF_Pset_SurfaceCourse {#tbl:bSF_Pset_SurfaceCourse}
-
 | Name | Property type | Data type | Description| Usage |
 |----------|----------|----------|----------|----------|
 |ElasticModulus|IcfSingleValue|IfcModulusOfElasticityMeasure|Elastic modulus|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
@@ -100,17 +132,48 @@ Structural layers are defined by IfcCourse entities.
 |MassType|IfcSingleValue|IfcLabel|Mass type, ie. AB|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |DeformationClass|IfcSingleValue|IfcLabel|Deformation class|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |AbrasionResistance|IfcSingleValue|IfcLabel|Abrasion resistance|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|ShockResistance|IfcSingleValue|IfcLabel|Shock resistance|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |MixRatio|IfcSingleValue|IfcPositiveRatioMeasure|Rock/Binder ratio|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 ### Kerb - IfcKerb
 
 ![IfcKerb]({{diagramasfigure bsf-IfcKerb.pu}} "IfcKerb"){{figst ifckerb}}
 
-### Combinational surfaces - IfcVirtualElement
 
-Combinational surfaces (ie. highest and lowest combination of surfaces) shall be represented using IfcVirtualElement as defined on diagram below.
+#### Table:Pset_KerbStone {#tbl:Pset_KerbStone}
+| Name | Property type | Data type | Description| Usage |
+|----------|----------|----------|----------|----------|
+|NominalLength|IcfSingleValue|IfcNonNegativeLengthMeasure|Nominal length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalHeight|IcfSingleValue|IfcNonNegativeLengthMeasure|Nominal height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalWidth|IcfSingleValue|IfcNonNegativeLengthMeasure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
-![IfcVirtualElement]({{diagramasfigure bsf-IfcVirtualElement.pu}} "IfcVirtualElement"){{figst IfcVirtualElement}}
+#### Table:Pset_OnSiteCastKerb {#tbl:Pset_OnSiteCastKerb}
+| Name | Property type | Data type | Description| Usage |
+|----------|----------|----------|----------|----------|
+|NominalHeight|IcfSingleValue|IfcNonNegativeLengthMeasure|Nominal height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalWidth|IcfSingleValue|IfcNonNegativeLengthMeasure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
+
+#### Table:Pset_PrecastKerbStone {#tbl:Pset_PrecastKerbStone}
+| Name | Property type | Data type | Description| Usage |
+|----------|----------|----------|----------|----------|
+|Type|IcfSingleValue|IfcLabel|Type designation|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
+
+#### Table:bSF_Pset_KerbCommon {#tbl:bSF_Pset_KerbCommon}
+| Name | Property type | Data type | Description| Usage |
+|----------|----------|----------|----------|----------|
+|MaterialName|IcfSingleValue|IfcLabel|Material name|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Color|IcfSingleValue|IfcColor|Material color|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
+
+#### Table:Qto_KerbBaseQuantities {#tbl:Qto_KerbBaseQuantities}
+| Name | Property type | Data type | Description| Usage |
+|----------|----------|----------|----------|----------|
+|Length|IcfSingleValue|IfcQuantityLength|Length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Height|IcfSingleValue|IfcQuantityLength|Height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Width|IcfSingleValue|IfcQuantityLength|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 ## Geomodel - IfcGeomodel
 

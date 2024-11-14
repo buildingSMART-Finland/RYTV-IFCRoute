@@ -10,7 +10,7 @@ entity IfcRoad <<DefinedInAnotherDiagram>>
 
 IfcSite--o{IfcRoad : IfcRelAggregates
 
-protocol "IfcPropertySet-Site" <<DefinedInThisDiagram>>
+protocol "IfcPropertySet-Site" <<UndefinedEntity>>
 {
   Pset_Address
   Pset_LandRegistration
@@ -20,11 +20,6 @@ protocol "IfcPropertySet-Site" <<DefinedInThisDiagram>>
 
 entity IfcGeomodel <<DefinedInAnotherDiagram>>
 IfcSite::ContainsElements--o{IfcGeomodel : IfcRelContainedInSpatialStructure
-
-protocol "IfcPropertySet-bSFSite" <<DefinedInThisDiagram>>
-{
-  bSF_SiteCommon
-}
 
 protocol "IfcElementQuantity-Site" <<DefinedInThisDiagram>>
 {
@@ -38,7 +33,6 @@ entity IfcLocalPlacement <<UndefinedEntity>>
 IfcSite::ObjectPlacement--||IfcLocalPlacement
 
 
-IfcSite --o{ "IfcPropertySet-Site" : IfcRelDefinesByProperties
 IfcSite --o| "IfcPropertySet-bSFSite" : IfcRelDefinesByProperties
 IfcSite --o| "IfcElementQuantity-Site" : IfcRelDefinesByProperties
 
