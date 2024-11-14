@@ -10,16 +10,10 @@ entity IfcPavement <<DefinedInThisDiagram>>
 protocol "IfcPropertySet-Pavement" <<DefinedInThisDiagram>>
 {
     Pset_PavementCommon
-    Pset_PavementSurfaceCommon
-	Pset_Tiling
 }
+
 IfcPavement --o{ "IfcPropertySet-Pavement" : IfcRelDefinesByProperties
 
-protocol "IfcPropertySet-bSFPavement" <<DefinedInThisDiagram>>
-{
-    bSF_Pset_PavementCommon
-}
-IfcPavement --o| "IfcPropertySet-bSFPavement" : IfcRelDefinesByProperties
 
 protocol "IfcElementQuantity-Pavement" <<DefinedInThisDiagram>>
 {

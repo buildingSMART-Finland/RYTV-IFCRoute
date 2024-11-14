@@ -6,9 +6,14 @@ entity IfcAlignment <<DefinedInAnotherDiagram>>
 
 entity IfcVirtualElement <<DefinedInAnotherDiagram>>
 
-protocol "IfcPropertySet-Road" <<DefinedInThisDiagram>>
+protocol "IfcPropertySet-Road" <<UndefinedEntity>>
 {
   Pset_RoadDesignCriteriaCommon
+}
+
+protocol "IfcPropertySet-bSFRoad" <<DefinedInThisDiagram>>
+{
+  Status
 }
 
 entity IfcPavement <<DefinedInAnotherDiagram>>
@@ -17,6 +22,8 @@ IfcRoad --o{ IfcPavement : IfcRelContainedInSpatialStructure
 IfcRoad --o{ IfcVirtualElement : IfcRelContainedInSpatialStructure
 
 IfcRoad --o| "IfcPropertySet-Road" : IfcRelDefinesByProperties
+
+IfcRoad --o| "IfcPropertySet-bSFRoad" : IfcRelDefinesByProperties
 
 IfcRoad--||IfcAlignment : IfcRelReferencedInSpatialStructure
 

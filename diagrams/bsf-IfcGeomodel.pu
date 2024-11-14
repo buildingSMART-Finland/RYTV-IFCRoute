@@ -10,14 +10,8 @@ entity "IfcGeotechnicalStratum-Terrain" <<DefinedInAnotherDiagram>>
 
 entity "IfcGeotechnicalStratum-Rock bed" <<DefinedInAnotherDiagram>>
 
-protocol "IfcPropertySet-Geomodel" <<DefinedInThisDiagram>>
-{
-   Pset_GeotechnicalAssemblyCommon
-}
-
 IfcGeomodel --|{"IfcGeotechnicalStratum-Terrain" : IfcRelAggregates
 IfcGeomodel --o{"IfcGeotechnicalStratum-Rock bed" : IfcRelAggregates
 
-IfcGeomodel --o{ "IfcPropertySet-Geomodel" : IfcRelDefinesByProperties
 
 @enduml

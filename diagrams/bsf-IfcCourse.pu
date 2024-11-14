@@ -21,8 +21,6 @@ IfcCourse::ObjectPlacement --|| IfcLocalPlacement
 protocol "IfcPropertySet-Course" <<DefinedInThisDiagram>>
 {
     Pset_CourseCommon
-    Pset_BoundedCourseCommon
-    Pset_CourseApplicationConditions
 }
 IfcCourse --o{ "IfcPropertySet-Course" : IfcRelDefinesByProperties
 

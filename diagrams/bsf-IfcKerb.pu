@@ -21,12 +21,11 @@ IfcKerb::ObjectPlacement --|| IfcLocalPlacement
 
 protocol "IfcPropertySet-Kerb" <<DefinedInThisDiagram>>
 {
-    Pset_KerbCommon
     Pset_KerbStone
     Pset_OnSiteCastKerb
     Pset_PrecastKerbStone
-    Pset_RadiiKerbStone
 }
+
 IfcKerb --o{ "IfcPropertySet-Kerb" : IfcRelDefinesByProperties
 
 protocol "IfcPropertySet-bSFKerb" <<DefinedInThisDiagram>>

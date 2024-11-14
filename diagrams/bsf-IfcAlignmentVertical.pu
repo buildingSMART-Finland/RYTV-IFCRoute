@@ -23,7 +23,7 @@ entity IfcAlignmentVerticalSegment <<DefinedInThisDiagram>>
 IfcAlignment ||-- IfcAlignmentVertical : IfcRelNests
 
 
-protocol "IfcPropertySet-AlignmentVertical" <<DefinedInThisDiagram>>
+protocol "IfcPropertySet-AlignmentVertical" <<UndefinedEntity>>
 {
   Pset_AlignmentVerticalSegmentCommon
 }

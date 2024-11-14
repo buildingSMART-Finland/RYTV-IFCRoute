@@ -10,26 +10,9 @@ entity IfcRoad <<DefinedInAnotherDiagram>>
 
 IfcSite--o{IfcRoad : IfcRelAggregates
 
-protocol "IfcPropertySet-Site" <<DefinedInThisDiagram>>
-{
-  Pset_Address
-  Pset_LandRegistration
-  Pset_SiteCommon
-  Pset_SiteWeather
-}
-
 entity IfcGeomodel <<DefinedInAnotherDiagram>>
 IfcSite::ContainsElements--o{IfcGeomodel : IfcRelContainedInSpatialStructure
 
-protocol "IfcPropertySet-bSFSite" <<DefinedInThisDiagram>>
-{
-  bSF_SiteCommon
-}
-
-protocol "IfcElementQuantity-Site" <<DefinedInThisDiagram>>
-{
-  Qto_SiteBaseQuantities
-}
 
 entity "IfcProductDefinitionShape-Footprint" <<DefinedInAnotherDiagram>>
 IfcSite::Representation --o| "IfcProductDefinitionShape-Footprint"
@@ -37,10 +20,6 @@ IfcSite::Representation --o| "IfcProductDefinitionShape-Footprint"
 entity IfcLocalPlacement <<UndefinedEntity>>
 IfcSite::ObjectPlacement--||IfcLocalPlacement
 
-
-IfcSite --o{ "IfcPropertySet-Site" : IfcRelDefinesByProperties
-IfcSite --o| "IfcPropertySet-bSFSite" : IfcRelDefinesByProperties
-IfcSite --o| "IfcElementQuantity-Site" : IfcRelDefinesByProperties
 
 
 @enduml

@@ -61,6 +61,11 @@ IfcAlignmentCant shall be used as defined in IFC specification (no additional ru
 
 ![IfcRoad]({{diagramasfigure bsf-IfcRoad.pu}} "IfcRoad"){{figst ifcroad}}
 
+#### Table:bSF_Pset_Road {#tbl:bSF_Pset_Road}
+| Name | Property type | Data type | Description| Usage |
+|:---|:---|:---|:---|:---|
+|Status|IfcPropertyEnumeratedValue|PEnum_ElementStatus|Status (new, existing, demolish, temporary)|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 ## Structural model
 
 Structural model of a route comprises subgrade and pavement (and their parts).
@@ -69,7 +74,7 @@ Structural model of a route comprises subgrade and pavement (and their parts).
 
 Subgrade (i.e. the structure below pavement) is efined by IfcEarthworksFill entities.
 
-![Subgrade]({{diagramasfigure bsf-IfcEarthWorksFill.pu}} "Subgrade"){{figst bsf-ifcearthworksfill}}
+![IfcEarthworksFill]({{diagramasfigure bsf-IfcEarthworksFill.pu}} "IfcEarthworksFill"){{figst bsf-ifcearthworksfill}}
    
 ### Pavement - IfcPavement
 
@@ -77,40 +82,100 @@ IfcPavement acts as an collection of courses and kerbs.
 
 ![IfcPavement]({{diagramasfigure bsf-IfcPavement.pu}} "IfcPavement"){{figst IfcPavement}}
 
+#### Table:Pset_PavementCommon {#tbl:Pset_PavementCommon}
+| Name | Property type | Data type | Description| Usage |
+|:---|:---|:---|:---|:---|
+|NominalThickness|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal thickness|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalWidth|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
+#### Table:Qto_PavementBaseQuantities {#tbl:Qto_PavementBaseQuantities}
+| Name | Property type | Data type | Description| Usage |
+|:---|:---|:---|:---|:---|
+|Width|IfcSingleValue|IfcQuantityLength|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Depth|IfcSingleValue|IfcQuantityLength|Depth|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NetArea|IfcSingleValue|IfcQuantityArea|Area|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NetVolume|IfcSingleValue|IfcQuantityVolume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 ### Courses - IfcCourse
 
 Structural layers are defined by IfcCourse entities.
 
 ![IfcCourse]({{diagramasfigure bsf-IfcCourse.pu}} "IfcCourse"){{figst ifccourse}}
 
+#### Table:Pset_CourseCommon {#tbl:Pset_CourseCommon}
+| Name | Property type | Data type | Description| Usage |
+|:---|:---|:---|:---|:---|
+|NominalThickness|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal thickness|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalWidth|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
+#### Table:Qto_CourseBaseQuantities {#tbl:Qto_CourseBaseQuantities}
+| Name | Property type | Data type | Description| Usage |
+|:---|:---|:---|:---|:---|
+|Length|IfcSingleValue|IfcQuantityLength|Length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Width|IfcSingleValue|IfcQuantityLength|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Thickness|IfcSingleValue|IfcQuantityLength|Depth|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Volume|IfcSingleValue|IfcQuantityVolume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 #### Table:bSF_Pset_CourseCommon {#tbl:bSF_Pset_CourseCommon}
 | Name | Property type | Data type | Description| Usage |
-|----------|----------|----------|----------|----------|
-|LoadCapacity|IcfSingleValue|IfcPlanarForceMeasure|Load capacity|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|:---|:---|:---|:---|:---|
+|MaterialName|IfcSingleValue|IfcLabel|Material name|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|LoadCapacity|IfcSingleValue|IfcPlanarForceMeasure|Load capacity|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |Granulation|IfcSingleValue|IfcLabel|Granule size, ie. 16-20mm|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|Color|IfcSingleValue|IfcColour|Material color|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Color|IfcSingleValue|IfcColor|Material color|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 #### Table:bSF_Pset_SurfaceCourse {#tbl:bSF_Pset_SurfaceCourse}
-
 | Name | Property type | Data type | Description| Usage |
-|----------|----------|----------|----------|----------|
-|ElasticModulus|IcfSingleValue|IfcModulusOfElasticityMeasure|Elastic modulus|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|MaterialStrength|IcfSingleValue|IcfLabel|Material strength|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|:---|:---|:---|:---|:---|
+|ElasticModulus|IfcSingleValue|IfcModulusOfElasticityMeasure|Elastic modulus|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|MaterialStrength|IfcSingleValue|IfcLabel|Material strength|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |MassType|IfcSingleValue|IfcLabel|Mass type, ie. AB|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |DeformationClass|IfcSingleValue|IfcLabel|Deformation class|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |AbrasionResistance|IfcSingleValue|IfcLabel|Abrasion resistance|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|ShockResistance|IfcSingleValue|IfcLabel|Shock resistance|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |MixRatio|IfcSingleValue|IfcPositiveRatioMeasure|Rock/Binder ratio|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 ### Kerb - IfcKerb
 
 ![IfcKerb]({{diagramasfigure bsf-IfcKerb.pu}} "IfcKerb"){{figst ifckerb}}
 
-### Combinational surfaces - IfcVirtualElement
 
-Combinational surfaces (ie. highest and lowest combination of surfaces) shall be represented using IfcVirtualElement as defined on diagram below.
+#### Table:Pset_KerbStone {#tbl:Pset_KerbStone}
+| Name | Property type | Data type | Description| Usage |
+|:---|:---|:---|:---|:---|
+|NominalLength|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalHeight|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalWidth|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
-![IfcVirtualElement]({{diagramasfigure bsf-IfcVirtualElement.pu}} "IfcVirtualElement"){{figst IfcVirtualElement}}
+#### Table:Pset_OnSiteCastKerb {#tbl:Pset_OnSiteCastKerb}
+| Name | Property type | Data type | Description| Usage |
+|:---|:---|:---|:---|:---|
+|NominalHeight|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalWidth|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
+
+#### Table:Pset_PrecastKerbStone {#tbl:Pset_PrecastKerbStone}
+| Name | Property type | Data type | Description| Usage |
+|:---|:---|:---|:---|:---|
+|Type|IfcSingleValue|IfcLabel|Type designation|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
+
+#### Table:bSF_Pset_KerbCommon {#tbl:bSF_Pset_KerbCommon}
+| Name | Property type | Data type | Description| Usage |
+|:---|:---|:---|:---|:---|
+|MaterialName|IfcSingleValue|IfcLabel|Material name|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Color|IfcSingleValue|IfcColor|Material color|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|InstallationMethod|IfcLabel|Installation method|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
+
+#### Table:Qto_KerbBaseQuantities {#tbl:Qto_KerbBaseQuantities}
+| Name | Property type | Data type | Description| Usage |
+|:---|:---|:---|:---|:---|
+|Length|IfcSingleValue|IfcQuantityLength|Length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Height|IfcSingleValue|IfcQuantityLength|Height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Width|IfcSingleValue|IfcQuantityLength|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Volume|IfcSingleValue|IfcQuantityVolume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 ## Geomodel - IfcGeomodel
 
@@ -123,6 +188,16 @@ Combinational surfaces (ie. highest and lowest combination of surfaces) shall be
 ### Soil cut
 
 ![Soil cut]({{diagramasfigure bsf-IfcEarthWorksCut-Soil.pu}} "Soil cut"){{figst bsf-ifcearthworkscut-soil}}
+
+#### Table:Qto_EarthworksCutBaseQuantities {#tbl:Qto_EarthworksCutBaseQuantities}
+| Name | Property type | Data type | Description| Usage |
+|:---|:---|:---|:---|:---|
+|Length|IfcSingleValue|IfcQuantityLength|Length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Height|IfcSingleValue|IfcQuantityLength|Height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Width|IfcSingleValue|IfcQuantityLength|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|UndisturbedVolume|IfcSingleValue|IfcQuantityVolume|Undisturbed volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|LooseVolume|IfcSingleValue|IfcQuantityVolume|Loose Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Weight|IfcSingleValue|IfcQuantityWeight|Estimated weight|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 ### Rock bed
 
