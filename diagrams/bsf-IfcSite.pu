@@ -10,14 +10,6 @@ entity IfcRoad <<DefinedInAnotherDiagram>>
 
 IfcSite--o{IfcRoad : IfcRelAggregates
 
-protocol "IfcPropertySet-Site" <<UndefinedEntity>>
-{
-  Pset_Address
-  Pset_LandRegistration
-  Pset_SiteCommon
-  Pset_SiteWeather
-}
-
 entity IfcGeomodel <<DefinedInAnotherDiagram>>
 IfcSite::ContainsElements--o{IfcGeomodel : IfcRelContainedInSpatialStructure
 
