@@ -13,26 +13,6 @@ entity "IfcEarthWorksCut-Soil" <<DefinedInAnotherDiagram>>
 entity IfcClassificationReference <<UndefinedEntity>>
 "IfcGeotechnicalStratum-Terrain" --|{ IfcClassificationReference : IfcRelAssociatesClassification
 
-protocol "IfcPropertySet-Stratum" <<DefinedInThisDiagram>>
-{
-  Pset_GeotechnicalStratumCommon
-  Pset_SolidStratumCapacity
-  Pset_SolidStratumComposition
-  Pset_WaterStratumCommon
-}
-
-protocol "IfcPropertySet-bSFStratum" <<DefinedInThisDiagram>>
-{
-  bSF_StratumCommon
-}
-
-protocol "IfcElementQuantity-Stratum" <<DefinedInThisDiagram>>
-{
-  Qto_ArealStratumBaseQuantities
-  Qto_LinearStratumBaseQuantities
-  Qto_VolumetricStratumBaseQuantities
-}
-
 entity IfcLocalPlacement <<UndefinedEntity>>
 "IfcGeotechnicalStratum-Terrain::ObjectPlacement" --|| IfcLocalPlacement
 
@@ -40,9 +20,5 @@ entity "IfcProductDefinitionShape-TIN" <<DefinedInAnotherDiagram>>
 "IfcGeotechnicalStratum-Terrain::Representation" --|| "IfcProductDefinitionShape-TIN"
 
 "IfcGeotechnicalStratum-Terrain" --o{ "IfcEarthWorksCut-Soil": IfcRelVoidsElement
-
-"IfcGeotechnicalStratum-Terrain" --o| "IfcPropertySet-bSFStratum" : IfcRelDefinesByProperties
-"IfcGeotechnicalStratum-Terrain" --o{ "IfcPropertySet-Stratum"  : IfcRelDefinesByProperties
-"IfcGeotechnicalStratum-Terrain" --o{ "IfcElementQuantity-Stratum"  : IfcRelDefinesByProperties
 
 @enduml
