@@ -64,7 +64,7 @@ IfcAlignmentCant shall be used as defined in IFC specification (no additional ru
 #### Table:bSF_Pset_Road {#tbl:bSF_Pset_Road}
 | Name | Property type | Data type | Description| Usage |
 |----------|----------|----------|----------|----------|
-|Status|IfcPropertyEnumeratedValue|PEnum_ElementStatus|Status (new,existing,demolish,temporary)|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Status|IfcPropertyEnumeratedValue|PEnum_ElementStatus|Status (new, existing, demolish, temporary)|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 ## Structural model
 
@@ -165,6 +165,7 @@ Structural layers are defined by IfcCourse entities.
 |----------|----------|----------|----------|----------|
 |MaterialName|IcfSingleValue|IfcLabel|Material name|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |Color|IcfSingleValue|IfcColor|Material color|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|InstallationMethod|IfcLabel|Installation method|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 
 #### Table:Qto_KerbBaseQuantities {#tbl:Qto_KerbBaseQuantities}

@@ -21,10 +21,6 @@ protocol "IfcPropertySet-Site" <<UndefinedEntity>>
 entity IfcGeomodel <<DefinedInAnotherDiagram>>
 IfcSite::ContainsElements--o{IfcGeomodel : IfcRelContainedInSpatialStructure
 
-protocol "IfcElementQuantity-Site" <<DefinedInThisDiagram>>
-{
-  Qto_SiteBaseQuantities
-}
 
 entity "IfcProductDefinitionShape-Footprint" <<DefinedInAnotherDiagram>>
 IfcSite::Representation --o| "IfcProductDefinitionShape-Footprint"
@@ -32,9 +28,6 @@ IfcSite::Representation --o| "IfcProductDefinitionShape-Footprint"
 entity IfcLocalPlacement <<UndefinedEntity>>
 IfcSite::ObjectPlacement--||IfcLocalPlacement
 
-
-IfcSite --o| "IfcPropertySet-bSFSite" : IfcRelDefinesByProperties
-IfcSite --o| "IfcElementQuantity-Site" : IfcRelDefinesByProperties
 
 
 @enduml
