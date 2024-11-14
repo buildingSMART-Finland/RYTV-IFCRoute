@@ -74,7 +74,7 @@ Structural model of a route comprises subgrade and pavement (and their parts).
 
 Subgrade (i.e. the structure below pavement) is efined by IfcEarthworksFill entities.
 
-![Subgrade]({{diagramasfigure bsf-IfcEarthWorksFill.pu}} "Subgrade"){{figst bsf-ifcearthworksfill}}
+![IfcEarthworksFill]({{diagramasfigure bsf-IfcEarthworksFill.pu}} "IfcEarthworksFill"){{figst bsf-ifcearthworksfill}}
    
 ### Pavement - IfcPavement
 
