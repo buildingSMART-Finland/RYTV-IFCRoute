@@ -16,6 +16,12 @@ entity IfcClassificationReference <<UndefinedEntity>>
 entity IfcLocalPlacement <<UndefinedEntity>>
 "IfcGeotechnicalStratum-Terrain::ObjectPlacement" --|| IfcLocalPlacement
 
+protocol "IfcPropertySet-bSFStratum" <<DefinedInThisDiagram>>
+{
+    bSF_Pset_StratumCommon
+}
+
+"IfcGeotechnicalStratum-Terrain" --o| "IfcPropertySet-bSFStratum" : IfcRelDefinesByProperties
 entity "IfcProductDefinitionShape-TIN" <<DefinedInAnotherDiagram>>
 "IfcGeotechnicalStratum-Terrain::Representation" --|| "IfcProductDefinitionShape-TIN"
 

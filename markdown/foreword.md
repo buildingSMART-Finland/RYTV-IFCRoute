@@ -50,14 +50,17 @@ IFC Entity types explicitly included in all the use cases mentioned above are sh
 Entity types used "as-is" appear as white boxes, or as relationship names om links in case of short-hand notation for IfcRel-entities.
 Entity types with additional rules appear as green boxes, if defined in the current diagram, or as blue boxes, if referenced from another diagram.
 Addinonal rules may apply only in a paricular usage, in which case the IFC entity name is appended with a qualifier (e.g. IfcProductDefinitionShape-Alignment or IfcProductDefinitionShape-TIN). Otherwise, the rules on the Entity type apply globally.
-These rules may 
- - change OPTIONAL attribute to MANDATORY
- - prohibit the use of OPTIONAL attribute (marked as $)
- - limit cardinality (usually allowing only one item in a list or a set)
- - applying value restrictions on attributes:
-  -- Fixed value or list of allowable values (enumerated or range)  
-  -- Enumeration datatype having some of the enumeration items excluded
-  -- Entity datatypes excluded from allowable subtypes or select items
+These rules may:
+
+- Change OPTIONAL attribute to MANDATORY
+- Prohibit the use of OPTIONAL attribute (marked as $)
+- Limit cardinality (usually allowing only one item in a list or a set)
+- Applying value restrictions on attributes:
+    - Fixed value or list of allowable values (enumerated or range) 
+    - Enumeration datatype having some of the enumeration items excluded
+    - Entity datatypes excluded from allowable subtypes or select items
+
+
 Attributes with no use case specific rules are omitted (and are to be used per standard IFC specification).
 
 @startuml
