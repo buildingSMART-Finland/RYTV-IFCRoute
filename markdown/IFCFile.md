@@ -190,11 +190,13 @@ Structural layers are defined by IfcCourse entities.
 
 ## Geomodel - IfcGeomodel
 
+Geomodel represents the existing ground (one or more strata). IfcGeomodel may have geometric representation as the top surface of the ground (terrain). Material and other properties are assigned to each individual stratum.
+
 ![IfcGeomodel]({{diagramasfigure bsf-IfcGeomodel.pu}} "IfcGeomodel"){{figst ifcgeomodel}}
 
-### Existing terrain
+### Existing ground layers
 
-![Existing terrain]({{diagramasfigure bsf-IfcGeotechnicalStratum-Terrain.pu}} "Existing terrain"){{figst ifcgeotechnicalstratum-terrain}}
+![Existing ground]({{diagramasfigure bsf-IfcGeotechnicalStratum.pu}} "Existing ground layers"){{figst ifcgeotechnicalstratum}}
 
 #### Table:bSF_Pset_StratumCommon {#tbl:bSF_Pset_StratumCommon}
 | Name | Property type | Data type | Description| Usage |
@@ -208,9 +210,9 @@ Structural layers are defined by IfcCourse entities.
 |elasticModulusDry|IfcSingleValue|IfcLabel|Soil modulus of elasticity in dry conditions|bSF_QTO[ ] bSF_D2C[ ] bSF_DH[x]|
 
 
-### Soil cut
+### Soil and rock cut
 
-![Soil cut]({{diagramasfigure bsf-IfcEarthWorksCut-Soil.pu}} "Soil cut"){{figst bsf-ifcearthworkscut-soil}}
+![Soil and rock cut]({{diagramasfigure bsf-IfcEarthWorksCut.pu}} "Soil and rock cut"){{figst bsf-ifcearthworkscut}}
 
 #### Table:Qto_EarthworksCutBaseQuantities {#tbl:Qto_EarthworksCutBaseQuantities}
 | Name | Property type | Data type | Description| Usage |
@@ -222,14 +224,6 @@ Structural layers are defined by IfcCourse entities.
 |LooseVolume|IfcSingleValue|IfcQuantity&shy;Volume|Loose Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |Weight|IfcSingleValue|IfcQuantity&shy;Weight|Estimated weight|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
-
-### Rock bed
-
-![Rock bed]({{diagramasfigure bsf-IfcGeotechnicalStratum-Rockbed.pu}} "IfcGeomodel"){{figst ifcgeotechnicalstratum-rockbed}}
-
-### Rock cut
-
-![Rock cut]({{diagramasfigure bsf-IfcEarthWorksCut-Rock.pu}} "Rock cut"){{figst bsf-ifcearthworkscut-rock}}
 
 # Geometric representation
 
