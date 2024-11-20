@@ -8,10 +8,10 @@ entity IfcGeomodel <<DefinedInThisDiagram>>
 
 
 entity IfcLocalPlacement <<UndefinedEntity>>
-"IfcGeomodel::ObjectPlacement" --|| IfcLocalPlacement
+"IfcGeomodel::ObjectPlacement" --o| IfcLocalPlacement
 
 entity "IfcProductDefinitionShape-TINwithBreaklines" <<DefinedInAnotherDiagram>>
-"IfcGeomodel::Representation" --|| "IfcProductDefinitionShape-TINwithBreaklines"
+"IfcGeomodel::Representation" --o| "IfcProductDefinitionShape-TINwithBreaklines"
 
 entity IfcGeotechnicalStratum <<DefinedInAnotherDiagram>>
 
