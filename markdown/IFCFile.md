@@ -1,6 +1,6 @@
+{{begin_landscape}}
 # IFC 4.3 file
 
-{{begin_landscape}}
 ## File structure
 
 The structure of IFC exchange file (i.e. STEP file) in all three use cases mentioned above shall follow the hierarchy shown here. 
@@ -64,7 +64,9 @@ IfcAlignmentCant shall be used as defined in IFC specification (no additional ru
 #### Table:bSF_Pset_Road {#tbl:bSF_Pset_Road}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
-|Status|IfcPropertyEnumeratedValue|PEnum_ElementStatus|Status (new, existing, demolish, temporary)|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
+|Status|IfcProperty&shy;Enumerated&shy;Value|PEnum_&shy;Element&shy;Status|Status (new, existing, demolish, temporary)|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 ## Structural model
 
@@ -85,16 +87,19 @@ IfcPavement acts as an collection of courses and kerbs.
 #### Table:Pset_PavementCommon {#tbl:Pset_PavementCommon}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
-|NominalThickness|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal thickness|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|NominalWidth|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
+|NominalThickness|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal thickness|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalWidth|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 #### Table:Qto_PavementBaseQuantities {#tbl:Qto_PavementBaseQuantities}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
-|Width|IfcSingleValue|IfcQuantityLength|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|Depth|IfcSingleValue|IfcQuantityLength|Depth|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|NetArea|IfcSingleValue|IfcQuantityArea|Area|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|NetVolume|IfcSingleValue|IfcQuantityVolume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Width|IfcSingleValue|IfcQuantity&shy;Length|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Depth|IfcSingleValue|IfcQuantity&shy;Length|Depth|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NetArea|IfcSingleValue|IfcQuantity&shy;Area|Area|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NetVolume|IfcSingleValue|IfcQuantity&shy;Volume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 ### Courses - IfcCourse
 
@@ -105,35 +110,39 @@ Structural layers are defined by IfcCourse entities.
 #### Table:Pset_CourseCommon {#tbl:Pset_CourseCommon}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
-|NominalThickness|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal thickness|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|NominalWidth|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalThickness|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal thickness|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalWidth|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
+
 
 #### Table:Qto_CourseBaseQuantities {#tbl:Qto_CourseBaseQuantities}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
-|Length|IfcSingleValue|IfcQuantityLength|Length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|Width|IfcSingleValue|IfcQuantityLength|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|Thickness|IfcSingleValue|IfcQuantityLength|Depth|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|Volume|IfcSingleValue|IfcQuantityVolume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Length|IfcSingleValue|IfcQuantity&shy;Length|Length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Width|IfcSingleValue|IfcQuantity&shy;Length|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Thickness|IfcSingleValue|IfcQuantity&shy;Length|Depth|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Volume|IfcSingleValue|IfcQuantity&shy;Volume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 #### Table:bSF_Pset_CourseCommon {#tbl:bSF_Pset_CourseCommon}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
 |MaterialName|IfcSingleValue|IfcLabel|Material name|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|LoadCapacity|IfcSingleValue|IfcPlanarForceMeasure|Load capacity|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|LoadCapacity|IfcSingleValue|IfcPlanar&shy;Force&shy;Measure|Load capacity|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |Granulation|IfcSingleValue|IfcLabel|Granule size, ie. 16-20mm|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |Color|IfcSingleValue|IfcColor|Material color|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 #### Table:bSF_Pset_SurfaceCourse {#tbl:bSF_Pset_SurfaceCourse}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
-|ElasticModulus|IfcSingleValue|IfcModulusOfElasticityMeasure|Elastic modulus|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|ElasticModulus|IfcSingleValue|IfcModulus&shy;Of&shy;Elasticity&shy;Measure|Elastic modulus|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |MaterialStrength|IfcSingleValue|IfcLabel|Material strength|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |MassType|IfcSingleValue|IfcLabel|Mass type, ie. AB|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |DeformationClass|IfcSingleValue|IfcLabel|Deformation class|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |AbrasionResistance|IfcSingleValue|IfcLabel|Abrasion resistance|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |ShockResistance|IfcSingleValue|IfcLabel|Shock resistance|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|MixRatio|IfcSingleValue|IfcPositiveRatioMeasure|Rock/Binder ratio|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|MixRatio|IfcSingleValue|IfcPositive&shy;Ratio&shy;Measure|Rock/Binder ratio|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 ### Kerb - IfcKerb
 
@@ -143,15 +152,17 @@ Structural layers are defined by IfcCourse entities.
 #### Table:Pset_KerbStone {#tbl:Pset_KerbStone}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
-|NominalLength|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|NominalHeight|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|NominalWidth|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalLength|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalHeight|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalWidth|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 #### Table:Pset_OnSiteCastKerb {#tbl:Pset_OnSiteCastKerb}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
-|NominalHeight|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|NominalWidth|IfcSingleValue|IfcNonNegativeLengthMeasure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalHeight|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|NominalWidth|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 
 #### Table:Pset_PrecastKerbStone {#tbl:Pset_PrecastKerbStone}
@@ -171,10 +182,10 @@ Structural layers are defined by IfcCourse entities.
 #### Table:Qto_KerbBaseQuantities {#tbl:Qto_KerbBaseQuantities}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
-|Length|IfcSingleValue|IfcQuantityLength|Length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|Height|IfcSingleValue|IfcQuantityLength|Height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|Width|IfcSingleValue|IfcQuantityLength|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|Volume|IfcSingleValue|IfcQuantityVolume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Length|IfcSingleValue|IfcQuantity&shy;Length|Length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Height|IfcSingleValue|IfcQuantity&shy;Length|Height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Width|IfcSingleValue|IfcQuantity&shy;Length|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Volume|IfcSingleValue|IfcQuantity&shy;Volume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 
 ## Geomodel - IfcGeomodel
@@ -185,6 +196,18 @@ Structural layers are defined by IfcCourse entities.
 
 ![Existing terrain]({{diagramasfigure bsf-IfcGeotechnicalStratum-Terrain.pu}} "Existing terrain"){{figst ifcgeotechnicalstratum-terrain}}
 
+#### Table:bSF_Pset_StratumCommon {#tbl:bSF_Pset_StratumCommon}
+| Name | Property type | Data type | Description| Usage |
+|:---|:---|:---|:---|:---|
+|soiltypeGEO|IfcSingleValue|IfcLabel|Soil type classification according to Geotekninen maaluokitus (VTT 1974)|bSF_QTO[ ] bSF_D2C[ ] bSF_DH[x]|
+|soiltypeISO|IfcSingleValue|IfcLabel|Soil type classification according to SFS-EN ISO 14688-1 or SFS-EN ISO 14688-2|bSF_QTO[ ] bSF_D2C[ ] bSF_DH[x]|
+|qualificationClass|IfcSingleValue|IfcLabel|Soil type qualification according to table 10 in TIEH 2100029-04|bSF_QTO[ ] bSF_D2C[ ] bSF_DH[x]|
+|frostSwellingFactorWet|IfcSingleValue|IfcLabel|Soil type frost swelling factor in wet conditions|bSF_QTO[ ] bSF_D2C[ ] bSF_DH[x]|
+|frostSwellingFactorDry|IfcSingleValue|IfcLabel|Soil type frost swelling factor in dry conditions|bSF_QTO[ ] bSF_D2C[ ] bSF_DH[x]|
+|elasticModulusWet|IfcSingleValue|IfcLabel|Soil modulus of elasticity in wet conditions|bSF_QTO[ ] bSF_D2C[ ] bSF_DH[x]|
+|elasticModulusDry|IfcSingleValue|IfcLabel|Soil modulus of elasticity in dry conditions|bSF_QTO[ ] bSF_D2C[ ] bSF_DH[x]|
+
+
 ### Soil cut
 
 ![Soil cut]({{diagramasfigure bsf-IfcEarthWorksCut-Soil.pu}} "Soil cut"){{figst bsf-ifcearthworkscut-soil}}
@@ -192,12 +215,13 @@ Structural layers are defined by IfcCourse entities.
 #### Table:Qto_EarthworksCutBaseQuantities {#tbl:Qto_EarthworksCutBaseQuantities}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
-|Length|IfcSingleValue|IfcQuantityLength|Length|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|Height|IfcSingleValue|IfcQuantityLength|Height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|Width|IfcSingleValue|IfcQuantityLength|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|UndisturbedVolume|IfcSingleValue|IfcQuantityVolume|Undisturbed volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|LooseVolume|IfcSingleValue|IfcQuantityVolume|Loose Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|Weight|IfcSingleValue|IfcQuantityWeight|Estimated weight|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Length|IfcSingleValue|IfcQuantity&shy;Length|Length|bSF_QTO[ ] bSF_D2C[ ] bSF_DH[x]|
+|Height|IfcSingleValue|IfcQuantity&shy;Length|Height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Width|IfcSingleValue|IfcQuantity&shy;Length|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|UndisturbedVolume|IfcSingleValue|IfcQuantity&shy;Volume|Undisturbed volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|LooseVolume|IfcSingleValue|IfcQuantity&shy;Volume|Loose Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+|Weight|IfcSingleValue|IfcQuantity&shy;Weight|Estimated weight|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 ### Rock bed
 
@@ -207,23 +231,37 @@ Structural layers are defined by IfcCourse entities.
 
 ![Rock cut]({{diagramasfigure bsf-IfcEarthWorksCut-Rock.pu}} "Rock cut"){{figst bsf-ifcearthworkscut-rock}}
 
-# Geometry representation
+# Geometric representation
 
 There shall be exactly one 3D geometric representation context (hich may have subcontexts for different types of shape representation in 3D space). 
 
 ![IfcGeometricRepresentationContext-3D]({{diagramasfigure bsf-IfcGeometricRepresentationContext-3D.pu}} "IfcGeometricRepresentationContext-3D"){{figst IfcGeometricRepresentationContext-3D}}
 
+## Alignment
+
 ![AlignmentCurve]({{diagramasfigure bsf-IfcProductDefinitionShape-Alignment.pu}} "AlignmentCurve"){{figst AlignmentCurve}}
+
+## Annotation
 
 ![Annotation]({{diagramasfigure bsf-IfcProductDefinitionShape-Annotation.pu}} "Annotation"){{figst Annotation}}
 
+## BrepwithBreaklines
+
 ![BrepwithBreaklines]({{diagramasfigure bsf-IfcProductDefinitionShape-BrepwithBreaklines.pu}} "BrepwithBreaklines"){{figst BrepwithBreaklines}}
+
+## Footprint
 
 ![Footprint]({{diagramasfigure bsf-IfcProductDefinitionShape-Footprint.pu}} "Footprint"){{figst Footprint}}
 
+## SolidwithBreaklines
+
 ![SolidwithBreaklines]({{diagramasfigure bsf-IfcProductDefinitionShape-SolidwithBreaklines.pu}} "SolidwithBreaklines"){{figst SolidwithBreaklines}}
 
+## TIN
+
 ![TIN]({{diagramasfigure bsf-IfcProductDefinitionShape-TIN.pu}} "TIN"){{figst TIN}}
+
+## TINwithBreaklines
 
 ![TINwithBreaklines]({{diagramasfigure bsf-IfcProductDefinitionShape-TINwithBreaklines.pu}} "TINwithBreaklines"){{figst TINwithBreaklines}}
 

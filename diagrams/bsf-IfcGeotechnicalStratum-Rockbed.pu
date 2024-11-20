@@ -19,13 +19,9 @@ entity IfcClassificationReference <<UndefinedEntity>>
 entity "IfcEarthWorksCut-Rock" <<DefinedInAnotherDiagram>>
 "IfcGeotechnicalStratum-Rock bed" ||--o{ "IfcEarthWorksCut-Rock": IfcRelVoidsElement
 
-protocol "IfcPropertySet-Stratum" <<DefinedInAnotherDiagram>>
 protocol "IfcPropertySet-bSFStratum" <<DefinedInAnotherDiagram>>
-protocol "IfcElementQuantity-Stratum" <<DefinedInAnotherDiagram>>
 
 "IfcGeotechnicalStratum-Rock bed" --o| "IfcPropertySet-bSFStratum" : IfcRelDefinesByProperties
-"IfcGeotechnicalStratum-Rock bed" --o{ "IfcPropertySet-Stratum" : IfcRelDefinesByProperties
-"IfcGeotechnicalStratum-Rock bed" --o{ "IfcElementQuantity-Stratum" : IfcRelDefinesByProperties
 
 
 @enduml
