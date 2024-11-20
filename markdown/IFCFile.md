@@ -64,7 +64,9 @@ IfcAlignmentCant shall be used as defined in IFC specification (no additional ru
 #### Table:bSF_Pset_Road {#tbl:bSF_Pset_Road}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
+
 |Status|IfcProperty&shy;Enumerated&shy;Value|PEnum_&shy;Element&shy;Status|Status (new, existing, demolish, temporary)|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 ## Structural model
 
@@ -85,8 +87,10 @@ IfcPavement acts as an collection of courses and kerbs.
 #### Table:Pset_PavementCommon {#tbl:Pset_PavementCommon}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
+
 |NominalThickness|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal thickness|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |NominalWidth|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 #### Table:Qto_PavementBaseQuantities {#tbl:Qto_PavementBaseQuantities}
 | Name | Property type | Data type | Description| Usage |
@@ -95,6 +99,7 @@ IfcPavement acts as an collection of courses and kerbs.
 |Depth|IfcSingleValue|IfcQuantity&shy;Length|Depth|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |NetArea|IfcSingleValue|IfcQuantity&shy;Area|Area|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |NetVolume|IfcSingleValue|IfcQuantity&shy;Volume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 ### Courses - IfcCourse
 
@@ -108,6 +113,8 @@ Structural layers are defined by IfcCourse entities.
 |NominalThickness|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal thickness|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |NominalWidth|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
+
+
 #### Table:Qto_CourseBaseQuantities {#tbl:Qto_CourseBaseQuantities}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
@@ -115,6 +122,7 @@ Structural layers are defined by IfcCourse entities.
 |Width|IfcSingleValue|IfcQuantity&shy;Length|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |Thickness|IfcSingleValue|IfcQuantity&shy;Length|Depth|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |Volume|IfcSingleValue|IfcQuantity&shy;Volume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 #### Table:bSF_Pset_CourseCommon {#tbl:bSF_Pset_CourseCommon}
 | Name | Property type | Data type | Description| Usage |
@@ -135,6 +143,7 @@ Structural layers are defined by IfcCourse entities.
 |ShockResistance|IfcSingleValue|IfcLabel|Shock resistance|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |MixRatio|IfcSingleValue|IfcPositive&shy;Ratio&shy;Measure|Rock/Binder ratio|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
+
 ### Kerb - IfcKerb
 
 ![IfcKerb]({{diagramasfigure bsf-IfcKerb.pu}} "IfcKerb"){{figst ifckerb}}
@@ -147,11 +156,13 @@ Structural layers are defined by IfcCourse entities.
 |NominalHeight|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |NominalWidth|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
+
 #### Table:Pset_OnSiteCastKerb {#tbl:Pset_OnSiteCastKerb}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
 |NominalHeight|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |NominalWidth|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 
 #### Table:Pset_PrecastKerbStone {#tbl:Pset_PrecastKerbStone}
@@ -210,6 +221,7 @@ Structural layers are defined by IfcCourse entities.
 |UndisturbedVolume|IfcSingleValue|IfcQuantity&shy;Volume|Undisturbed volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |LooseVolume|IfcSingleValue|IfcQuantity&shy;Volume|Loose Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |Weight|IfcSingleValue|IfcQuantity&shy;Weight|Estimated weight|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
+
 
 ### Rock bed
 
