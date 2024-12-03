@@ -1,0 +1,30 @@
+@startuml 
+
+
+entity IfcGeotechnicalStratum <<DefinedInThisDiagram>>
+{
+  ObjectPlacement
+  Representation
+  *PredefinedType : text = SOLID | VOID | WATER
+}
+
+entity IfcEarthWorksCut <<DefinedInAnotherDiagram>>
+
+entity IfcClassificationReference <<UndefinedEntity>>
+IfcGeotechnicalStratum --|{ IfcClassificationReference : IfcRelAssociatesClassification
+
+entity IfcLocalPlacement <<UndefinedEntity>>
+IfcGeotechnicalStratum::ObjectPlacement --|| IfcLocalPlacement
+
+protocol "IfcPropertySet-bSFStratum" <<DefinedInThisDiagram>>
+{
+    bSF_Pset_StratumCommon
+}
+
+IfcGeotechnicalStratum --o| "IfcPropertySet-bSFStratum" : IfcRelDefinesByProperties
+entity "IfcProductDefinitionShape-TIN" <<DefinedInAnotherDiagram>>
+IfcGeotechnicalStratum::Representation --|| "IfcProductDefinitionShape-TIN"
+
+IfcGeotechnicalStratum --o{ IfcEarthWorksCut: IfcRelVoidsElement
+
+@enduml

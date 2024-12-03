@@ -17,15 +17,13 @@ entity "IfcRelConnectsElements-Fill" <<DefinedInThisDiagram>>
 }
 IfcEarthWorksFill::ConnectedFrom -- "IfcRelConnectsElements-Fill::RelatedElement" 
 
-entity "IfcEarthWorksCut-Rock" <<DefinedInAnotherDiagram>>
-entity "IfcEarthWorksCut-Soil" <<DefinedInAnotherDiagram>>
+entity IfcEarthWorksCut <<DefinedInAnotherDiagram>>
 
 
 <> choice
 "IfcRelConnectsElements-Fill::RelatingElement" - choice
 choice - IfcEarthWorksFill::ConnectedTo
-choice - "IfcEarthWorksCut-Rock"
-choice - "IfcEarthWorksCut-Soil"
+choice - IfcEarthWorksCut
 
 entity IfcClassificationReference <<UndefinedEntity>>
 IfcEarthWorksFill --|{ IfcClassificationReference : IfcRelAssociatesClassification

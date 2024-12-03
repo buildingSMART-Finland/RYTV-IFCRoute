@@ -23,23 +23,18 @@ entity IfcGeomodel <<DefinedInAnotherDiagram>>
 
 IfcSite||--o{IfcGeomodel : IfcRelContainedInSpatialStructure
 
-entity "IfcGeotechnicalStratum-Terrain" <<DefinedInAnotherDiagram>>
-IfcGeomodel||--|{"IfcGeotechnicalStratum-Terrain":IfcRelAggregates
-entity "IfcGeotechnicalStratum-Rock bed" <<DefinedInAnotherDiagram>>
-IfcGeomodel||--o{"IfcGeotechnicalStratum-Rock bed":IfcRelAggregates
+entity IfcGeotechnicalStratum <<DefinedInAnotherDiagram>>
+IfcGeomodel||--|{IfcGeotechnicalStratum:IfcRelAggregates
 
 
 entity IfcPavement <<DefinedInAnotherDiagram>>
 IfcRoad||--|{IfcPavement : IfcRelContainedInSpatialStructure
 
-entity "IfcEarthWorksCut-Rock" <<DefinedInAnotherDiagram>>
-IfcRoad}o.."IfcEarthWorksCut-Rock": IfcRelReferencedInSpatialStructure
-entity "IfcEarthWorksCut-Soil" <<DefinedInAnotherDiagram>>
-IfcRoad}o.."IfcEarthWorksCut-Soil": IfcRelReferencedInSpatialStructure
+entity IfcEarthWorksCut <<DefinedInAnotherDiagram>>
+IfcRoad}o..IfcEarthWorksCut: IfcRelReferencedInSpatialStructure
 
 
-"IfcGeotechnicalStratum-Rock bed"||--o{"IfcEarthWorksCut-Rock" : IfcRelVoidsElement
-"IfcGeotechnicalStratum-Terrain"||--o{"IfcEarthWorksCut-Soil" : IfcRelVoidsElement
+IfcGeotechnicalStratum||--o{IfcEarthWorksCut : IfcRelVoidsElement
 
 entity IfcEarthWorksFill <<DefinedInAnotherDiagram>>
 IfcRoad||--|{IfcEarthWorksFill : IfcRelContainedInSpatialStructure

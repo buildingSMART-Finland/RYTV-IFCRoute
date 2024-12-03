@@ -2,16 +2,20 @@
 
 entity IfcGeomodel <<DefinedInThisDiagram>>
 {
-  ObjectPlacement = $
-  Representation = $
+  ObjectPlacement
+  Representation
 }
 
-entity "IfcGeotechnicalStratum-Terrain" <<DefinedInAnotherDiagram>>
 
-entity "IfcGeotechnicalStratum-Rock bed" <<DefinedInAnotherDiagram>>
+entity IfcLocalPlacement <<UndefinedEntity>>
+"IfcGeomodel::ObjectPlacement" --o| IfcLocalPlacement
 
-IfcGeomodel --|{"IfcGeotechnicalStratum-Terrain" : IfcRelAggregates
-IfcGeomodel --o{"IfcGeotechnicalStratum-Rock bed" : IfcRelAggregates
+entity "IfcProductDefinitionShape-TINwithBreaklines" <<DefinedInAnotherDiagram>>
+"IfcGeomodel::Representation" --o| "IfcProductDefinitionShape-TINwithBreaklines"
+
+entity IfcGeotechnicalStratum <<DefinedInAnotherDiagram>>
+
+IfcGeomodel --|{IfcGeotechnicalStratum : IfcRelAggregates
 
 
 @enduml

@@ -44,16 +44,13 @@ entity "IfcRelConnectsElements-Course" <<DefinedInThisDiagram>>
 }
 IfcCourse::ConnectedFrom --o{ "IfcRelConnectsElements-Course::RelatedElement" 
 
-
-entity "IfcEarthWorksCut-Rock" <<DefinedInAnotherDiagram>>
-entity "IfcEarthWorksCut-Soil" <<DefinedInAnotherDiagram>>
+entity IfcEarthWorksCut <<DefinedInAnotherDiagram>>
 entity IfcEarthWorksFill <<DefinedInAnotherDiagram>>
 
 <> choice
 "IfcRelConnectsElements-Course::RelatingElement" - choice
 choice - IfcCourse::ConnectedTo
-choice - "IfcEarthWorksCut-Rock"
-choice - "IfcEarthWorksCut-Soil"
+choice - IfcEarthWorksCut
 choice - IfcEarthWorksFill
 
 @enduml

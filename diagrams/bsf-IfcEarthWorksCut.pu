@@ -1,0 +1,28 @@
+@startuml 
+
+entity IfcEarthWorksCut <<DefinedInThisDiagram>>
+{
+  ObjectPlacement
+  Representation
+  *PredefinedType : text = TOPSOILREMOVAL | CUT
+}
+
+entity IfcClassificationReference <<UndefinedEntity>>
+IfcEarthWorksCut --|{ IfcClassificationReference : IfcRelAssociatesClassification
+
+
+protocol "IfcElementQuantity-Cut" <<DefinedInThisDiagram>>
+{
+  Qto_EarthworksCutBaseQuantities
+}
+
+entity IfcLocalPlacement <<UndefinedEntity>>
+IfcEarthWorksCut::ObjectPlacement --|| IfcLocalPlacement
+
+
+entity "IfcProductDefinitionShape-BrepwithBreaklines" <<DefinedInAnotherDiagram>>
+IfcEarthWorksCut::Representation --|| "IfcProductDefinitionShape-BrepwithBreaklines"
+
+IfcEarthWorksCut --o| "IfcElementQuantity-Cut"  : IfcRelDefinesByProperties
+
+@enduml
