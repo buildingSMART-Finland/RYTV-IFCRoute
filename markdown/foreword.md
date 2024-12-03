@@ -16,7 +16,7 @@ Following data exchange use cases are covered by this specification:
 - Design to construction (bSF_D2C)
 - Digital handover (bSF_DH)
 
-LandXML based Inframodel format is widely used in Finland for the data excange use cases mentioned above. However, it is based on aging LandXML which is setting some limititations for the design file content. For this reason, many different types of documents (ie. drawings, spreadsheets, pdf) are typically used together with Inframodel. On the other hand, IFC 4.3 provides too diverse set of features to be properly machine processed, unless further rules are applied.
+Inframodel format is widely used in Finland for the data excange use cases mentioned above. However, it is based on aging LandXML which is setting some limititations for the design file content. For this reason, many different types of documents (ie. drawings, spreadsheets, pdf) are typically used together with Inframodel. On the other hand, IFC 4.3 provides too diverse set of features to be properly machine processed, unless further rules are applied.
 This document defines an minimal subset of IFC4.3 functionality which cover the defined data exchange use cases. Transition to IFC-based data exchange would allow machine readable feature rich communication.
 
 ## Data exchange use cases
