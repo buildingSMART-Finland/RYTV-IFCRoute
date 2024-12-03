@@ -248,42 +248,56 @@ Geomodel represents the existing ground (one or more strata). IfcGeomodel may ha
 \clearpage
 # Geometric representation
 
-There shall be exactly one 3D geometric representation context (hich may have subcontexts for different types of shape representation in 3D space). 
+There shall be exactly one 3D geometric representation context (which may have subcontexts for different types of shape representation in 3D space). 
 
 ![IfcGeometricRepresentationContext-3D]({{diagramasfigure bsf-IfcGeometricRepresentationContext-3D.pu}} "IfcGeometricRepresentationContext-3D"){{figst IfcGeometricRepresentationContext-3D}}
 
 \clearpage
 ## Alignment
 
+Alignment geometry is represented as composite 3D curve.
+
 ![AlignmentCurve]({{diagramasfigure bsf-IfcProductDefinitionShape-Alignment.pu}} "AlignmentCurve"){{figst AlignmentCurve}}
 
 \clearpage
 ## Annotation
 
+Annotation representations may be used to visualize station numbering, superelevation and cant values of alignment.  
+
 ![Annotation]({{diagramasfigure bsf-IfcProductDefinitionShape-Annotation.pu}} "Annotation"){{figst Annotation}}
 
 \clearpage
-## BrepwithBreaklines
+## BrepWithBreaklines
+
+This repsentation is used for soil or rock cuts.
 
 ![BrepwithBreaklines]({{diagramasfigure bsf-IfcProductDefinitionShape-BrepwithBreaklines.pu}} "BrepwithBreaklines"){{figst BrepwithBreaklines}}
 
 \clearpage
 ## Footprint
 
+This representation is used for the boundaries of a site.
+
 ![Footprint]({{diagramasfigure bsf-IfcProductDefinitionShape-Footprint.pu}} "Footprint"){{figst Footprint}}
 
 \clearpage
 ## SolidwithBreaklines
+
+This representation is used for kerbs. The representation contains the solid body of kerb, and lines which represents the two lines at roadside edge of kerb. The first line is at the top level of kerb, and another one is at the pavement level.
 
 ![SolidwithBreaklines]({{diagramasfigure bsf-IfcProductDefinitionShape-SolidwithBreaklines.pu}} "SolidwithBreaklines"){{figst SolidwithBreaklines}}
 
 \clearpage
 ## TIN
 
+This representation is used for the ground layer models.
+
 ![TIN]({{diagramasfigure bsf-IfcProductDefinitionShape-TIN.pu}} "TIN"){{figst TIN}}
 
 \clearpage
 ## TINwithBreaklines
+
+This representation is used for the earthworks fills, courses and geomodel.Lines typically represent the slope edges.
 
 ![TINwithBreaklines]({{diagramasfigure bsf-IfcProductDefinitionShape-TINwithBreaklines.pu}} "TINwithBreaklines"){{figst TINwithBreaklines}}
 
