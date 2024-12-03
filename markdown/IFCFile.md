@@ -227,7 +227,6 @@ Geomodel represents the existing ground (one or more strata). IfcGeomodel may ha
 |Height|IfcSingleValue|IfcQuantity&shy;Length|Height|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |Width|IfcSingleValue|IfcQuantity&shy;Length|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |UndisturbedVolume|IfcSingleValue|IfcQuantity&shy;Volume|Undisturbed volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
-|LooseVolume|IfcSingleValue|IfcQuantity&shy;Volume|Loose Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |Weight|IfcSingleValue|IfcQuantity&shy;Weight|Estimated weight|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 \clearpage
