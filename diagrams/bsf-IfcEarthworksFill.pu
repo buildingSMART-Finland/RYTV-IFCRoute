@@ -34,12 +34,6 @@ IfcEarthWorksFill::Representation --|| "IfcProductDefinitionShape-TINwithBreakli
 entity IfcLocalPlacement <<UndefinedEntity>>
 IfcEarthWorksFill::ObjectPlacement --|| IfcLocalPlacement
 
-protocol "IfcPropertySet-Fill" <<DefinedInThisDiagram>>
-{
-    Pset_TransitionSectionCommon
-}
-IfcEarthWorksFill --o{ "IfcPropertySet-Fill" : IfcRelDefinesByProperties
-
 protocol "IfcPropertySet-bSFFill" <<DefinedInThisDiagram>>
 {
     bSF_Pset_FillCommon
