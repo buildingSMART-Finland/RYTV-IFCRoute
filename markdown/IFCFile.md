@@ -20,7 +20,7 @@ Specific rules applying to *description field* in *file_description* (for this v
  - Mandatory keyword "ViewDefinition" fixed value "Ifc4X3NotAssigned"
  - Optional keyword "ExchangeRequirement" used with value (one or many) of "bSF-QTO | bSF-D2C | bSF-DH"
 
-
+\clearpage
 # Entity definitions
 
 ## Project - IfcProject
@@ -30,6 +30,7 @@ Unit assignment is mandatory and shall define units for all measure values (attr
 
 ![IfcProject]({{diagramasfigure bsf-IfcProject.pu}} "IfcProject"){{figst ifcproject}}
 
+\clearpage
 ## Alignment - IfcAlignment
 
 Every IfcAlignment entity in the file shall be aggregated directly to IfcProject, and reference exactly one IfcRoad (or IfcRailway and IfcMarineFacility.WATERWAY).
@@ -37,18 +38,21 @@ All alignments shall have horizontal and vertical layout, with optional cant def
 
 ![IfcAlignment]({{diagramasfigure bsf-IfcAlignment.pu}} "IfcAlignment"){{figst ifcalignment}}
 
+\clearpage
 ### Horizontal alignment - IfcAlignmentHorizontal
 
 Horizontal alignments with linear and circular arc segments, as well as clothoid and cubic transition segments are in scope at this stage.
 
 ![IfcAlignmentHorizontal]({{diagramasfigure bsf-IfcAlignmentHorizontal.pu}} "IfcAlignmentHorizontal"){{figst ifcalignmenthorizontal}}
 
+\clearpage
 ### Vertical alignment - IfcAlignmentVertical
 
 Vertical alignments with constant gradient as well circular and parabolic arc segments are in scope at this stage.
 
 ![IfcAlignmentVertical]({{diagramasfigure bsf-IfcAlignmentVertical.pu}} "IfcAlignmentVertical"){{figst ifcalignmentvertical}}
 
+\clearpage
 ### Cant - IfcAlignmentCant
 
 IfcAlignmentCant shall be used as defined in IFC specification (no additional rules at this stage).
@@ -57,6 +61,7 @@ IfcAlignmentCant shall be used as defined in IFC specification (no additional ru
 
 ![IfcSite]({{diagramasfigure bsf-IfcSite.pu}} "IfcSite"){{figst ifcsite}}
 
+\clearpage
 ## Road - IfcRoad
 
 ![IfcRoad]({{diagramasfigure bsf-IfcRoad.pu}} "IfcRoad"){{figst ifcroad}}
@@ -67,7 +72,7 @@ IfcAlignmentCant shall be used as defined in IFC specification (no additional ru
 
 |Status|IfcProperty&shy;Enumerated&shy;Value|PEnum_&shy;Element&shy;Status|Status (new, existing, demolish, temporary)|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
-
+\clearpage
 ## Structural model
 
 Structural model of a route comprises subgrade and pavement (and their parts).
@@ -77,7 +82,8 @@ Structural model of a route comprises subgrade and pavement (and their parts).
 Subgrade (i.e. the structure below pavement) is efined by IfcEarthworksFill entities.
 
 ![IfcEarthworksFill]({{diagramasfigure bsf-IfcEarthworksFill.pu}} "IfcEarthworksFill"){{figst bsf-ifcearthworksfill}}
-   
+
+\clearpage
 ### Pavement - IfcPavement
 
 IfcPavement acts as an collection of courses and kerbs.
@@ -100,7 +106,7 @@ IfcPavement acts as an collection of courses and kerbs.
 |NetArea|IfcSingleValue|IfcQuantity&shy;Area|Area|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |NetVolume|IfcSingleValue|IfcQuantity&shy;Volume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
-
+\clearpage
 ### Courses - IfcCourse
 
 Structural layers are defined by IfcCourse entities.
@@ -143,7 +149,7 @@ Structural layers are defined by IfcCourse entities.
 |ShockResistance|IfcSingleValue|IfcLabel|Shock resistance|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |MixRatio|IfcSingleValue|IfcPositive&shy;Ratio&shy;Measure|Rock/Binder ratio|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
-
+\clearpage
 ### Kerb - IfcKerb
 
 ![IfcKerb]({{diagramasfigure bsf-IfcKerb.pu}} "IfcKerb"){{figst ifckerb}}
@@ -187,13 +193,14 @@ Structural layers are defined by IfcCourse entities.
 |Width|IfcSingleValue|IfcQuantity&shy;Length|Width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |Volume|IfcSingleValue|IfcQuantity&shy;Volume|Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
-
+\clearpage
 ## Geomodel - IfcGeomodel
 
 Geomodel represents the existing ground (one or more strata). IfcGeomodel may have geometric representation as the top surface of the ground (terrain). Material and other properties are assigned to each individual stratum.
 
 ![IfcGeomodel]({{diagramasfigure bsf-IfcGeomodel.pu}} "IfcGeomodel"){{figst ifcgeomodel}}
 
+\clearpage
 ### Existing ground layers
 
 ![Existing ground]({{diagramasfigure bsf-IfcGeotechnicalStratum.pu}} "Existing ground layers"){{figst ifcgeotechnicalstratum}}
@@ -209,7 +216,7 @@ Geomodel represents the existing ground (one or more strata). IfcGeomodel may ha
 |elasticModulusWet|IfcSingleValue|IfcLabel|Soil modulus of elasticity in wet conditions|bSF_QTO[ ] bSF_D2C[ ] bSF_DH[x]|
 |elasticModulusDry|IfcSingleValue|IfcLabel|Soil modulus of elasticity in dry conditions|bSF_QTO[ ] bSF_D2C[ ] bSF_DH[x]|
 
-
+\clearpage
 ### Soil and rock cut
 
 ![Soil and rock cut]({{diagramasfigure bsf-IfcEarthWorksCut.pu}} "Soil and rock cut"){{figst bsf-ifcearthworkscut}}
@@ -224,37 +231,44 @@ Geomodel represents the existing ground (one or more strata). IfcGeomodel may ha
 |LooseVolume|IfcSingleValue|IfcQuantity&shy;Volume|Loose Volume|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |Weight|IfcSingleValue|IfcQuantity&shy;Weight|Estimated weight|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
-
+\clearpage
 # Geometric representation
 
 There shall be exactly one 3D geometric representation context (hich may have subcontexts for different types of shape representation in 3D space). 
 
 ![IfcGeometricRepresentationContext-3D]({{diagramasfigure bsf-IfcGeometricRepresentationContext-3D.pu}} "IfcGeometricRepresentationContext-3D"){{figst IfcGeometricRepresentationContext-3D}}
 
+\clearpage
 ## Alignment
 
 ![AlignmentCurve]({{diagramasfigure bsf-IfcProductDefinitionShape-Alignment.pu}} "AlignmentCurve"){{figst AlignmentCurve}}
 
+\clearpage
 ## Annotation
 
 ![Annotation]({{diagramasfigure bsf-IfcProductDefinitionShape-Annotation.pu}} "Annotation"){{figst Annotation}}
 
+\clearpage
 ## BrepwithBreaklines
 
 ![BrepwithBreaklines]({{diagramasfigure bsf-IfcProductDefinitionShape-BrepwithBreaklines.pu}} "BrepwithBreaklines"){{figst BrepwithBreaklines}}
 
+\clearpage
 ## Footprint
 
 ![Footprint]({{diagramasfigure bsf-IfcProductDefinitionShape-Footprint.pu}} "Footprint"){{figst Footprint}}
 
+\clearpage
 ## SolidwithBreaklines
 
 ![SolidwithBreaklines]({{diagramasfigure bsf-IfcProductDefinitionShape-SolidwithBreaklines.pu}} "SolidwithBreaklines"){{figst SolidwithBreaklines}}
 
+\clearpage
 ## TIN
 
 ![TIN]({{diagramasfigure bsf-IfcProductDefinitionShape-TIN.pu}} "TIN"){{figst TIN}}
 
+\clearpage
 ## TINwithBreaklines
 
 ![TINwithBreaklines]({{diagramasfigure bsf-IfcProductDefinitionShape-TINwithBreaklines.pu}} "TINwithBreaklines"){{figst TINwithBreaklines}}
