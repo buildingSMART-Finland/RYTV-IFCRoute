@@ -67,9 +67,9 @@ IfcAlignmentCant shall be used as defined in IFC specification (no additional ru
 ![IfcRoad]({{diagramasfigure bsf-IfcRoad.pu}} "IfcRoad"){{figst ifcroad}}
 
 #### Table:bSF_Pset_Road {#tbl:bSF_Pset_Road}
+
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
-
 |Status|IfcProperty&shy;Enumerated&shy;Value|PEnum_&shy;Element&shy;Status|Status (new, existing, demolish, temporary)|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
 \clearpage
@@ -93,7 +93,6 @@ IfcPavement acts as an collection of courses and kerbs.
 #### Table:Pset_PavementCommon {#tbl:Pset_PavementCommon}
 | Name | Property type | Data type | Description| Usage |
 |:---|:---|:---|:---|:---|
-
 |NominalThickness|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal thickness|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 |NominalWidth|IfcSingleValue|IfcNonNegative&shy;Length&shy;Measure|Nominal width|bSF_QTO[ ] bSF_D2C[x] bSF_DH[x]|
 
