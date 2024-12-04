@@ -259,12 +259,16 @@ Alignment geometry is represented as composite 3D curve.
 
 ![AlignmentCurve]({{diagramasfigure bsf-IfcProductDefinitionShape-Alignment.pu}} "AlignmentCurve"){{figst AlignmentCurve}}
 
+![Alignment]({{alignment.png}} "Alignment"){{figst AlignmentFig}}
+
 \clearpage
 ## Annotation
 
 Annotation representations may be used to visualize station numbering, superelevation and cant values of alignment.  
 
 ![Annotation]({{diagramasfigure bsf-IfcProductDefinitionShape-Annotation.pu}} "Annotation"){{figst Annotation}}
+
+![Annotation]({{annotation.png}} "Annotation"){{figst AnnotationFig}}
 
 \clearpage
 ## BrepWithBreaklines
@@ -273,12 +277,16 @@ This repsentation is used for soil or rock cuts.
 
 ![BrepwithBreaklines]({{diagramasfigure bsf-IfcProductDefinitionShape-BrepwithBreaklines.pu}} "BrepwithBreaklines"){{figst BrepwithBreaklines}}
 
+![BrepwithBreaklines]({{brepwithbreaklines.png}} "BrepwithBreaklines"){{figst BrepwithBreaklinesFig}}
+
 \clearpage
 ## Footprint
 
 This representation is used for the boundaries of a site.
 
 ![Footprint]({{diagramasfigure bsf-IfcProductDefinitionShape-Footprint.pu}} "Footprint"){{figst Footprint}}
+
+![Footprint]({{footprint.png}} "Footprint"){{figst FootprintFig}}
 
 \clearpage
 ## SolidwithBreaklines
@@ -287,6 +295,8 @@ This representation is used for kerbs. The representation contains the solid bod
 
 ![SolidwithBreaklines]({{diagramasfigure bsf-IfcProductDefinitionShape-SolidwithBreaklines.pu}} "SolidwithBreaklines"){{figst SolidwithBreaklines}}
 
+![SolidwithBreaklines]({{solidwithbreaklines.png}} "SolidwithBreaklines"){{figst SolidwithBreaklinesFig}}
+
 \clearpage
 ## TIN
 
@@ -294,12 +304,16 @@ This representation is used for the ground layer models.
 
 ![TIN]({{diagramasfigure bsf-IfcProductDefinitionShape-TIN.pu}} "TIN"){{figst TIN}}
 
+![TIN]({{tin.png}} "TIN"){{figst TINFig}}
+
 \clearpage
 ## TINwithBreaklines
 
 This representation is used for the earthworks fills, courses and geomodel.Lines typically represent the slope edges.
 
 ![TINwithBreaklines]({{diagramasfigure bsf-IfcProductDefinitionShape-TINwithBreaklines.pu}} "TINwithBreaklines"){{figst TINwithBreaklines}}
+
+![TINwithBreaklines]({{tinwithbreaklines.png}} "TINwithBreaklines"){{figst TINwithBreaklinesFig}}
 
 {{end_landscape}}
 
