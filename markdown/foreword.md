@@ -16,12 +16,8 @@ Following data exchange use cases are covered by this specification:
 - Design to construction (bSF_D2C)
 - Digital handover (bSF_DH)
 
-LandXML based Inframodel format is widely used in Finland for the data excange use cases mentioned above.
-However, it is based on aging LandXML which is setting some limititations for the design file content. 
-For this reason, many different types of documents (ie. drawings, spreadsheets, pdf) are typically used together with Inframodel.
-On the other hand, IFC 4.3 provides too diverse set of features to be properly machine processed, unless further rules are applied.
-This document defines an minimal subset of IFC4.3 functionality which cover the defined data exchange use cases. 
-Transition to IFC-based data exchange would allow machine readable feature rich communication.
+Inframodel format is widely used in Finland for the data excange use cases mentioned above. However, it is based on aging LandXML which is setting some limititations for the design file content. For this reason, many different types of documents (ie. drawings, spreadsheets, pdf) are typically used together with Inframodel. On the other hand, IFC 4.3 provides too diverse set of features to be properly machine processed, unless further rules are applied.
+This document defines an minimal subset of IFC4.3 functionality which cover the defined data exchange use cases. Transition to IFC-based data exchange would allow machine readable feature rich communication.
 
 ## Data exchange use cases
 
@@ -56,9 +52,9 @@ These rules may:
 - Prohibit the use of OPTIONAL attribute (marked as $)
 - Limit cardinality (usually allowing only one item in a list or a set)
 - Applying value restrictions on attributes:
-    - Fixed value or list of allowable values (enumerated or range) 
-    - Enumeration datatype having some of the enumeration items excluded
-    - Entity datatypes excluded from allowable subtypes or select items
+  - Fixed value or list of allowable values (enumerated or range)
+  - Enumeration datatype having some of the enumeration items excluded
+  - Entity datatypes excluded from allowable subtypes or select items
 
 
 Attributes with no use case specific rules are omitted (and are to be used per standard IFC specification).
@@ -170,6 +166,3 @@ end note
 
 In all three use cases, entities representing physical things and alignments are required to be classified using IfcClassicationRefence (use of InfraBIM classification system is strongly encouraged, others may be used in addition). Additionally, individual breaklines can be coded as part of geometry using IfcShapeAspect.
 Each IfcClassicationRefence shall be linked to an IfcClassification identifying the source classification/coding system.
-
-**TODO:Add some text, describe infrabim/rak two level hierarchy(surface/category+feature code)!**
-
