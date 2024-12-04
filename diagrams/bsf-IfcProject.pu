@@ -16,17 +16,11 @@ IfcProject --o{ IfcAlignment : IfcRelAggregates
 entity IfcSite <<DefinedInAnotherDiagram>>
 IfcProject --|{ IfcSite : IfcRelAggregates
 
-protocol "IfcPropertySet-Project" <<UndefinedEntity>>
-{
-  Pset_ProjectCommon
-}
-
 
 entity IfcClassification <<UndefinedEntity>>
 
 IfcProject::RepresentationContexts --|| "IfcGeometricRepresentationContext-3D"
 IfcProject::UnitsInContext --|| IfcUnitAssignment
 IfcProject --|{IfcClassification : IfcRelAssociatesClassification
-IfcProject --o| "IfcPropertySet-Project" : IfcRelDefinesByProperties
 
 @enduml
